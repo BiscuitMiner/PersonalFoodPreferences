@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_PreferenceDeprivation.label>偏好剝奪</PFP_PreferenceDeprivation.label>
+  <PFP_PreferenceDeprivation.labelNoun>偏好剝奪</PFP_PreferenceDeprivation.labelNoun>
+  <PFP_PreferenceDeprivation.description>該角色已經太久沒有吃到自己想吃的食物類型。只有吃到偏好食物才能緩解。</PFP_PreferenceDeprivation.description>
+  <PFP_PreferenceDeprivation.stages.0.label>偏好剝奪</PFP_PreferenceDeprivation.stages.0.label>
+</LanguageData>

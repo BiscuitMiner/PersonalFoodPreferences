@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThinkTreeDef[defName="MentalStateNonCritical"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalMentalStates"][states/li="Wander_Sad"]/states</xpath>
+    <value>
+      <li>PFP_PreferenceDeprivationSadWander</li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThinkTreeDef[defName="MentalStateNonCritical"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalMentalStates"][states/li="Wander_OwnRoom"]/states</xpath>
+    <value>
+      <li>PFP_PreferenceDeprivationHideInRoom</li>
+    </value>
+  </Operation>
+</Patch>

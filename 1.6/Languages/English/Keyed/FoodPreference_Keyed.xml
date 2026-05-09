@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FoodPreference_InspectString>Food preference: {0}</FoodPreference_InspectString>
+  <FoodPreference_CharacterTag>Food pref: {0}</FoodPreference_CharacterTag>
+  <FoodPreference_CharacterTagTip>{0} likes eating this kind of food: {1}</FoodPreference_CharacterTagTip>
+  <FoodPreference_CharacterTagTip_Meat>{0} prefers meals made entirely from meat.</FoodPreference_CharacterTagTip_Meat>
+  <FoodPreference_CharacterTagTip_VeganMeal>{0} prefers meals made without meat or animal products.</FoodPreference_CharacterTagTip_VeganMeal>
+  <FoodPreference_CharacterTagTip_Baked>{0} prefers baked foods such as bread, cakes, and pastries.</FoodPreference_CharacterTagTip_Baked>
+  <FoodPreference_CharacterTagTip_Sweets>{0} prefers sweets, desserts, candy, and snacks.</FoodPreference_CharacterTagTip_Sweets>
+  <FoodPreference_CharacterTagTip_Soup>{0} prefers soups and stews.</FoodPreference_CharacterTagTip_Soup>
+  <FoodPreference_CharacterTagTip_Canned>{0} prefers processed foods such as canned meals and survival meals.</FoodPreference_CharacterTagTip_Canned>
+  <FoodPreference_CharacterTagTip_Fruit>{0} prefers fruit and berries.</FoodPreference_CharacterTagTip_Fruit>
+  <FoodPreference_CharacterTagTip_Seafood>{0} prefers seafood and dishes made with seafood.</FoodPreference_CharacterTagTip_Seafood>
+  <FoodPreference_CharacterTagTip_Dairy>{0} prefers eggs, milk, and dairy products.</FoodPreference_CharacterTagTip_Dairy>
+  <FoodPreference_CharacterTagTip_SoyProduct>{0} prefers soybeans, tofu, and other soy products.</FoodPreference_CharacterTagTip_SoyProduct>
+  <FoodPreference_CharacterTagTip_Barbecue>{0} prefers barbecue dishes.</FoodPreference_CharacterTagTip_Barbecue>
+  <FoodPreference_CharacterTagTip_Fried>{0} prefers fried foods.</FoodPreference_CharacterTagTip_Fried>
+  <FoodPreference_CharacterTagTip_DarkCuisine>{0} prefers dark cuisine such as nutrient paste, insect meat, insect jelly, and twisted meat.</FoodPreference_CharacterTagTip_DarkCuisine>
+  <FoodPreference_NoData>N/A</FoodPreference_NoData>
+  <FoodPreference_DevSetSuccess>{0} food preference set to: {1}</FoodPreference_DevSetSuccess>
+  <FoodPreference_SelectorLabel>Food preference</FoodPreference_SelectorLabel>
+  <FoodPreference_SelectorPanelTitle>Personal food preference</FoodPreference_SelectorPanelTitle>
+  <FoodPreference_CategoryPanelTitle>Food preference categories</FoodPreference_CategoryPanelTitle>
+  <FoodPreference_CurrentPreference>Current preference: {0}</FoodPreference_CurrentPreference>
+  <FoodPreference_FoodColumn>Food</FoodPreference_FoodColumn>
+  <FoodPreference_DefNameColumn>defName</FoodPreference_DefNameColumn>
+  <FoodPreference_ModColumn>Source mod</FoodPreference_ModColumn>
+  <FoodPreference_ShowSourceMods>Show source mod</FoodPreference_ShowSourceMods>
+  <FoodPreference_UnclassifiedButton>Unclassified foods</FoodPreference_UnclassifiedButton>
+  <FoodPreference_UnclassifiedTitle>Unclassified foods</FoodPreference_UnclassifiedTitle>
+  <FoodPreference_UnclassifiedCount>{0} HumanEdible foods currently resolve only to GenericFood.</FoodPreference_UnclassifiedCount>
+  <FoodPreference_UnclassifiedNone>No unclassified foods found.</FoodPreference_UnclassifiedNone>
+  <FoodPreference_UnclassifiedModColumn>Source mod</FoodPreference_UnclassifiedModColumn>
+  <FoodPreference_UnclassifiedSourceColumn>Source</FoodPreference_UnclassifiedSourceColumn>
+  <FoodPreference_CategoryNoFoods>No loaded foods currently match this category.</FoodPreference_CategoryNoFoods>
+  <FoodPreference_CategoryTextOnly>This preference is determined by the actual ingredients of a meal, so fixed food rows are not shown.</FoodPreference_CategoryTextOnly>
+  <FoodPreference_ThisPawn>This pawn</FoodPreference_ThisPawn>
+  <FoodPreference_SettingsPreferredHeader>Preferred food mood</FoodPreference_SettingsPreferredHeader>
+  <FoodPreference_SettingsPreferredMoodOffset>Preferred food mood offset</FoodPreference_SettingsPreferredMoodOffset>
+  <FoodPreference_SettingsNonPreferredMoodOffset>Preference deprivation mood penalty</FoodPreference_SettingsNonPreferredMoodOffset>
+  <FoodPreference_SettingsDietaryVarietyHeader>Dietary variety</FoodPreference_SettingsDietaryVarietyHeader>
+  <FoodPreference_SettingsDietaryVarietyEnabled>Enable dietary variety</FoodPreference_SettingsDietaryVarietyEnabled>
+  <FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>Days before preference deprivation</FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>
+  <FoodPreference_SettingsPickyEatingHeader>Monotonous diet picky eating</FoodPreference_SettingsPickyEatingHeader>
+  <FoodPreference_SettingsMildPickyEatingThreshold>Meals before mild picky eating</FoodPreference_SettingsMildPickyEatingThreshold>
+  <FoodPreference_SettingsSeverePickyEatingThreshold>Meals before severe picky eating</FoodPreference_SettingsSeverePickyEatingThreshold>
+  <FoodPreference_SettingsPermanentPickyEatingThreshold>Meals before permanent picky eating</FoodPreference_SettingsPermanentPickyEatingThreshold>
+  <FoodPreference_SettingsPickyEatingRecoveryThreshold>Non-preferred meals to recover from mild picky eating</FoodPreference_SettingsPickyEatingRecoveryThreshold>
+  <FoodPreference_SettingsSeverePickyEatingRecoveryThreshold>Non-preferred meals to reduce severe picky eating</FoodPreference_SettingsSeverePickyEatingRecoveryThreshold>
+  <FoodPreference_SettingsMildPickyEatingMoodPenalty>Non-preferred food mood while mildly picky</FoodPreference_SettingsMildPickyEatingMoodPenalty>
+  <FoodPreference_SettingsSeverePickyEatingMoodPenalty>Non-preferred food mood while severely picky</FoodPreference_SettingsSeverePickyEatingMoodPenalty>
+  <FoodPreference_SettingsPermanentPickyEatingMoodPenalty>Non-preferred food mood while permanently picky</FoodPreference_SettingsPermanentPickyEatingMoodPenalty>
+  <FoodPreference_SettingsReset>Reset settings</FoodPreference_SettingsReset>
+  <FoodPreference_PreferenceDeprivationNoPreferredYet>No preferred food eaten since onset.</FoodPreference_PreferenceDeprivationNoPreferredYet>
+  <FoodPreference_PreferenceDeprivationLastPreferredFood>Last preferred food: {0} ago.</FoodPreference_PreferenceDeprivationLastPreferredFood>
+  <PFP_PreferenceDeprivationMentalStateReason>Too long without preferred food</PFP_PreferenceDeprivationMentalStateReason>
+
+  <Meat>Meat</Meat>
+  <VeganMeal>Vegan meal</VeganMeal>
+  <Baked>Baked goods</Baked>
+  <Sweets>Sweets</Sweets>
+  <Soup>Soup</Soup>
+  <Canned>Processed food</Canned>
+  <Fruit>Fruit</Fruit>
+  <Seafood>Seafood</Seafood>
+  <Dairy>Dairy</Dairy>
+  <SoyProduct>Soy products</SoyProduct>
+  <Barbecue>Barbecue</Barbecue>
+  <Fried>Fried food</Fried>
+  <DarkCuisine>Dark cuisine</DarkCuisine>
+  <Unknown>Unknown</Unknown>
+</LanguageData>

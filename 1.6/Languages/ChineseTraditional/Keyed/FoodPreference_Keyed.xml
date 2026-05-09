@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!-- UI 面板字串 -->
+  <FoodPreference_InspectString>料理偏好: {0}</FoodPreference_InspectString>
+  <FoodPreference_CharacterTag>料理偏好: {0}</FoodPreference_CharacterTag>
+  <FoodPreference_CharacterTagTip>{0} 喜歡吃這種食物：{1}</FoodPreference_CharacterTagTip>
+  <FoodPreference_CharacterTagTip_Meat>{0} 喜歡整道菜都由肉類製成的料理。</FoodPreference_CharacterTagTip_Meat>
+  <FoodPreference_CharacterTagTip_VeganMeal>{0} 喜歡不含肉類和畜產品的全素料理。</FoodPreference_CharacterTagTip_VeganMeal>
+  <FoodPreference_CharacterTagTip_Baked>{0} 喜歡麵包、蛋糕、點心等烘焙類食物。</FoodPreference_CharacterTagTip_Baked>
+  <FoodPreference_CharacterTagTip_Sweets>{0} 喜歡甜品、糖果、零食等食物。</FoodPreference_CharacterTagTip_Sweets>
+  <FoodPreference_CharacterTagTip_Soup>{0} 喜歡湯與燉菜。</FoodPreference_CharacterTagTip_Soup>
+  <FoodPreference_CharacterTagTip_Canned>{0} 喜歡罐頭、乾肉餅和生存食品包等加工食品。</FoodPreference_CharacterTagTip_Canned>
+  <FoodPreference_CharacterTagTip_Fruit>{0} 喜歡水果與莓果。</FoodPreference_CharacterTagTip_Fruit>
+  <FoodPreference_CharacterTagTip_Seafood>{0} 喜歡海鮮，以及使用海鮮食材製作的料理。</FoodPreference_CharacterTagTip_Seafood>
+  <FoodPreference_CharacterTagTip_Dairy>{0} 喜歡蛋、奶與乳製品。</FoodPreference_CharacterTagTip_Dairy>
+  <FoodPreference_CharacterTagTip_SoyProduct>{0} 喜歡大豆、黃豆、豆腐與其他豆製品。</FoodPreference_CharacterTagTip_SoyProduct>
+  <FoodPreference_CharacterTagTip_Barbecue>{0} 喜歡燒烤類料理。</FoodPreference_CharacterTagTip_Barbecue>
+  <FoodPreference_CharacterTagTip_Fried>{0} 喜歡油炸類料理。</FoodPreference_CharacterTagTip_Fried>
+  <FoodPreference_CharacterTagTip_DarkCuisine>{0} 喜歡營養膏、蟲肉、蟲肉果凍與扭曲肉等黑暗料理。</FoodPreference_CharacterTagTip_DarkCuisine>
+  <FoodPreference_NoData>未設定</FoodPreference_NoData>
+  <FoodPreference_DevSetSuccess>{0} 的料理偏好已切換為：{1}</FoodPreference_DevSetSuccess>
+  <FoodPreference_SelectorLabel>偏好的食物種類</FoodPreference_SelectorLabel>
+  <FoodPreference_SelectorPanelTitle>料理偏好</FoodPreference_SelectorPanelTitle>
+  <FoodPreference_CategoryPanelTitle>料理偏好分類</FoodPreference_CategoryPanelTitle>
+  <FoodPreference_CurrentPreference>目前偏好：{0}</FoodPreference_CurrentPreference>
+  <FoodPreference_FoodColumn>食物</FoodPreference_FoodColumn>
+  <FoodPreference_DefNameColumn>defName</FoodPreference_DefNameColumn>
+  <FoodPreference_ModColumn>來源模組</FoodPreference_ModColumn>
+  <FoodPreference_ShowSourceMods>顯示來源模組</FoodPreference_ShowSourceMods>
+  <FoodPreference_UnclassifiedButton>未分類食品</FoodPreference_UnclassifiedButton>
+  <FoodPreference_UnclassifiedTitle>未分類食品</FoodPreference_UnclassifiedTitle>
+  <FoodPreference_UnclassifiedCount>目前有 {0} 個 HumanEdible 食品只落在 GenericFood。</FoodPreference_UnclassifiedCount>
+  <FoodPreference_UnclassifiedNone>目前沒有未分類食品。</FoodPreference_UnclassifiedNone>
+  <FoodPreference_UnclassifiedModColumn>來源模組</FoodPreference_UnclassifiedModColumn>
+  <FoodPreference_UnclassifiedSourceColumn>判斷來源</FoodPreference_UnclassifiedSourceColumn>
+  <FoodPreference_CategoryNoFoods>目前載入的食物中沒有符合此分類的項目。</FoodPreference_CategoryNoFoods>
+  <FoodPreference_CategoryTextOnly>此偏好由料理的實際食材決定，因此不顯示固定食物列表。</FoodPreference_CategoryTextOnly>
+  <FoodPreference_ThisPawn>該角色</FoodPreference_ThisPawn>
+  <FoodPreference_SettingsPreferredHeader>偏好食物心情</FoodPreference_SettingsPreferredHeader>
+  <FoodPreference_SettingsPreferredMoodOffset>偏好食物心情值</FoodPreference_SettingsPreferredMoodOffset>
+  <FoodPreference_SettingsNonPreferredMoodOffset>期間沒有吃到偏好食物所扣心情值</FoodPreference_SettingsNonPreferredMoodOffset>
+  <FoodPreference_SettingsDietaryVarietyHeader>飲食多樣性</FoodPreference_SettingsDietaryVarietyHeader>
+  <FoodPreference_SettingsDietaryVarietyEnabled>啟用飲食多樣性</FoodPreference_SettingsDietaryVarietyEnabled>
+  <FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>數天沒吃偏好食物後扣心情</FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>
+  <FoodPreference_SettingsPickyEatingHeader>飲食單調型挑食</FoodPreference_SettingsPickyEatingHeader>
+  <FoodPreference_SettingsMildPickyEatingThreshold>觸發輕度挑食所需餐數</FoodPreference_SettingsMildPickyEatingThreshold>
+  <FoodPreference_SettingsSeverePickyEatingThreshold>觸發重度挑食所需餐數</FoodPreference_SettingsSeverePickyEatingThreshold>
+  <FoodPreference_SettingsPermanentPickyEatingThreshold>觸發永久挑食所需餐數</FoodPreference_SettingsPermanentPickyEatingThreshold>
+  <FoodPreference_SettingsPickyEatingRecoveryThreshold>輕度恢復正常所需非偏好餐數</FoodPreference_SettingsPickyEatingRecoveryThreshold>
+  <FoodPreference_SettingsSeverePickyEatingRecoveryThreshold>重度降級為輕度所需非偏好餐數</FoodPreference_SettingsSeverePickyEatingRecoveryThreshold>
+  <FoodPreference_SettingsMildPickyEatingMoodPenalty>輕度挑食時吃非偏好食物心情</FoodPreference_SettingsMildPickyEatingMoodPenalty>
+  <FoodPreference_SettingsSeverePickyEatingMoodPenalty>重度挑食時吃非偏好食物心情</FoodPreference_SettingsSeverePickyEatingMoodPenalty>
+  <FoodPreference_SettingsPermanentPickyEatingMoodPenalty>永久挑食時吃非偏好食物心情</FoodPreference_SettingsPermanentPickyEatingMoodPenalty>
+  <FoodPreference_SettingsReset>重置參數</FoodPreference_SettingsReset>
+  <FoodPreference_PreferenceDeprivationNoPreferredYet>發作後尚未吃到偏好食物。</FoodPreference_PreferenceDeprivationNoPreferredYet>
+  <FoodPreference_PreferenceDeprivationLastPreferredFood>上次吃到偏好食物：{0}前。</FoodPreference_PreferenceDeprivationLastPreferredFood>
+  <PFP_PreferenceDeprivationMentalStateReason>太久沒有吃到偏好的食物</PFP_PreferenceDeprivationMentalStateReason>
+  
+  <!-- 偏好種類翻譯 (對應 C# 中回傳的字串) -->
+  <Meat>純肉料理</Meat>
+  <VeganMeal>全素料理</VeganMeal>
+  <Baked>烘焙類</Baked>
+  <Sweets>甜品與零食</Sweets>
+  <Soup>湯與燉菜</Soup>
+  <Canned>加工食品</Canned>
+  <Fruit>水果</Fruit>
+  <Seafood>海鮮料理</Seafood>
+  <Dairy>乳製品</Dairy>
+  <SoyProduct>豆製品</SoyProduct>
+  <Barbecue>燒烤料理</Barbecue>
+  <Fried>炸物</Fried>
+  <DarkCuisine>黑暗料理</DarkCuisine>
+  <Unknown>未知</Unknown>
+</LanguageData>

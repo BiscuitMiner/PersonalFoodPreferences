@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_MildPickyEating.label>picky eating (mild)</PFP_MildPickyEating.label>
+  <PFP_MildPickyEating.labelNoun>picky eating (mild)</PFP_MildPickyEating.labelNoun>
+  <PFP_MildPickyEating.description>This pawn has eaten the same food category for too long, causing a mild nutritional imbalance. Moving, work speed, and immunity are affected.</PFP_MildPickyEating.description>
+
+  <PFP_SeverePickyEating.label>picky eating (severe)</PFP_SeverePickyEating.label>
+  <PFP_SeverePickyEating.labelNoun>picky eating (severe)</PFP_SeverePickyEating.labelNoun>
+  <PFP_SeverePickyEating.description>This pawn has eaten the same food category for too long, and the picky eating has worsened. Moving, work speed, and immunity are significantly reduced.</PFP_SeverePickyEating.description>
+
+  <PFP_PermanentPickyEating.label>picky eating (permanent)</PFP_PermanentPickyEating.label>
+  <PFP_PermanentPickyEating.labelNoun>picky eating (permanent)</PFP_PermanentPickyEating.labelNoun>
+  <PFP_PermanentPickyEating.description>This pawn's long-term extremely monotonous diet has caused permanent damage to their physical condition. Moving, work speed, and immunity are greatly reduced.</PFP_PermanentPickyEating.description>
+</LanguageData>

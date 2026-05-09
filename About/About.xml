@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Personal Food Preferences</name>
+  <author>BiscuitMiner</author>
+  <packageId>BiscuitMiner.personalfoodpreferences</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Jaxe.RimHUD</li>
+    <li>EdB.PrepareCarefully</li>
+  </loadAfter>
+  <description><![CDATA[讓每位殖民者都擁有自己的料理偏好。殖民者吃到喜歡的食物時會獲得心情加成；長時間吃不到偏好食物時，則可能產生負面心情與偏好剝奪狀態。
+
+模組支援多種食物分類、食材判斷、角色卡顯示與可調整設定。
+
+需求：
+- Harmony
+
+可選相容 (非必需)：
+- RimHUD
+- EdB Prepare Carefully
+
+---------------------------
+
+Gives every colonist their own food preference. Colonists gain a mood bonus when they eat food they like; if they go too long without their preferred food, they may suffer negative mood effects and preference deprivation. 
+
+The mod supports multiple food categories, ingredient-based detection, character card display, and adjustable settings.
+
+Requirements:
+- Harmony
+
+Optional Compatibility (not required):
+- RimHUD
+- EdB Prepare Carefully]]></description>
+</ModMetaData>

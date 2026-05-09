@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>PFP_PreferenceDeprivationHideInRoom</defName>
+    <stateClass>MentalState_WanderOwnRoom</stateClass>
+    <workerClass>MentalStateWorker_WanderOwnRoom</workerClass>
+    <label>preference deprivation: hiding in room</label>
+    <category>Misc</category>
+    <colonistsOnly>true</colonistsOnly>
+    <minTicksBeforeRecovery>60000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>120000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoverFromSleep>true</recoverFromSleep>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <recoveryMessage>{0} is no longer hiding away over preference deprivation.</recoveryMessage>
+    <beginLetterLabel>preference deprivation</beginLetterLabel>
+    <beginLetter>{0} has gone too long without eating preferred food and is shutting [PAWN_objective]self away.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Hiding away over preference deprivation</baseInspectLine>
+    <allowBeatfire>true</allowBeatfire>
+    <escapingPrisonersIgnore>true</escapingPrisonersIgnore>
+  </MentalStateDef>
+
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>PFP_PreferenceDeprivationSadWander</defName>
+    <stateClass>MentalState_WanderSad</stateClass>
+    <label>preference deprivation: wandering</label>
+    <category>Misc</category>
+    <colonistsOnly>true</colonistsOnly>
+    <minTicksBeforeRecovery>60000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>120000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoverFromSleep>true</recoverFromSleep>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <blockNormalThoughts>true</blockNormalThoughts>
+    <nameColor>(0.65, 0.9, 0.93)</nameColor>
+    <recoveryMessage>{0} is no longer wandering over preference deprivation.</recoveryMessage>
+    <beginLetterLabel>preference deprivation</beginLetterLabel>
+    <beginLetter>{0} has gone too long without eating preferred food and is wandering outside in frustration.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <baseInspectLine>Mental state: Wandering over preference deprivation</baseInspectLine>
+    <allowBeatfire>true</allowBeatfire>
+    <escapingPrisonersIgnore>true</escapingPrisonersIgnore>
+  </MentalStateDef>
+</Defs>

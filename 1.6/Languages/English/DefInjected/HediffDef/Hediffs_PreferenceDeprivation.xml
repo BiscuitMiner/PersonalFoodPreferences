@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_PreferenceDeprivation.label>preference deprivation</PFP_PreferenceDeprivation.label>
+  <PFP_PreferenceDeprivation.labelNoun>preference deprivation</PFP_PreferenceDeprivation.labelNoun>
+  <PFP_PreferenceDeprivation.description>This pawn has gone too long without eating their preferred type of food.</PFP_PreferenceDeprivation.description>
+  <PFP_PreferenceDeprivation.stages.0.label>preference deprivation</PFP_PreferenceDeprivation.stages.0.label>
+</LanguageData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_PreferenceDeprivationHideInRoom.label>偏好剥夺：闭门不出</PFP_PreferenceDeprivationHideInRoom.label>
+  <PFP_PreferenceDeprivationHideInRoom.recoveryMessage>{0} 不再因偏好剥夺而闭门不出。</PFP_PreferenceDeprivationHideInRoom.recoveryMessage>
+  <PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>偏好剥夺</PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>
+  <PFP_PreferenceDeprivationHideInRoom.beginLetter>{0} 已经太久没有吃到偏好的食物，因此把自己关了起来。</PFP_PreferenceDeprivationHideInRoom.beginLetter>
+  <PFP_PreferenceDeprivationHideInRoom.baseInspectLine>精神状态：因偏好剥夺而闭门不出</PFP_PreferenceDeprivationHideInRoom.baseInspectLine>
+
+  <PFP_PreferenceDeprivationSadWander.label>偏好剥夺：在外闲晃</PFP_PreferenceDeprivationSadWander.label>
+  <PFP_PreferenceDeprivationSadWander.recoveryMessage>{0} 不再因偏好剥夺而在外闲晃。</PFP_PreferenceDeprivationSadWander.recoveryMessage>
+  <PFP_PreferenceDeprivationSadWander.beginLetterLabel>偏好剥夺</PFP_PreferenceDeprivationSadWander.beginLetterLabel>
+  <PFP_PreferenceDeprivationSadWander.beginLetter>{0} 已经太久没有吃到偏好的食物，因此挫折地在外闲晃。</PFP_PreferenceDeprivationSadWander.beginLetter>
+  <PFP_PreferenceDeprivationSadWander.baseInspectLine>精神状态：因偏好剥夺而在外闲晃</PFP_PreferenceDeprivationSadWander.baseInspectLine>
+</LanguageData>

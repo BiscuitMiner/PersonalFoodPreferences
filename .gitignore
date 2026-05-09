@@ -1,0 +1,28 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# RimWorld game DLLs
+Assemblies/Assembly-CSharp.dll
+Assemblies/UnityEngine*.dll
+Assemblies/Verse.dll
+Assemblies/RimWorld*.dll
+
+# Harmony
+Assemblies/0Harmony.dll
+
+# Debug symbols
+**/*.pdb
+
+# Rider / VS / VSCode
+.vs/
+.idea/
+.vscode/
+
+# Dotnet
+.dotnet_home/
+
+# AI / tooling
+.codex/
+.agents/
+AGENTS.md

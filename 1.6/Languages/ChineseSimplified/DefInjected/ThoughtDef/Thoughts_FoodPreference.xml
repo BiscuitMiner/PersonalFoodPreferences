@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AtePreferredFood.label>吃到偏好食物</AtePreferredFood.label>
+  <AtePreferredFood.stages.0.label>吃到偏好食物</AtePreferredFood.stages.0.label>
+  <AtePreferredFood.stages.0.description>吃到了自己爱吃的食物。</AtePreferredFood.stages.0.description>
+  <PFP_PreferenceSatisfied.label>终于吃到想吃的了</PFP_PreferenceSatisfied.label>
+  <PFP_PreferenceSatisfied.stages.0.label>终于吃到想吃的了！</PFP_PreferenceSatisfied.stages.0.label>
+  <PFP_PreferenceSatisfied.stages.0.description>就是这个！我等这一口等太久了。</PFP_PreferenceSatisfied.stages.0.description>
+  <AteNonPreferredFood.label>吃到不喜欢吃的食物</AteNonPreferredFood.label>
+  <AteNonPreferredFood.stages.0.label>吃到非偏好食物</AteNonPreferredFood.stages.0.label>
+  <AteNonPreferredFood.stages.0.description>吃到了自己不喜欢吃的食物类型。</AteNonPreferredFood.stages.0.description>
+  <PFP_NoRecentPreferredFood.label>饮食倦怠</PFP_NoRecentPreferredFood.label>
+  <PFP_NoRecentPreferredFood.stages.0.label>味觉疲劳</PFP_NoRecentPreferredFood.stages.0.label>
+  <PFP_NoRecentPreferredFood.stages.0.description>每天都是同样的东西...我已经记不得上次吃到喜欢的食物是什么时候了。</PFP_NoRecentPreferredFood.stages.0.description>
+  <PFP_NoRecentPreferredFood.stages.1.label>饮食厌倦</PFP_NoRecentPreferredFood.stages.1.label>
+  <PFP_NoRecentPreferredFood.stages.1.description>又是这个！难道我们不能吃点别的东西吗？</PFP_NoRecentPreferredFood.stages.1.description>
+</LanguageData>
+

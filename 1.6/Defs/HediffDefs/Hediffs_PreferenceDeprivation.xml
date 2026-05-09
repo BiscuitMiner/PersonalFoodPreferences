@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <defName>PFP_PreferenceDeprivation</defName>
+    <label>偏好剝奪</label>
+    <labelNoun>偏好剝奪</labelNoun>
+    <description>This pawn has gone too long without eating their preferred type of food.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>true</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <comps>
+      <li Class="PersonalFoodPreferences.HediffCompProperties_PreferenceDeprivation" />
+    </comps>
+    <stages>
+      <li>
+        <label>偏好剝奪</label>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>-0.3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

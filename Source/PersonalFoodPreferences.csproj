@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <!-- 防止編譯器建立 net472 子資料夾，直接輸出到 RimWorld 1.6 載入的 Assemblies -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>../1.6/Assemblies/</OutputPath>
+    <AssemblyName>PersonalFoodPreferences</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 自動下載並參考 RimWorld 1.6 的核心 DLL -->
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*" />
+    <!-- 自動下載並參考 Harmony -->
+    <PackageReference Include="Lib.Harmony" Version="2.3.*" ExcludeAssets="runtime" />
+  </ItemGroup>
+</Project>

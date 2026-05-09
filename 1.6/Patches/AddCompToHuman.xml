@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+      <value>
+        <li Class="PersonalFoodPreferences.CompProperties_FoodPreference"/>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="Human"]</xpath>
+      <value>
+        <comps>
+          <li Class="PersonalFoodPreferences.CompProperties_FoodPreference"/>
+        </comps>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>

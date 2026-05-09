@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_PreferenceDeprivationHideInRoom.label>preference deprivation: hiding in room</PFP_PreferenceDeprivationHideInRoom.label>
+  <PFP_PreferenceDeprivationHideInRoom.recoveryMessage>{0} is no longer hiding away over preference deprivation.</PFP_PreferenceDeprivationHideInRoom.recoveryMessage>
+  <PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>preference deprivation</PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>
+  <PFP_PreferenceDeprivationHideInRoom.beginLetter>{0} has gone too long without eating preferred food and is shutting [PAWN_objective]self away.</PFP_PreferenceDeprivationHideInRoom.beginLetter>
+  <PFP_PreferenceDeprivationHideInRoom.baseInspectLine>Mental state: Hiding away over preference deprivation</PFP_PreferenceDeprivationHideInRoom.baseInspectLine>
+
+  <PFP_PreferenceDeprivationSadWander.label>preference deprivation: wandering</PFP_PreferenceDeprivationSadWander.label>
+  <PFP_PreferenceDeprivationSadWander.recoveryMessage>{0} is no longer wandering over preference deprivation.</PFP_PreferenceDeprivationSadWander.recoveryMessage>
+  <PFP_PreferenceDeprivationSadWander.beginLetterLabel>preference deprivation</PFP_PreferenceDeprivationSadWander.beginLetterLabel>
+  <PFP_PreferenceDeprivationSadWander.beginLetter>{0} has gone too long without eating preferred food and is wandering outside in frustration.</PFP_PreferenceDeprivationSadWander.beginLetter>
+  <PFP_PreferenceDeprivationSadWander.baseInspectLine>Mental state: Wandering over preference deprivation</PFP_PreferenceDeprivationSadWander.baseInspectLine>
+</LanguageData>

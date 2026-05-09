@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_MildPickyEating.label>挑食症(輕度)</PFP_MildPickyEating.label>
+  <PFP_MildPickyEating.labelNoun>挑食症(輕度)</PFP_MildPickyEating.labelNoun>
+  <PFP_MildPickyEating.description>該角色長期只吃同一類食物，導致輕微營養不均衡。移動速度、工作速度和免疫力都受到了影響。</PFP_MildPickyEating.description>
+
+  <PFP_SeverePickyEating.label>挑食症(重度)</PFP_SeverePickyEating.label>
+  <PFP_SeverePickyEating.labelNoun>挑食症(重度)</PFP_SeverePickyEating.labelNoun>
+  <PFP_SeverePickyEating.description>該角色長期只吃同一類食物，挑食狀況已加重。移動速度、工作速度和免疫力都明顯下降。</PFP_SeverePickyEating.description>
+
+  <PFP_PermanentPickyEating.label>挑食症(永久)</PFP_PermanentPickyEating.label>
+  <PFP_PermanentPickyEating.labelNoun>挑食症(永久)</PFP_PermanentPickyEating.labelNoun>
+  <PFP_PermanentPickyEating.description>該角色因長期極度單一的飲食習慣，身體機能已遭受永久性損害。移動速度、工作速度和免疫力都顯著下降。</PFP_PermanentPickyEating.description>
+</LanguageData>
