@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <FoodPreference_InspectString>Food preference: {0}</FoodPreference_InspectString>
+  <FoodPreference_InspectFoodPreferenceType>Preference type: {0}</FoodPreference_InspectFoodPreferenceType>
   <FoodPreference_CharacterTag>Food pref: {0}</FoodPreference_CharacterTag>
   <FoodPreference_CharacterTagTip>{0} likes eating this kind of food: {1}</FoodPreference_CharacterTagTip>
   <FoodPreference_CharacterTagTip_Meat>{0} prefers meals made entirely from meat.</FoodPreference_CharacterTagTip_Meat>
@@ -17,6 +18,10 @@
   <FoodPreference_CharacterTagTip_Fried>{0} prefers fried foods.</FoodPreference_CharacterTagTip_Fried>
   <FoodPreference_CharacterTagTip_DarkCuisine>{0} prefers dark cuisine such as nutrient paste, insect meat, insect jelly, and twisted meat.</FoodPreference_CharacterTagTip_DarkCuisine>
   <FoodPreference_NoData>N/A</FoodPreference_NoData>
+  <FoodPreference_InfoPrimaryCategory>Food type</FoodPreference_InfoPrimaryCategory>
+  <FoodPreference_InfoPrimaryCategoryDesc>The primary food preference category assigned by Personal Food Preferences.</FoodPreference_InfoPrimaryCategoryDesc>
+  <FoodPreference_InfoTags>Tags</FoodPreference_InfoTags>
+  <FoodPreference_InfoTagsDesc>All food preference tags detected for this food or its actual ingredients.</FoodPreference_InfoTagsDesc>
   <FoodPreference_DevSetSuccess>{0} food preference set to: {1}</FoodPreference_DevSetSuccess>
   <FoodPreference_SelectorLabel>Food preference</FoodPreference_SelectorLabel>
   <FoodPreference_SelectorPanelTitle>Personal food preference</FoodPreference_SelectorPanelTitle>
@@ -68,5 +73,6 @@
   <Barbecue>Barbecue</Barbecue>
   <Fried>Fried food</Fried>
   <DarkCuisine>Dark cuisine</DarkCuisine>
+  <GenericFood>Generic food</GenericFood>
   <Unknown>Unknown</Unknown>
 </LanguageData>

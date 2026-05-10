@@ -2,6 +2,7 @@
 <LanguageData>
   <!-- UI 面板字串 -->
   <FoodPreference_InspectString>料理偏好: {0}</FoodPreference_InspectString>
+  <FoodPreference_InspectFoodPreferenceType>偏好类型: {0}</FoodPreference_InspectFoodPreferenceType>
   <FoodPreference_CharacterTag>料理偏好: {0}</FoodPreference_CharacterTag>
   <FoodPreference_CharacterTagTip>{0} 喜欢吃这种食物：{1}</FoodPreference_CharacterTagTip>
   <FoodPreference_CharacterTagTip_Meat>{0} 喜欢整道菜都由肉类制成的料理。</FoodPreference_CharacterTagTip_Meat>
@@ -18,6 +19,10 @@
   <FoodPreference_CharacterTagTip_Fried>{0} 喜欢油炸类料理。</FoodPreference_CharacterTagTip_Fried>
   <FoodPreference_CharacterTagTip_DarkCuisine>{0} 喜欢营养膏、虫肉、虫肉果冻与扭曲肉等黑暗料理。</FoodPreference_CharacterTagTip_DarkCuisine>
   <FoodPreference_NoData>未设定</FoodPreference_NoData>
+  <FoodPreference_InfoPrimaryCategory>料理类型</FoodPreference_InfoPrimaryCategory>
+  <FoodPreference_InfoPrimaryCategoryDesc>Personal Food Preferences 为该食物指定的主要偏好分类。</FoodPreference_InfoPrimaryCategoryDesc>
+  <FoodPreference_InfoTags>标签</FoodPreference_InfoTags>
+  <FoodPreference_InfoTagsDesc>该食物或其实际食材中检测到的所有食物偏好标签。</FoodPreference_InfoTagsDesc>
   <FoodPreference_DevSetSuccess>{0} 的料理偏好已切换为：{1}</FoodPreference_DevSetSuccess>
   <FoodPreference_SelectorLabel>偏好的食物种类</FoodPreference_SelectorLabel>
   <FoodPreference_SelectorPanelTitle>料理偏好</FoodPreference_SelectorPanelTitle>
@@ -70,5 +75,6 @@
   <Barbecue>烧烤料理</Barbecue>
   <Fried>炸物</Fried>
   <DarkCuisine>黑暗料理</DarkCuisine>
+  <GenericFood>通用食物</GenericFood>
   <Unknown>未知</Unknown>
 </LanguageData>

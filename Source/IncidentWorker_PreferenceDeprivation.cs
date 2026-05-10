@@ -60,6 +60,7 @@ namespace PersonalFoodPreferences
                 && pawn.needs?.food != null
                 && pawn.needs.mood != null
                 && preference != null
+                && preference.HasActivePreference
                 && preference.HasGoneLongWithoutPreferredFood()
                 && PreferenceDeprivationUtility.GetPreferenceDeprivationComp(pawn) == null;
         }

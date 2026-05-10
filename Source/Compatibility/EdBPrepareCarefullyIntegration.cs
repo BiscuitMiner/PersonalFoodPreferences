@@ -112,7 +112,12 @@ namespace PersonalFoodPreferences
                 object customizations = GetPropertyValue(customizedPawn, "Customizations");
                 float width = GetFloatPropertyValue(panelModule, "Width");
 
-                if (customizedPawn == null || customizations == null || width <= 0f)
+                if (customizedPawn == null || pawn == null || !CompFoodPreference.CanPawnHaveFoodPreference(pawn))
+                {
+                    return y;
+                }
+
+                if (customizations == null || width <= 0f)
                 {
                     return y + FoodPreferenceSelector.PanelHeight;
                 }
@@ -181,8 +186,16 @@ namespace PersonalFoodPreferences
                 return;
             }
 
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(pawn))
+            {
+                return;
+            }
+
             comp.EnsureInitialized();
-            EdBFoodPreferenceStore.WritePreference(customizations, comp.currentPreference);
+            if (comp.HasActivePreference)
+            {
+                EdBFoodPreferenceStore.WritePreference(customizations, comp.currentPreference);
+            }
         }
 
         private static void WarnOnce(string message)

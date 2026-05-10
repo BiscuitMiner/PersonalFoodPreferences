@@ -49,8 +49,18 @@ namespace PersonalFoodPreferences
                 return;
             }
 
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(pawn))
+            {
+                return;
+            }
+
             CompFoodPreference comp = pawn.GetComp<CompFoodPreference>();
             comp?.EnsureInitialized();
+            if (comp == null || !comp.HasActivePreference)
+            {
+                return;
+            }
+
             string translatedPreference = "FoodPreference_NoData".Translate().ToString();
             if (comp != null && !comp.currentPreference.NullOrEmpty())
             {

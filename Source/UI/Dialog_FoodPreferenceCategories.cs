@@ -29,8 +29,10 @@ namespace PersonalFoodPreferences
             this.pawn = pawn;
             this.comp = comp;
             this.comp?.EnsureInitialized();
-            preferences = CompFoodPreference.AllPreferences.ToList();
-            selectedPreference = comp != null && CompFoodPreference.IsValidPreference(comp.currentPreference)
+            preferences = CompFoodPreference.AvailablePreferences.ToList();
+            selectedPreference = comp != null
+                && comp.HasActivePreference
+                && preferences.Contains(comp.currentPreference)
                 ? comp.currentPreference
                 : preferences.FirstOrDefault();
             EnsureSelectedFoodCache();
@@ -246,7 +248,10 @@ namespace PersonalFoodPreferences
 
         private void SyncSelectedPreferenceToCurrent()
         {
-            if (comp != null && CompFoodPreference.IsValidPreference(comp.currentPreference) && selectedPreference != comp.currentPreference)
+            if (comp != null
+                && comp.HasActivePreference
+                && preferences.Contains(comp.currentPreference)
+                && selectedPreference != comp.currentPreference)
             {
                 selectedPreference = comp.currentPreference;
                 scrollPosition = Vector2.zero;

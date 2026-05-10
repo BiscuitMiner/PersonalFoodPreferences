@@ -103,6 +103,11 @@ namespace PersonalFoodPreferences
             }
 
             comp.EnsureInitialized();
+            if (!comp.HasActivePreference)
+            {
+                return;
+            }
+
             Texture2D icon = FoodPreferenceTextures.GetIcon(comp.currentPreference);
             if (icon == null)
             {

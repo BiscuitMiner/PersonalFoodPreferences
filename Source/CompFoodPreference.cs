@@ -32,6 +32,8 @@ namespace PersonalFoodPreferences
 
         public static IReadOnlyList<string> AllPreferences => FoodCategoryRegistry.PreferenceCategories;
 
+        public bool HasActivePreference => !currentPreference.NullOrEmpty() && CanHaveFoodPreferenceNow();
+
         public static List<string> AvailablePreferences
         {
             get
@@ -56,25 +58,57 @@ namespace PersonalFoodPreferences
             return FoodCategoryRegistry.IsKnownPreferenceCategory(preference);
         }
 
+        public static bool CanPawnHaveFoodPreference(Pawn pawn)
+        {
+            return pawn != null
+                && pawn.RaceProps.Humanlike
+                && (pawn.DevelopmentalStage.Child() || pawn.DevelopmentalStage.Adult());
+        }
+
+        public bool CanHaveFoodPreferenceNow()
+        {
+            return parent is Pawn pawn && CanPawnHaveFoodPreference(pawn);
+        }
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             EnsureInitialized();
         }
 
+        public override void CompTickRare()
+        {
+            base.CompTickRare();
+            if (currentPreference.NullOrEmpty())
+            {
+                EnsureInitialized();
+            }
+            else if (!CanHaveFoodPreferenceNow())
+            {
+                ClearFoodPreferenceState();
+            }
+        }
+
         public void EnsureInitialized()
         {
+            // 只對 Pawn 生效；理論上本 Comp 應掛在 Human 上。
+            if (!(parent is Pawn pawn))
+            {
+                return;
+            }
+
+            // 嬰兒/新生兒只能吃嬰兒食品；直到兒童期才開始產生個人食物偏好。
+            if (!CanPawnHaveFoodPreference(pawn))
+            {
+                ClearFoodPreferenceState();
+                return;
+            }
+
             // 已有存檔值時不覆蓋，避免重生或讀檔後重新抽偏好。
             if (!currentPreference.NullOrEmpty())
             {
                 NormalizeCurrentPreference();
                 EnsureLastPreferredFoodIngestedTickInitialized();
-                return;
-            }
-
-            // 只對 Pawn 生效；理論上本 Comp 應掛在 Human 上。
-            if (!(parent is Pawn))
-            {
                 return;
             }
 
@@ -85,16 +119,31 @@ namespace PersonalFoodPreferences
 
         public void NotifyPreferredFoodIngested()
         {
+            if (!HasActivePreference)
+            {
+                return;
+            }
+
             lastPreferredFoodIngestedTick = Find.TickManager.TicksGame;
         }
 
         public bool HasGoneLongWithoutPreferredFood()
         {
+            if (!HasActivePreference)
+            {
+                return false;
+            }
+
             return DaysSincePreferredFood() >= PreferenceDeprivationUtility.DietaryAversionDays;
         }
 
         public float PreferenceDeprivationIncidentWeight()
         {
+            if (!HasActivePreference)
+            {
+                return 0f;
+            }
+
             float daysSincePreferredFood = DaysSincePreferredFood();
             if (daysSincePreferredFood < PreferenceDeprivationUtility.DietaryAversionDays)
             {
@@ -113,6 +162,11 @@ namespace PersonalFoodPreferences
 
         public float DaysSincePreferredFood()
         {
+            if (!HasActivePreference)
+            {
+                return 0f;
+            }
+
             EnsureLastPreferredFoodIngestedTickInitialized();
             return (Find.TickManager.TicksGame - lastPreferredFoodIngestedTick) / (float)PreferenceDeprivationUtility.TicksPerDay;
         }
@@ -123,6 +177,21 @@ namespace PersonalFoodPreferences
             if (lastPreferredFoodIngestedTick < 0)
             {
                 lastPreferredFoodIngestedTick = Find.TickManager.TicksGame;
+            }
+        }
+
+        private void ClearFoodPreferenceState()
+        {
+            currentPreference = null;
+            lastPreferredFoodIngestedTick = -99999;
+            dietaryMonotonyCounter = 0;
+            consecutivePreferredFoodCounter = 0;
+            severePickyEatingRecoveryCounter = 0;
+            isPermanentPickyEating = false;
+
+            if (parent is Pawn pawn)
+            {
+                PreferenceDeprivationUtility.ClearDietaryVarietyHediffs(pawn, this);
             }
         }
 
@@ -163,6 +232,11 @@ namespace PersonalFoodPreferences
 
         public bool TrySetPreference(string preference)
         {
+            if (!CanHaveFoodPreferenceNow())
+            {
+                return false;
+            }
+
             if (!IsValidPreference(preference))
             {
                 return false;

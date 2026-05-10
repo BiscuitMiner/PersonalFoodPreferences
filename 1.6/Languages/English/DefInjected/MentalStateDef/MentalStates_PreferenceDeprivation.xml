@@ -3,7 +3,7 @@
   <PFP_PreferenceDeprivationHideInRoom.label>preference deprivation: hiding in room</PFP_PreferenceDeprivationHideInRoom.label>
   <PFP_PreferenceDeprivationHideInRoom.recoveryMessage>{0} is no longer hiding away over preference deprivation.</PFP_PreferenceDeprivationHideInRoom.recoveryMessage>
   <PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>preference deprivation</PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>
-  <PFP_PreferenceDeprivationHideInRoom.beginLetter>{0} has gone too long without eating preferred food and is shutting [PAWN_objective]self away.</PFP_PreferenceDeprivationHideInRoom.beginLetter>
+  <PFP_PreferenceDeprivationHideInRoom.beginLetter>{0} has gone too long without eating preferred food and has shut themselves away.</PFP_PreferenceDeprivationHideInRoom.beginLetter>
   <PFP_PreferenceDeprivationHideInRoom.baseInspectLine>Mental state: Hiding away over preference deprivation</PFP_PreferenceDeprivationHideInRoom.baseInspectLine>
 
   <PFP_PreferenceDeprivationSadWander.label>preference deprivation: wandering</PFP_PreferenceDeprivationSadWander.label>

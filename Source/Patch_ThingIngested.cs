@@ -15,7 +15,7 @@ namespace PersonalFoodPreferences
             }
 
             CompFoodPreference prefComp = ingester.GetComp<CompFoodPreference>();
-            if (prefComp == null || prefComp.currentPreference.NullOrEmpty())
+            if (prefComp == null || !prefComp.HasActivePreference)
             {
                 return;
             }

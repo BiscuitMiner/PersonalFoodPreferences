@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <StatCategoryDef>
+    <defName>PFP_PersonalFoodPreferences</defName>
+    <label>Personal Food Preferences</label>
+    <displayOrder>13</displayOrder>
+    <displayAllByDefault>true</displayAllByDefault>
+  </StatCategoryDef>
+</Defs>
