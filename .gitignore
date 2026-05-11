@@ -14,10 +14,14 @@ Assemblies/0Harmony.dll
 # Debug symbols
 **/*.pdb
 
+# NTFS alternate data streams (mark-of-the-web)
+*:Zone.Identifier
+
 # Rider / VS / VSCode
 .vs/
 .idea/
 .vscode/
+.claude/
 
 # Dotnet
 .dotnet_home/
