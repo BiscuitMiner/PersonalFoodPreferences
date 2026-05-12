@@ -22,6 +22,8 @@ namespace PersonalFoodPreferences
 
         public int lastPreferredFoodIngestedTick = -99999;
 
+        // Picky-eating counters kept for old-save Scribe compatibility.
+        // New saves use HediffComp_PickyEating; these are migrated and zeroed on first meal.
         public int dietaryMonotonyCounter;
 
         public int consecutivePreferredFoodCounter;
@@ -191,6 +193,7 @@ namespace PersonalFoodPreferences
 
             if (parent is Pawn pawn)
             {
+                PickyEatingUtility.ClearPickyEating(pawn);
                 PreferenceDeprivationUtility.ClearDietaryVarietyHediffs(pawn, this);
             }
         }
@@ -246,6 +249,8 @@ namespace PersonalFoodPreferences
             dietaryMonotonyCounter = 0;
             consecutivePreferredFoodCounter = 0;
             severePickyEatingRecoveryCounter = 0;
+            isPermanentPickyEating = false;
+
             return true;
         }
 

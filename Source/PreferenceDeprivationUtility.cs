@@ -16,8 +16,6 @@ namespace PersonalFoodPreferences
     public static class PreferenceDeprivationUtility
     {
         public const int TicksPerDay = 60000;
-        public const int TasteFatigueDays = 15;
-        public const int DietaryAversionDays = 30;
         public const int SeverePickyEatingThreshold = 12;
         public const int SeverePickyEatingRecoveryThreshold = 5;
         public const int SeverePickyEatingMoodPenalty = -8;
@@ -214,6 +212,7 @@ namespace PersonalFoodPreferences
             }
 
             RemovePickyEatingHediff(pawn);
+            PickyEatingUtility.ClearPickyEating(pawn);
         }
 
         public static void ApplyConfiguredPickyEatingStats()
@@ -340,6 +339,12 @@ namespace PersonalFoodPreferences
                 value = value
             });
         }
+
+        public static int TasteFatigueDays =>
+            PersonalFoodPreferencesMod.Settings?.tasteFatigueDays ?? 15;
+
+        public static int DietaryAversionDays =>
+            PersonalFoodPreferencesMod.Settings?.dietaryAversionDays ?? 30;
 
         public static int NoPreferredFoodThresholdTicks()
         {

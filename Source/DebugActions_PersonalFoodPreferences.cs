@@ -44,6 +44,64 @@ namespace PersonalFoodPreferences
             Messages.Message("PFP dev: triggered preference deprivation for " + pawn.LabelShort + ".", pawn, MessageTypeDefOf.TaskCompletion, historical: false);
         }
 
+        [DebugAction("Personal Food Preferences", "Cycle picky eating severity", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
+        private static void CyclePickyEatingSeverity(Pawn pawn)
+        {
+            if (pawn == null || !pawn.RaceProps.Humanlike)
+            {
+                Messages.Message("PFP dev: target must be a humanlike pawn.", MessageTypeDefOf.RejectInput, historical: false);
+                return;
+            }
+
+            CompFoodPreference preference = pawn.GetComp<CompFoodPreference>();
+            if (preference == null)
+            {
+                Messages.Message("PFP dev: target has no food preference comp.", pawn, MessageTypeDefOf.RejectInput, historical: false);
+                return;
+            }
+
+            preference.EnsureInitialized();
+
+            HediffComp_PickyEating comp = PickyEatingUtility.GetOrAddPickyEatingComp(pawn);
+            if (comp == null)
+            {
+                Messages.Message("PFP dev: failed to get or add picky eating hediff.", pawn, MessageTypeDefOf.RejectInput, historical: false);
+                return;
+            }
+
+            PersonalFoodPreferencesSettings settings = PersonalFoodPreferencesMod.Settings;
+            int mildThreshold = settings?.mildPickyEatingThreshold ?? 5;
+            int severeThreshold = settings?.severePickyEatingThreshold ?? PreferenceDeprivationUtility.SeverePickyEatingThreshold;
+
+            PickyEatingSeverity current = comp.CurrentSeverity;
+            switch (current)
+            {
+                case PickyEatingSeverity.None:
+                    comp.dietaryMonotonyCounter = mildThreshold;
+                    comp.consecutivePreferredFoodCounter = mildThreshold;
+                    comp.isPermanentPickyEating = false;
+                    comp.parent.Severity = HediffComp_PickyEating.SeverityMild;
+                    Messages.Message($"PFP dev: {pawn.LabelShort} → Mild picky eating", pawn, MessageTypeDefOf.TaskCompletion, historical: false);
+                    break;
+                case PickyEatingSeverity.Mild:
+                    comp.dietaryMonotonyCounter = severeThreshold;
+                    comp.consecutivePreferredFoodCounter = severeThreshold;
+                    comp.isPermanentPickyEating = false;
+                    comp.parent.Severity = HediffComp_PickyEating.SeveritySevere;
+                    Messages.Message($"PFP dev: {pawn.LabelShort} → Severe picky eating", pawn, MessageTypeDefOf.TaskCompletion, historical: false);
+                    break;
+                case PickyEatingSeverity.Severe:
+                    comp.isPermanentPickyEating = true;
+                    comp.parent.Severity = HediffComp_PickyEating.SeverityPermanent;
+                    Messages.Message($"PFP dev: {pawn.LabelShort} → Permanent picky eating", pawn, MessageTypeDefOf.TaskCompletion, historical: false);
+                    break;
+                case PickyEatingSeverity.Permanent:
+                    comp.ResetCounters();
+                    Messages.Message($"PFP dev: {pawn.LabelShort} → picky eating cleared", pawn, MessageTypeDefOf.TaskCompletion, historical: false);
+                    break;
+            }
+        }
+
         [DebugAction("Personal Food Preferences", "Inspect food classification", actionType = DebugActionType.ToolMap, allowedGameStates = AllowedGameStates.PlayingOnMap)]
         private static void InspectFoodClassification()
         {
@@ -100,7 +158,8 @@ namespace PersonalFoodPreferences
                         + "\nIsFallbackMatch: " + match.IsFallbackMatch
                         + "\nIsTagMatch: " + match.IsTagMatch
                         + "\nSatisfactionLevel: " + match.SatisfactionLevel
-                        + "\nCountsForMonotony: " + match.CountsForMonotony;
+                        + "\nCountsForMonotony: " + match.CountsForMonotony
+                        + "\nCountsForRecovery: " + match.CountsForRecovery;
                 }
             }
 

@@ -40,7 +40,7 @@ namespace PersonalFoodPreferences
             }
 
             Rect scrollRect = new Rect(inRect.x, inRect.y + 44f, inRect.width, inRect.height - 44f);
-            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, Settings.dietaryVarietyEnabled ? 860f : 260f);
+            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, Settings.dietaryVarietyEnabled ? 1000f : 260f);
             Widgets.BeginScrollView(scrollRect, ref settingsScrollPosition, viewRect);
             float y = viewRect.y;
             float rowHeight = 28f;
@@ -101,14 +101,14 @@ namespace PersonalFoodPreferences
                     ref Settings.permanentPickyEatingThreshold,
                     Settings.severePickyEatingThreshold,
                     200);
-                DrawRecoveryThresholdSlider(
+                DrawIntSlider(
                     viewRect.x,
                     ref y,
                     viewRect.width,
-                    "FoodPreference_SettingsPickyEatingRecoveryThreshold".Translate(),
+                    "FoodPreference_SettingsMildRecoveryThreshold".Translate(),
                     ref Settings.recoveryThreshold,
-                    0,
-                    Math.Max(0, Settings.mildPickyEatingThreshold - 1));
+                    1,
+                    20);
                 DrawIntSlider(
                     viewRect.x,
                     ref y,
@@ -141,6 +141,26 @@ namespace PersonalFoodPreferences
                     ref Settings.permanentPickyEatingMoodPenalty,
                     -50,
                     0);
+
+                y += gap;
+                Widgets.Label(new Rect(viewRect.x, y, viewRect.width, rowHeight), "FoodPreference_SettingsPreferenceDeprivationHeader".Translate());
+                y += rowHeight;
+                DrawIntSlider(
+                    viewRect.x,
+                    ref y,
+                    viewRect.width,
+                    "FoodPreference_SettingsTasteFatigueDays".Translate(),
+                    ref Settings.tasteFatigueDays,
+                    1,
+                    59);
+                DrawIntSlider(
+                    viewRect.x,
+                    ref y,
+                    viewRect.width,
+                    "FoodPreference_SettingsDietaryAversionDays".Translate(),
+                    ref Settings.dietaryAversionDays,
+                    Settings.tasteFatigueDays + 1,
+                    60);
             }
 
             Widgets.EndScrollView();

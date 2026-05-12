@@ -124,7 +124,8 @@ namespace PersonalFoodPreferences
             for (int i = 0; i < defs.Count; i++)
             {
                 ThingDef def = defs[i];
-                if (!FoodSpecialCaseRules.IsHumanEdible(def))
+                if (!FoodSpecialCaseRules.IsHumanEdible(def)
+                    || FoodSpecialCaseRules.IsCorpseRelatedFoodDef(def))
                 {
                     continue;
                 }
@@ -174,7 +175,8 @@ namespace PersonalFoodPreferences
             for (int i = 0; i < defs.Count; i++)
             {
                 ThingDef def = defs[i];
-                if (!FoodSpecialCaseRules.IsHumanEdible(def))
+                if (!FoodSpecialCaseRules.IsHumanEdible(def)
+                    || FoodSpecialCaseRules.IsCorpseRelatedFoodDef(def))
                 {
                     continue;
                 }

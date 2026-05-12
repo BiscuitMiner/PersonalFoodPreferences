@@ -24,6 +24,8 @@ namespace PersonalFoodPreferences
 
         public FoodSatisfactionLevel SatisfactionLevel;
 
+        public bool IsMeal;
+
         /// <summary>
         /// Any accepted form of preference satisfaction.
         /// Used for mood and preference deprivation reset.
@@ -31,12 +33,18 @@ namespace PersonalFoodPreferences
         public bool IsSatisfied => SatisfactionLevel != FoodSatisfactionLevel.None;
 
         /// <summary>
-        /// Only strong semantic matches count toward monotonous preferred eating.
-        /// Tag-only matches do not increase picky-eating progression.
+        /// Meal-level preference satisfaction counts toward monotonous preferred eating.
+        /// Ingredient / direct-fruit satisfaction is intentionally excluded.
         /// </summary>
         public bool CountsForMonotony =>
             SatisfactionLevel == FoodSatisfactionLevel.Meal
-            && (IsPrimaryMatch || IsFallbackMatch);
+            && (IsPrimaryMatch || IsFallbackMatch || IsTagMatch);
+
+        /// <summary>
+        /// Only proper meals that do NOT match the preference count toward picky-eating recovery.
+        /// Raw ingredients and fruit are neutral — they neither worsen nor improve picky eating.
+        /// </summary>
+        public bool CountsForRecovery => !IsSatisfied && IsMeal;
 
         public bool GivesFullPreferenceMood =>
             SatisfactionLevel == FoodSatisfactionLevel.Meal;

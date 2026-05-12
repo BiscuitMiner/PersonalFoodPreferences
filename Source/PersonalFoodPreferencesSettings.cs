@@ -12,11 +12,14 @@ namespace PersonalFoodPreferences
         public int mildPickyEatingThreshold = 5;
         public int severePickyEatingThreshold = 12;
         public int permanentPickyEatingThreshold = 20;
-        public int recoveryThreshold = 2;
+        public int recoveryThreshold = 3;
         public int severePickyEatingRecoveryThreshold = 5;
         public int mildPickyEatingMoodPenalty = -3;
         public int severePickyEatingMoodPenalty = -8;
         public int permanentPickyEatingMoodPenalty = -12;
+
+        public int tasteFatigueDays = 15;
+        public int dietaryAversionDays = 30;
         public override void ExposeData()
         {
             base.ExposeData();
@@ -26,11 +29,13 @@ namespace PersonalFoodPreferences
             Scribe_Values.Look(ref mildPickyEatingThreshold, "mildPickyEatingThreshold", 5);
             Scribe_Values.Look(ref severePickyEatingThreshold, "severePickyEatingThreshold", 12);
             Scribe_Values.Look(ref permanentPickyEatingThreshold, "permanentPickyEatingThreshold", 20);
-            Scribe_Values.Look(ref recoveryThreshold, "recoveryThreshold", 2);
+            Scribe_Values.Look(ref recoveryThreshold, "recoveryThreshold", 3);
             Scribe_Values.Look(ref severePickyEatingRecoveryThreshold, "severePickyEatingRecoveryThreshold", 5);
             Scribe_Values.Look(ref mildPickyEatingMoodPenalty, "mildPickyEatingMoodPenalty", -3);
             Scribe_Values.Look(ref severePickyEatingMoodPenalty, "severePickyEatingMoodPenalty", -8);
             Scribe_Values.Look(ref permanentPickyEatingMoodPenalty, "permanentPickyEatingMoodPenalty", -12);
+            Scribe_Values.Look(ref tasteFatigueDays, "tasteFatigueDays", 15);
+            Scribe_Values.Look(ref dietaryAversionDays, "dietaryAversionDays", 30);
             ClampValues();
         }
 
@@ -41,11 +46,13 @@ namespace PersonalFoodPreferences
             mildPickyEatingThreshold = Clamp(mildPickyEatingThreshold, 1, 100);
             severePickyEatingThreshold = Clamp(severePickyEatingThreshold, mildPickyEatingThreshold, 200);
             permanentPickyEatingThreshold = Clamp(permanentPickyEatingThreshold, severePickyEatingThreshold, 200);
-            recoveryThreshold = Clamp(recoveryThreshold, 0, mildPickyEatingThreshold - 1);
+            recoveryThreshold = Clamp(recoveryThreshold, 1, 20);
             severePickyEatingRecoveryThreshold = Clamp(severePickyEatingRecoveryThreshold, 1, 50);
             mildPickyEatingMoodPenalty = Clamp(mildPickyEatingMoodPenalty, -50, 0);
             severePickyEatingMoodPenalty = Clamp(severePickyEatingMoodPenalty, -50, 0);
             permanentPickyEatingMoodPenalty = Clamp(permanentPickyEatingMoodPenalty, -50, 0);
+            tasteFatigueDays = Clamp(tasteFatigueDays, 1, dietaryAversionDays - 1);
+            dietaryAversionDays = Clamp(dietaryAversionDays, tasteFatigueDays + 1, 60);
         }
 
         public void ResetToDefaults()
@@ -56,11 +63,13 @@ namespace PersonalFoodPreferences
             mildPickyEatingThreshold = 5;
             severePickyEatingThreshold = 12;
             permanentPickyEatingThreshold = 20;
-            recoveryThreshold = 2;
+            recoveryThreshold = 3;
             severePickyEatingRecoveryThreshold = 5;
             mildPickyEatingMoodPenalty = -3;
             severePickyEatingMoodPenalty = -8;
             permanentPickyEatingMoodPenalty = -12;
+            tasteFatigueDays = 15;
+            dietaryAversionDays = 30;
         }
 
         private static int Clamp(int value, int min, int max)

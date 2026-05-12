@@ -221,11 +221,16 @@ namespace PersonalFoodPreferences
 
             FoodTypeFlags foodType = analysis.FoodType;
 
+            // FoodType-based category is the lowest priority — only apply if
+            // no higher-priority source (extension, override, keyword) has set a primary.
+            bool hasHigherPrimary = !analysis.ExtensionCategory.NullOrEmpty()
+                || !analysis.StaticPrimaryCategory.NullOrEmpty();
+
             if ((foodType & FoodTypeFlags.Meat) != 0)
             {
                 analysis.StaticTags.Add("Meat");
 
-                if (analysis.FoodTypePrimaryCategory.NullOrEmpty())
+                if (analysis.FoodTypePrimaryCategory.NullOrEmpty() && !hasHigherPrimary)
                 {
                     analysis.FoodTypePrimaryCategory = "Meat";
                 }
@@ -237,7 +242,8 @@ namespace PersonalFoodPreferences
             }
 
             if ((foodType & FoodTypeFlags.AnimalProduct) != 0
-                && analysis.FoodTypePrimaryCategory.NullOrEmpty())
+                && analysis.FoodTypePrimaryCategory.NullOrEmpty()
+                && !hasHigherPrimary)
             {
                 analysis.FoodTypePrimaryCategory = "Dairy";
             }
@@ -248,7 +254,7 @@ namespace PersonalFoodPreferences
             {
                 analysis.StaticTags.Add("Fruit");
 
-                if (analysis.FoodTypePrimaryCategory.NullOrEmpty())
+                if (analysis.FoodTypePrimaryCategory.NullOrEmpty() && !hasHigherPrimary)
                 {
                     analysis.FoodTypePrimaryCategory = "Fruit";
                 }

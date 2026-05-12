@@ -68,7 +68,8 @@ namespace PersonalFoodPreferences
                 PrimaryCategory = result?.PrimaryCategory,
                 FallbackCategory = result?.FallbackCategory,
                 SatisfactionLevel = FoodSatisfactionLevel.None,
-                PreferenceMoodOffsetOverride = 0
+                PreferenceMoodOffsetOverride = 0,
+                IsMeal = result?.IsMeal ?? false
             };
 
             if (result == null || preference.NullOrEmpty())

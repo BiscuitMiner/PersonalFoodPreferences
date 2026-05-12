@@ -11,4 +11,12 @@
   <PFP_PermanentPickyEating.label>挑食症(永久)</PFP_PermanentPickyEating.label>
   <PFP_PermanentPickyEating.labelNoun>挑食症(永久)</PFP_PermanentPickyEating.labelNoun>
   <PFP_PermanentPickyEating.description>该角色因长期极度单一的饮食习惯，身体机能已遭受永久性损害。移动速度、工作速度和免疫力都显著下降。</PFP_PermanentPickyEating.description>
+
+  <PFP_PickyEating.label>挑食症</PFP_PickyEating.label>
+  <PFP_PickyEating.labelNoun>挑食症</PFP_PickyEating.labelNoun>
+  <PFP_PickyEating.description>该角色长期只吃偏好类型的食物，饮食习惯过于单一。严重程度会随持续挑食而加重。</PFP_PickyEating.description>
+  <PFP_PickyEating.stages.0.label>非活跃</PFP_PickyEating.stages.0.label>
+  <PFP_PickyEating.stages.1.label>轻度</PFP_PickyEating.stages.1.label>
+  <PFP_PickyEating.stages.2.label>重度</PFP_PickyEating.stages.2.label>
+  <PFP_PickyEating.stages.3.label>永久</PFP_PickyEating.stages.3.label>
 </LanguageData>

@@ -46,11 +46,14 @@
   <FoodPreference_SettingsDietaryVarietyHeader>Dietary variety</FoodPreference_SettingsDietaryVarietyHeader>
   <FoodPreference_SettingsDietaryVarietyEnabled>Enable dietary variety</FoodPreference_SettingsDietaryVarietyEnabled>
   <FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>Days before preference deprivation</FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>
+  <FoodPreference_SettingsPreferenceDeprivationHeader>Preference deprivation</FoodPreference_SettingsPreferenceDeprivationHeader>
+  <FoodPreference_SettingsTasteFatigueDays>Days before taste fatigue</FoodPreference_SettingsTasteFatigueDays>
+  <FoodPreference_SettingsDietaryAversionDays>Days before dietary aversion (preference deprivation)</FoodPreference_SettingsDietaryAversionDays>
   <FoodPreference_SettingsPickyEatingHeader>Monotonous diet picky eating</FoodPreference_SettingsPickyEatingHeader>
   <FoodPreference_SettingsMildPickyEatingThreshold>Meals before mild picky eating</FoodPreference_SettingsMildPickyEatingThreshold>
   <FoodPreference_SettingsSeverePickyEatingThreshold>Meals before severe picky eating</FoodPreference_SettingsSeverePickyEatingThreshold>
   <FoodPreference_SettingsPermanentPickyEatingThreshold>Meals before permanent picky eating</FoodPreference_SettingsPermanentPickyEatingThreshold>
-  <FoodPreference_SettingsPickyEatingRecoveryThreshold>Non-preferred meals to recover from mild picky eating</FoodPreference_SettingsPickyEatingRecoveryThreshold>
+  <FoodPreference_SettingsMildRecoveryThreshold>Non-preferred meals to recover from mild picky eating</FoodPreference_SettingsMildRecoveryThreshold>
   <FoodPreference_SettingsSeverePickyEatingRecoveryThreshold>Non-preferred meals to reduce severe picky eating</FoodPreference_SettingsSeverePickyEatingRecoveryThreshold>
   <FoodPreference_SettingsMildPickyEatingMoodPenalty>Non-preferred food mood while mildly picky</FoodPreference_SettingsMildPickyEatingMoodPenalty>
   <FoodPreference_SettingsSeverePickyEatingMoodPenalty>Non-preferred food mood while severely picky</FoodPreference_SettingsSeverePickyEatingMoodPenalty>

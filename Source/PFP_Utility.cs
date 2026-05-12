@@ -5,6 +5,20 @@ namespace PersonalFoodPreferences
 {
     public static class PFP_Utility
     {
+        /// <summary>
+        /// Toggle to enable detailed food-ingestion and picky-eating tracing via Log.Message.
+        /// WARNING: high-volume output — keep false during normal play to avoid cluttering
+        /// the log and interfering with other mods' debugging.
+        /// Set to true only when actively diagnosing food-preference / picky-eating issues.
+        /// </summary>
+        private static readonly bool EnableDebugLogging = false;
+
+        public static void DebugLog(string msg)
+        {
+            if (EnableDebugLogging)
+                Log.Message($"[PFP] {msg}");
+        }
+
         public static bool ContainsAny(string input, params string[] terms)
         {
             if (string.IsNullOrEmpty(input) || terms == null || terms.Length == 0)
