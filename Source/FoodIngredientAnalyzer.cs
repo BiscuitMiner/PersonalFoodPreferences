@@ -39,27 +39,29 @@ namespace PersonalFoodPreferences
                     continue;
                 }
 
-                FoodTypeFlags ingredientType = ingredientIngestible.foodType;
+                FoodDefAnalysis ingredientAnalysis = FoodDefAnalyzer.GetAnalysis(ingredientDef);
 
-                if (FoodSpecialCaseRules.IsSeafoodFoodSource(ingredientDef))
+                if (ingredientAnalysis.HasTag("Seafood"))
                 {
                     anyFish = true;
                 }
 
-                if (FoodSpecialCaseRules.IsDairyFoodSource(ingredientDef))
+                if (ingredientAnalysis.HasTag("Dairy"))
                 {
                     anyDairy = true;
                 }
 
-                if (FoodSpecialCaseRules.IsSoyProductFoodSource(ingredientDef))
+                if (ingredientAnalysis.HasTag("SoyProduct"))
                 {
                     anySoyProduct = true;
                 }
 
-                if (FoodSpecialCaseRules.IsDarkCuisineFoodSource(ingredientDef))
+                if (ingredientAnalysis.HasTag("DarkCuisine"))
                 {
                     anyDarkCuisine = true;
                 }
+
+                FoodTypeFlags ingredientType = ingredientIngestible.foodType;
 
                 if ((ingredientType & FoodTypeFlags.Meat) != 0)
                 {
@@ -76,8 +78,7 @@ namespace PersonalFoodPreferences
                 }
 
                 if ((ingredientType & FoodTypeFlags.VegetableOrFruit) != 0
-                    && (FoodSpecialCaseRules.ContainsAny(ingredientDef.defName, FoodKeywordTerms.Fruit)
-                        || FoodSpecialCaseRules.ThingCategoriesContain(ingredientDef, "Fruit", "Berry")))
+                    && ingredientAnalysis.HasTag("Fruit"))
                 {
                     anyFruit = true;
                 }

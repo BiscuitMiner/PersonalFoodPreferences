@@ -4,8 +4,8 @@
   <FoodPreference_InspectFoodPreferenceType>Preference type: {0}</FoodPreference_InspectFoodPreferenceType>
   <FoodPreference_CharacterTag>Food pref: {0}</FoodPreference_CharacterTag>
   <FoodPreference_CharacterTagTip>{0} likes eating this kind of food: {1}</FoodPreference_CharacterTagTip>
-  <FoodPreference_CharacterTagTip_Meat>{0} prefers meals made entirely from meat.</FoodPreference_CharacterTagTip_Meat>
-  <FoodPreference_CharacterTagTip_VeganMeal>{0} prefers meals made without meat or animal products.</FoodPreference_CharacterTagTip_VeganMeal>
+  <FoodPreference_CharacterTagTip_Meat>{0} prefers meals made entirely from meat, with no vegetables, grains, dairy, or other non-meat ingredients.</FoodPreference_CharacterTagTip_Meat>
+  <FoodPreference_CharacterTagTip_VeganMeal>{0} prefers meals without any meat, eggs, dairy, or other animal products — typically made from vegetables, fruits, grains, legumes, and other plant-based ingredients.</FoodPreference_CharacterTagTip_VeganMeal>
   <FoodPreference_CharacterTagTip_Baked>{0} prefers baked foods such as bread, cakes, and pastries.</FoodPreference_CharacterTagTip_Baked>
   <FoodPreference_CharacterTagTip_Sweets>{0} prefers sweets, desserts, candy, and snacks.</FoodPreference_CharacterTagTip_Sweets>
   <FoodPreference_CharacterTagTip_Soup>{0} prefers soups and stews.</FoodPreference_CharacterTagTip_Soup>

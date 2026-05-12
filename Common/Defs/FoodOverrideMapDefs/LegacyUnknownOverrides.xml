@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    [DEPRECATED] 舊版硬編碼遺產。
+    以下 defName 的來源模組不明，保留於此以維持向後兼容。
+    RI_Food_* 系列已確認來自 RimImmortal/Farmcraft (Steam 3655458570)，已遷移至 DefaultOverrides.xml。
+    若未來確認 VAGP* 來源模組 ID，可遷移至對應的 MayRequire 區塊。
+  -->
+  <PersonalFoodPreferences.FoodOverrideMapDef MayRequire="Unknown.Mod.ID.Fallback">
+    <defName>PFP_Override_LegacyUnknown</defName>
+    <overrides>
+
+      <!-- RI_ - 僅保留資源類（未出現在 RimImmortal JSON 中） -->
+      <li><defName>RI_Resource_GlaceBerries</defName><primaryCategory>Sweets</primaryCategory></li>
+
+      <!-- VAGP (Vanilla Gourmet Palette?) - Sweets -->
+      <li><defName>VAGPBakedpudding</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VAGPRicecakefilled</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VAGPSwissroll</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VAGPChocolatedoughnut</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VAGPPancakewithb</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VAGPCheesecake</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VAGPCanCheesecake</defName><primaryCategory>Sweets</primaryCategory></li>
+
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+</Defs>

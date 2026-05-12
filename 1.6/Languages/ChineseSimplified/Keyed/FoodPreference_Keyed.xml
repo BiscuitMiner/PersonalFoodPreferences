@@ -5,8 +5,8 @@
   <FoodPreference_InspectFoodPreferenceType>偏好类型: {0}</FoodPreference_InspectFoodPreferenceType>
   <FoodPreference_CharacterTag>料理偏好: {0}</FoodPreference_CharacterTag>
   <FoodPreference_CharacterTagTip>{0} 喜欢吃这种食物：{1}</FoodPreference_CharacterTagTip>
-  <FoodPreference_CharacterTagTip_Meat>{0} 喜欢整道菜都由肉类制成的料理。</FoodPreference_CharacterTagTip_Meat>
-  <FoodPreference_CharacterTagTip_VeganMeal>{0} 喜欢不含肉类和畜产品的全素料理。</FoodPreference_CharacterTagTip_VeganMeal>
+  <FoodPreference_CharacterTagTip_Meat>{0} 喜欢纯肉料理——主要食材全部由肉类组成，不包含蔬菜、谷物、乳制品等其他非肉类食材。</FoodPreference_CharacterTagTip_Meat>
+  <FoodPreference_CharacterTagTip_VeganMeal>{0} 喜欢全素料理——不含肉类、蛋、奶等任何畜产品，通常由蔬菜、水果、谷物、豆类等植物性食材组成。</FoodPreference_CharacterTagTip_VeganMeal>
   <FoodPreference_CharacterTagTip_Baked>{0} 喜欢面包、蛋糕、点心等烘焙类食物。</FoodPreference_CharacterTagTip_Baked>
   <FoodPreference_CharacterTagTip_Sweets>{0} 喜欢甜品、糖果、零食等食物。</FoodPreference_CharacterTagTip_Sweets>
   <FoodPreference_CharacterTagTip_Soup>{0} 喜欢汤与炖菜。</FoodPreference_CharacterTagTip_Soup>

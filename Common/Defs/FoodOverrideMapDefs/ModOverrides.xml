@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================
+       ModOverrides - 第三方模組的 defName 精確覆蓋
+       格式說明請參閱 VanillaOverrides.xml
+       ============================================================ -->
+
+  <!-- ============================================================
+       Vanilla Cooking Expanded (VCE) + Bakery (3590516685) + Stews (2134312965)
+       Steam Workshop: 2134308519 (core), 3590516685 (Bakery), 2134312965 (Stews)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VCE</defName>
+    <overrides>
+      <li><defName>VCE_HumanSurimi</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>VCE_Allspice</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>VCE_CannedAP</defName><primaryCategory>Canned</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>VCE_CannedFish</defName><primaryCategory>Canned</primaryCategory><tags><li>Seafood</li></tags></li>
+      <li><defName>VCE_CannedFruit</defName><primaryCategory>Canned</primaryCategory><tags><li>Fruit</li></tags></li>
+      <li><defName>VCE_CannedMeat</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_CannedProduce</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>VCE_CookedSoupFine</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_CookedSoupGourmet</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_CookedSoupLavish</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_CookedSoupSimple</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_CookedStewFine</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_CookedStewLavish</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_CookedStewSimple</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>VCE_DeepFriedBigMeat</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_DeepFriedFish</defName><primaryCategory>Fried</primaryCategory><tags><li>Seafood</li></tags></li>
+      <li><defName>VCE_FineBake</defName><primaryCategory></primaryCategory></li>
+      <li><defName>VCE_FineConfection</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>VCE_FineDessert</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VCE_FineGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_GourmetBake</defName><primaryCategory></primaryCategory></li>
+      <li><defName>VCE_GourmetCakeBatter</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>VCE_GourmetConfection</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>VCE_GourmetDessert</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VCE_GourmetGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_LavishBake</defName><primaryCategory></primaryCategory></li>
+      <li><defName>VCE_LavishConfection</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>VCE_LavishDessert</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VCE_LavishGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_MealGourmet</defName><primaryCategory></primaryCategory></li>
+      <li><defName>VCE_NormalCakeBatter</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>VCE_RuinedFineGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_RuinedGourmetGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_RuinedLavishGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_RuinedSimpleGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_SimpleBake</defName><primaryCategory></primaryCategory></li>
+      <li><defName>VCE_SimpleConfection</defName><primaryCategory>Baked</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>VCE_SimpleDessert</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VCE_SimpleGrill</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>VCE_SmokeleafButter</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>VCE_Sugarcane</defName><primaryCategory>Fruit</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>VCE_UncookedSoupFine</defName><primaryCategory>Soup</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       TribalWar BBQ Set (TW_BBQS_)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_TW_BBQS</defName>
+    <overrides>
+      <li><defName>TW_BBQS_GrillFish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>TW_BBQS_SpicyInsectGrill</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>TW_BBQS_InsectJellyKebab</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>TW_BBQS_ChateaubriandFilet</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>TW_BBQS_SqueakKebab</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>TW_BBQS_GrillTwistedMeat</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>TW_BBQS_HorrorGrillFeast</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>TW_BBQS_CavemanGrillFeast</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Vanilla Achievements / Gourmet Palette (VAGP)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VAGP</defName>
+    <overrides>
+      <li><defName>VAGPInsectSteak</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>VAGPMealMedicPack</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>VAGPMealSoldierPack</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>VAGPDeluxeMeal</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>VAGPGrandMeal</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>VAGPBabyFood</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Vanilla Garden (VG)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VG</defName>
+    <overrides>
+      <li><defName>VG_GardenFish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>VG_Hardtack</defName><primaryCategory>Canned</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       RimIndustry (RI_) - 資源/食材類
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_RI_Resources</defName>
+    <overrides>
+      <li><defName>RI_Resource_Ham</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>RI_Resource_CantoneseSausage</defName><primaryCategory>Canned</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       RimImmortal / Farmcraft (Steam Workshop 3655458570)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_RimImmortal</defName>
+    <overrides>
+      <li><defName>RI_Chemical_SugarTangerine</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>RI_Food_BoiledChicken</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_BraisedBeef</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_BubbleTea</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>RI_Food_Byaslag</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>RI_Food_ChickenWithChilies</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_ChickenWithMushroom</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_CookedRice</defName><primaryCategory></primaryCategory></li>
+      <li><defName>RI_Food_CutWatermelon</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>RI_Food_DongPoPork</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_EggFriedRice</defName><primaryCategory></primaryCategory></li>
+      <li><defName>RI_Food_FriedBreadStick</defName><primaryCategory>Fried</primaryCategory></li>
+      <li><defName>RI_Food_KungPaoChicken</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_Meatmooncake</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>RI_Food_MilkTea</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>RI_Food_Mooncake</defName><primaryCategory>Baked</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>RI_Food_PanFriedBun</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_PanFriedDumpling</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_PillowZongZi</defName><primaryCategory></primaryCategory></li>
+      <li><defName>RI_Food_PorkBallsGravy</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_SlicedMutton</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_SpringRoll</defName><primaryCategory>Fried</primaryCategory></li>
+      <li><defName>RI_Food_StewedPorkHock</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_StirFriedMeat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_StirFriedShreddedPotato</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>RI_Food_StirFriedVege</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>RI_Food_StuffedRoastDuck</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>RI_Food_SugarTangerine</defName><primaryCategory>Fried</primaryCategory></li>
+      <li><defName>RI_Food_SweetBerryYogurt</defName><primaryCategory>Dairy</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>RI_Food_SweetSoupBall</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>RI_Food_SweetSourFish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>RI_Food_TriangleZongZi</defName><primaryCategory></primaryCategory></li>
+      <li><defName>RI_Food_Yogurt</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       VGP Garden Gourmet (Steam Workshop 2007062982)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VGP_GardenGourmet</defName>
+    <overrides>
+      <li><defName>BlueberryPie</defName><primaryCategory>Baked</primaryCategory><tags><li>Fruit</li></tags></li>
+      <li><defName>Bread</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>Caramel</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>Grilledsteak</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Grilledveg</defName><primaryCategory>Barbecue</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>Hardcandy</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>Kabob</defName><primaryCategory>Barbecue</primaryCategory></li>
+      <li><defName>MakiRoll</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>Nigiri</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>Porridge</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>Rawsugarcane</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>Rawtofu</defName><primaryCategory>SoyProduct</primaryCategory></li>
+      <li><defName>Rawwheat</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SaltedMeat</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Tacos</defName><primaryCategory></primaryCategory></li>
+      <li><defName>Taffy</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>VeganEgg</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>bakedpolenta</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>cheese</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>cookie</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>driedfruit</defName><primaryCategory>Canned</primaryCategory><tags><li>Fruit</li></tags></li>
+      <li><defName>grilledcheese</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>grilledmeat</defName><primaryCategory>Baked</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>grilledpolenta</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>icecream</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>meatpie</defName><primaryCategory>Baked</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>muffin</defName><primaryCategory>Baked</primaryCategory><tags><li>Fruit</li></tags></li>
+      <li><defName>pizza</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>smoothie</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>sweetbun</defName><primaryCategory>Baked</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>yogurt</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Vegetable Garden (Steam Workshop 2007061826)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VegetableGarden</defName>
+    <overrides>
+      <li><defName>Chocomilk</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>MealSurvivalPackMeat</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>MealSurvivalPackVeg</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>Mealstirfry_Meat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>Mealstirfry_Veg</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>RawRedLentil</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>Rawbean</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>Rawdate</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>Rawfig</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>SRV_FoodMadeWithHoney</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>bowlstew</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>bowlstew_Meat</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>bowlstew_Veg</defName><primaryCategory>Soup</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>stirfry</defName><primaryCategory></primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       VGP Soylent Production (Steam Workshop 2007063605)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VGP_Soylent</defName>
+    <overrides>
+      <li><defName>soylentblue</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>soylentgreen</defName><primaryCategory>Canned</primaryCategory><tags><li>DarkCuisine</li></tags></li>
+      <li><defName>soylentpurple</defName><primaryCategory>Canned</primaryCategory><tags><li>DarkCuisine</li></tags></li>
+      <li><defName>soylentred</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>soylentyellow</defName><primaryCategory>Canned</primaryCategory><tags><li>Dairy</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Unfinished Food - Anomalous Meals (Steam Workshop 3568569275)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_UFAM</defName>
+    <overrides>
+      <li><defName>UFAM_CheeGlazTwis</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_ChocChomStoc</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_DoctTwur</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_DreaMelt</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_GranDamn</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_HungPie</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_JellRash</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_LayeOfFear</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_PsygRoya</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_SaltCrusCtl</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_SticSlidCurr</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_StraFinGumb</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>UFAM_TwisBhanTots</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       [RH2] Randy Burger - Fast Food Set (Steam Workshop 2437337542)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_RH2_RandyBurger</defName>
+    <overrides>
+      <li><defName>RH2Meal_RandyBurger</defName><primaryCategory>Baked</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Fried Egg (Steam Workshop 3566920021)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_FriedEgg</defName>
+    <overrides>
+      <li><defName>FineleFriedEegD</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>FineleFriedEegM</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>FineleFriedEegV</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>LavishFriedEegD</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>LavishFriedEegM</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>LavishFriedEegV</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>SimpleFriedEeg</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       World Food (Steam Workshop 2993120312)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_WorldFood</defName>
+    <overrides>
+      <li><defName>Allemagne_choucroute</defName><primaryCategory>Meat</primaryCategory><tags><li>Canned</li></tags></li>
+      <li><defName>Brazilian_feijoada</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Britain_fish_chips</defName><primaryCategory>Fried</primaryCategory><tags><li>Seafood</li></tags></li>
+      <li><defName>Buddhist_shojin_ryori</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>Canadian_poutine</defName><primaryCategory>Fried</primaryCategory></li>
+      <li><defName>Chinese_Canard_Laque</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Coree_du_nord_chogyeguksu</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>France_Boeuf_Bourguignon</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>France_baguette</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>Israel_Falafel</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>Italian_pizza</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>Mexican_tacos</defName><primaryCategory></primaryCategory></li>
+      <li><defName>Muslim_couscous</defName><primaryCategory></primaryCategory></li>
+      <li><defName>South_Korea_Bibimbap</defName><primaryCategory></primaryCategory></li>
+      <li><defName>Suede_Kottbullar</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>Swiss_fondue</defName><primaryCategory>Soup</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>Ukraine_bortsch</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>Usa_cheeseburger</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>australian_meat_pie</defName><primaryCategory>Baked</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>russia_blinis</defName><primaryCategory>Baked</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Misc Mod Items
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_MiscMods</defName>
+    <overrides>
+      <li><defName>PickledVeg</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Tam_SmokedMeat</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Tam_SmokedHumanMeat</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Tam_SmokedInsectMeat</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Tam_SmokedVeg</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Booiledeggs</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>BoiledEggs</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Eggsbenedict</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Eggtoast</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Eggrice</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Friedegg</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Huevos</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>KatsuDonEgg</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Mincedeggrice</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Omelet</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Omelette</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>Omelettet</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>ScotchEgg</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>TsukimiUdon</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+</Defs>

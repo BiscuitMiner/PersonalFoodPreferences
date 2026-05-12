@@ -134,10 +134,13 @@ namespace PersonalFoodPreferences
             Widgets.Label(new Rect(titleRect.x + 36f, titleRect.y, titleRect.width - 36f, titleRect.height), selectedPreference.Translate());
             Text.Font = GameFont.Small;
 
-            Rect descRect = new Rect(rect.x, rect.y + 38f, rect.width, 44f);
-            Widgets.Label(descRect, GetCategoryDescription(selectedPreference));
+            string descText = GetCategoryDescription(selectedPreference);
+            float descHeight = Text.CalcHeight(descText, rect.width);
+            Rect descRect = new Rect(rect.x, rect.y + 38f, rect.width, descHeight);
+            Widgets.Label(descRect, descText);
 
-            Rect listRect = new Rect(rect.x, rect.y + 88f, rect.width, rect.height - 88f);
+            float listY = descRect.yMax + 10f;
+            Rect listRect = new Rect(rect.x, listY, rect.width, rect.height - (listY - rect.y));
             if (!FoodClassifier.ShouldListFoodsForPreference(selectedPreference))
             {
                 Widgets.Label(listRect, "FoodPreference_CategoryTextOnly".Translate());

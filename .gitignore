@@ -25,6 +25,7 @@ Assemblies/0Harmony.dll
 
 # Dotnet
 .dotnet_home/
+__pycache__/
 
 # AI / tooling
 .codex/

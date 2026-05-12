@@ -5,8 +5,8 @@
   <FoodPreference_InspectFoodPreferenceType>偏好類型: {0}</FoodPreference_InspectFoodPreferenceType>
   <FoodPreference_CharacterTag>料理偏好: {0}</FoodPreference_CharacterTag>
   <FoodPreference_CharacterTagTip>{0} 喜歡吃這種食物：{1}</FoodPreference_CharacterTagTip>
-  <FoodPreference_CharacterTagTip_Meat>{0} 喜歡整道菜都由肉類製成的料理。</FoodPreference_CharacterTagTip_Meat>
-  <FoodPreference_CharacterTagTip_VeganMeal>{0} 喜歡不含肉類和畜產品的全素料理。</FoodPreference_CharacterTagTip_VeganMeal>
+  <FoodPreference_CharacterTagTip_Meat>{0} 喜歡純肉料理。主要食材全部由肉類組成，不包含蔬菜、穀物、乳製品等其他非肉類食材。</FoodPreference_CharacterTagTip_Meat>
+  <FoodPreference_CharacterTagTip_VeganMeal>{0} 喜歡全素料理。不含肉類、蛋、奶等任何畜產品，通常由蔬菜、水果、穀物、豆類等植物性食材組成。</FoodPreference_CharacterTagTip_VeganMeal>
   <FoodPreference_CharacterTagTip_Baked>{0} 喜歡麵包、蛋糕、點心等烘焙類食物。</FoodPreference_CharacterTagTip_Baked>
   <FoodPreference_CharacterTagTip_Sweets>{0} 喜歡甜品、糖果、零食等食物。</FoodPreference_CharacterTagTip_Sweets>
   <FoodPreference_CharacterTagTip_Soup>{0} 喜歡湯與燉菜。</FoodPreference_CharacterTagTip_Soup>

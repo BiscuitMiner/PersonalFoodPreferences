@@ -129,17 +129,20 @@ namespace PersonalFoodPreferences
                     continue;
                 }
 
-                if (preference == "Dairy" && FoodSpecialCaseRules.IsEggFoodSource(def))
-                {
-                    continue;
-                }
-
-                if (preference == "Seafood" && FoodSpecialCaseRules.IsRawSeafoodIngredient(def))
-                {
-                    continue;
-                }
-
                 FoodDefAnalysis analysis = FoodDefAnalyzer.GetAnalysis(def);
+
+                if (preference == "Dairy" && PFP_Utility.ContainsAny(def.defName, "Egg"))
+                {
+                    continue;
+                }
+
+                if (preference == "Seafood"
+                    && analysis.HasTag("Seafood")
+                    && !FoodSpecialCaseRules.IsMeal(def))
+                {
+                    continue;
+                }
+
                 if (FoodClassifier.CategoryEquals(analysis.StaticPrimaryCategory, preference)
                     || FoodClassifier.CategoryEquals(analysis.FoodTypePrimaryCategory, preference)
                     || analysis.StaticTags.Contains(preference))
@@ -210,8 +213,6 @@ namespace PersonalFoodPreferences
 
             FoodTypeFlags foodType = analysis.FoodType;
 
-            // Ingredients vary by actual Thing instance. For availability purposes,
-            // any meal can potentially satisfy Meat or VeganMeal depending on ingredients.
             if ((foodType & FoodTypeFlags.Meal) != 0
                 && (preference == "Meat" || preference == "VeganMeal"))
             {

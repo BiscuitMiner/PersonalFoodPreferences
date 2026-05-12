@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================
+       VanillaOverrides - 原版 + DLC 的精確 defName 覆蓋
+       ============================================================
+
+       Override 欄位說明：
+         defName         - 目標食物 ThingDef.defName（精確匹配，忽略大小寫）
+         primaryCategory - 主分類。可為標準類別或自訂類別（如 "BBQ"）
+         fallbackCategory - 備選分類。若 primaryCategory 非標準類別，
+                           此欄位必須設為 13 個標準類別之一，供偏好匹配使用
+         tags            - 附帶標籤（可選），限 13 個標準類別
+
+       範例：
+         <li>
+           <defName>PFP_ApplePie</defName>
+           <primaryCategory>Baked</primaryCategory>
+           <fallbackCategory>Sweets</fallbackCategory>
+           <tags><li>Fruit</li></tags>
+         </li>
+  -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_Vanilla</defName>
+    <overrides>
+
+      <!-- DarkCuisine -->
+      <li><defName>Meat_Human</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>MealNutrientPaste</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>InsectJelly</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>Meat_Twisted</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+
+      <!-- Canned -->
+      <li><defName>MealSurvivalPack</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Pemmican</defName><primaryCategory>Canned</primaryCategory></li>
+
+      <!-- Dairy -->
+      <li><defName>Milk</defName><primaryCategory>Dairy</primaryCategory></li>
+
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+</Defs>

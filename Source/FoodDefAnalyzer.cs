@@ -53,8 +53,8 @@ namespace PersonalFoodPreferences
             analysis.IsDirectFruit =
                 !analysis.IsMeal
                 && (analysis.FoodType & FoodTypeFlags.VegetableOrFruit) != 0
-                && (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Fruit)
-                    || FoodSpecialCaseRules.ThingCategoriesContain(def, "Fruit", "Berry"));
+                && (PFP_Utility.ContainsAny(def.defName, "Fruit", "Berry")
+                    || PFP_Utility.ThingCategoriesContain(def, "Fruit", "Berry"));
 
             if (analysis.IsMeal)
             {
@@ -136,6 +136,12 @@ namespace PersonalFoodPreferences
             }
         }
 
+        /// <summary>
+        /// Priority 2 (ExactOverridesCache) and Priority 3 (KeywordRulesCache).
+        /// Once a primary category is set by a higher priority, subsequent matches only add tags.
+        /// If an override exists (even with empty primary), keyword matching is skipped entirely —
+        /// this lets ingredient-dependent foods fall through to runtime ingredient analysis.
+        /// </summary>
         private static void AnalyzeStaticCategories(ThingDef def, FoodDefAnalysis analysis)
         {
             if (def == null || analysis == null)
@@ -143,167 +149,66 @@ namespace PersonalFoodPreferences
                 return;
             }
 
-            if (FoodSpecialCaseRules.IsPrioritySeafoodFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "Seafood";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Seafood");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
+            bool hasPrimary = !analysis.StaticPrimaryCategory.NullOrEmpty();
+            bool hasOverride = false;
 
-            if (FoodSpecialCaseRules.IsPriorityMeatDishFoodSource(def))
+            // Priority 2: ExactOverridesCache (1:1 defName mapping)
+            if (FoodCategoryRegistry.ExactOverridesCache.TryGetValue(def.defName, out FoodOverrideItem overrideData))
             {
-                analysis.StaticPrimaryCategory = "Meat";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Meat");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
+                hasOverride = true;
 
-            if (FoodSpecialCaseRules.IsPrioritySweetsFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "Sweets";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Sweets");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Soup) || FoodSpecialCaseRules.ThingCategoriesContain(def, FoodKeywordTerms.Soup))
-            {
-                analysis.StaticPrimaryCategory = "Soup";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Soup");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsDarkCuisineFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "DarkCuisine";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("DarkCuisine");
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsFriedFood(def))
-            {
-                analysis.StaticPrimaryCategory = "Fried";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Fried");
-                AddFriedFoodSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsBarbecueFood(def))
-            {
-                analysis.StaticPrimaryCategory = "Barbecue";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Barbecue");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsSoyProductFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "SoyProduct";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("SoyProduct");
-                return;
-            }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Baked) || FoodSpecialCaseRules.ThingCategoriesContain(def, FoodKeywordTerms.Baked))
-            {
-                analysis.StaticPrimaryCategory = "Baked";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Baked");
-                AddKnownDishSourceTags(def, analysis);
-
-                if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Sweets) || FoodSpecialCaseRules.ThingCategoriesContain(def, FoodKeywordTerms.Sweets))
+                if (!hasPrimary && !overrideData.primaryCategory.NullOrEmpty())
                 {
-                    analysis.StaticTags.Add("Sweets");
+                    analysis.StaticPrimaryCategory = overrideData.primaryCategory;
+                    analysis.StaticPrimarySource = "ExactOverride";
+                    analysis.StaticTags.Add(overrideData.primaryCategory);
+                    hasPrimary = true;
                 }
 
-                if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Fruit) || FoodSpecialCaseRules.ThingCategoriesContain(def, "Fruit", "Berry"))
+                if (!overrideData.fallbackCategory.NullOrEmpty())
                 {
-                    analysis.StaticTags.Add("Fruit");
+                    analysis.StaticFallbackCategory = overrideData.fallbackCategory;
                 }
 
-                if (FoodSpecialCaseRules.IsDairyFoodSource(def))
+                if (overrideData.tags != null)
                 {
-                    analysis.StaticTags.Add("Dairy");
+                    for (int i = 0; i < overrideData.tags.Count; i++)
+                    {
+                        analysis.StaticTags.Add(overrideData.tags[i]);
+                    }
+                }
+            }
+
+            // Priority 3: KeywordRulesCache (fuzzy defName / thingCategory matching)
+            // Skip if an override already handled this def — the mod author's explicit classification,
+            // even if empty, takes precedence over generic keyword guessing.
+            if (!hasOverride)
+            {
+                for (int i = 0; i < FoodCategoryRegistry.KeywordRulesCache.Count; i++)
+            {
+                FoodCategoryKeywordDef keywordDef = FoodCategoryRegistry.KeywordRulesCache[i];
+                if (keywordDef.matchKeywords == null || keywordDef.matchKeywords.Count == 0)
+                {
+                    continue;
                 }
 
-                if (FoodSpecialCaseRules.IsSoyProductFoodSource(def))
+                string[] keywords = keywordDef.matchKeywords.ToArray();
+                if (!PFP_Utility.ContainsAny(def.defName, keywords)
+                    && !PFP_Utility.ThingCategoriesContain(def, keywords))
                 {
-                    analysis.StaticTags.Add("SoyProduct");
+                    continue;
                 }
 
-                return;
-            }
+                string category = keywordDef.targetCategory;
+                analysis.StaticTags.Add(category);
 
-            if (FoodSpecialCaseRules.IsDairyFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "Dairy";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Dairy");
-                AddKnownDishSourceTags(def, analysis);
-                return;
+                if (!hasPrimary)
+                {
+                    analysis.StaticPrimaryCategory = category;
+                    analysis.StaticPrimarySource = "Keyword";
+                    hasPrimary = true;
+                }
             }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Sweets) || FoodSpecialCaseRules.ThingCategoriesContain(def, FoodKeywordTerms.Sweets))
-            {
-                analysis.StaticPrimaryCategory = "Sweets";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Sweets");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsProcessedFood(def))
-            {
-                analysis.StaticPrimaryCategory = "Canned";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Canned");
-                AddProcessedFoodSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsSeafoodFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "Seafood";
-                analysis.StaticPrimarySource = "ThingCategory";
-                analysis.StaticTags.Add("Seafood");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsMeatDishFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "Meat";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("Meat");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsVeganMealFoodSource(def))
-            {
-                analysis.StaticPrimaryCategory = "VeganMeal";
-                analysis.StaticPrimarySource = "Keyword";
-                analysis.StaticTags.Add("VeganMeal");
-                AddKnownDishSourceTags(def, analysis);
-                return;
-            }
-
-            if ((analysis.FoodType & FoodTypeFlags.VegetableOrFruit) != 0
-                && (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Fruit)
-                    || FoodSpecialCaseRules.ThingCategoriesContain(def, "Fruit", "Berry")))
-            {
-                analysis.StaticPrimaryCategory = "Fruit";
-                analysis.StaticPrimarySource = "FoodType";
-                analysis.StaticTags.Add("Fruit");
             }
         }
 
@@ -331,39 +236,15 @@ namespace PersonalFoodPreferences
                 analysis.StaticTags.Add("VeganMeal");
             }
 
-            if (FoodSpecialCaseRules.IsDairyFoodSource(def))
+            if ((foodType & FoodTypeFlags.AnimalProduct) != 0
+                && analysis.FoodTypePrimaryCategory.NullOrEmpty())
             {
-                analysis.StaticTags.Add("Dairy");
-
-                if (analysis.FoodTypePrimaryCategory.NullOrEmpty())
-                {
-                    analysis.FoodTypePrimaryCategory = "Dairy";
-                }
-            }
-
-            if (FoodSpecialCaseRules.IsSoyProductFoodSource(def))
-            {
-                analysis.StaticTags.Add("SoyProduct");
-
-                if (analysis.FoodTypePrimaryCategory.NullOrEmpty())
-                {
-                    analysis.FoodTypePrimaryCategory = "SoyProduct";
-                }
-            }
-
-            if (FoodSpecialCaseRules.IsDarkCuisineFoodSource(def))
-            {
-                analysis.StaticTags.Add("DarkCuisine");
-
-                if (analysis.FoodTypePrimaryCategory.NullOrEmpty())
-                {
-                    analysis.FoodTypePrimaryCategory = "DarkCuisine";
-                }
+                analysis.FoodTypePrimaryCategory = "Dairy";
             }
 
             if ((foodType & FoodTypeFlags.VegetableOrFruit) != 0
-                && (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Fruit)
-                    || FoodSpecialCaseRules.ThingCategoriesContain(def, "Fruit", "Berry")))
+                && (PFP_Utility.ContainsAny(def.defName, "Fruit", "Berry")
+                    || PFP_Utility.ThingCategoriesContain(def, "Fruit", "Berry")))
             {
                 analysis.StaticTags.Add("Fruit");
 
@@ -371,127 +252,6 @@ namespace PersonalFoodPreferences
                 {
                     analysis.FoodTypePrimaryCategory = "Fruit";
                 }
-            }
-        }
-
-        private static void AddKnownDishSourceTags(ThingDef def, FoodDefAnalysis analysis)
-        {
-            if (def == null || analysis == null)
-            {
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsMeatDishFoodSource(def))
-            {
-                analysis.StaticTags.Add("Meat");
-            }
-
-            if (FoodSpecialCaseRules.IsSeafoodFoodSource(def))
-            {
-                analysis.StaticTags.Add("Seafood");
-            }
-
-            if (FoodSpecialCaseRules.IsDairyFoodSource(def))
-            {
-                analysis.StaticTags.Add("Dairy");
-            }
-
-            if (FoodSpecialCaseRules.IsVeganMealFoodSource(def))
-            {
-                analysis.StaticTags.Add("VeganMeal");
-            }
-
-            if (FoodSpecialCaseRules.IsProcessedFood(def))
-            {
-                analysis.StaticTags.Add("Canned");
-            }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Baked)
-                || FoodSpecialCaseRules.ThingCategoriesContain(def, FoodKeywordTerms.Baked))
-            {
-                analysis.StaticTags.Add("Baked");
-            }
-
-            if ((analysis.FoodType & FoodTypeFlags.VegetableOrFruit) != 0
-                && (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Fruit)
-                    || FoodSpecialCaseRules.ThingCategoriesContain(def, "Fruit", "Berry")))
-            {
-                analysis.StaticTags.Add("Fruit");
-            }
-
-            if (FoodSpecialCaseRules.IsDarkCuisineFoodSource(def))
-            {
-                analysis.StaticTags.Add("DarkCuisine");
-            }
-        }
-
-        private static void AddProcessedFoodSourceTags(ThingDef def, FoodDefAnalysis analysis)
-        {
-            if (def == null || analysis == null)
-            {
-                return;
-            }
-
-            if (FoodSpecialCaseRules.IsSeafoodFoodSource(def))
-            {
-                analysis.StaticTags.Add("Seafood");
-            }
-
-            if (def.defName == "VCE_CannedAP"
-                || FoodSpecialCaseRules.IsDairyFoodSource(def))
-            {
-                analysis.StaticTags.Add("Dairy");
-            }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, FoodKeywordTerms.Fruit)
-                || FoodSpecialCaseRules.ThingCategoriesContain(def, "Fruit", "Berry"))
-            {
-                analysis.StaticTags.Add("Fruit");
-            }
-
-            if (!FoodSpecialCaseRules.IsSeafoodFoodSource(def)
-                && (FoodSpecialCaseRules.ContainsAny(def.defName, "Meat")
-                    || FoodSpecialCaseRules.ContainsAny(def.defName, "Ham", "Sausage")
-                    || FoodSpecialCaseRules.ThingCategoriesContain(def, "Meat")))
-            {
-                analysis.StaticTags.Add("Meat");
-            }
-
-            if (FoodSpecialCaseRules.IsDarkCuisineFoodSource(def))
-            {
-                analysis.StaticTags.Add("DarkCuisine");
-            }
-        }
-
-        private static void AddFriedFoodSourceTags(ThingDef def, FoodDefAnalysis analysis)
-        {
-            if (def == null || analysis == null)
-            {
-                return;
-            }
-
-            AddKnownDishSourceTags(def, analysis);
-
-            if (FoodSpecialCaseRules.IsSeafoodFoodSource(def))
-            {
-                analysis.StaticTags.Add("Seafood");
-            }
-
-            if (FoodSpecialCaseRules.IsDarkCuisineFoodSource(def))
-            {
-                analysis.StaticTags.Add("DarkCuisine");
-            }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, "Meat")
-                || FoodSpecialCaseRules.ThingCategoriesContain(def, "Meat"))
-            {
-                analysis.StaticTags.Add("Meat");
-            }
-
-            if (FoodSpecialCaseRules.ContainsAny(def.defName, "Vegetable", "Vegetables", "Veg")
-                || FoodSpecialCaseRules.ThingCategoriesContain(def, "Vegetable", "Vegetables", "Veg"))
-            {
-                analysis.StaticTags.Add("VeganMeal");
             }
         }
     }

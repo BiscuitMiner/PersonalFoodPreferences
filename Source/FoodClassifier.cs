@@ -143,6 +143,12 @@ namespace PersonalFoodPreferences
 
             ApplyExtensionClassification(result, defAnalysis);
 
+            // Override fallback (Priority 2) — only if extension didn't set one
+            if (result.FallbackCategory.NullOrEmpty() && !defAnalysis.StaticFallbackCategory.NullOrEmpty())
+            {
+                result.SetFallback(defAnalysis.StaticFallbackCategory);
+            }
+
             // Static tags are safe to reuse because they only depend on ThingDef.
             result.AddTags(defAnalysis.StaticTags);
 

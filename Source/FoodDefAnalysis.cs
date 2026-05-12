@@ -19,12 +19,18 @@ namespace PersonalFoodPreferences
 
         public string StaticPrimaryCategory;
         public string StaticPrimarySource;
+        public string StaticFallbackCategory;
 
         public string FoodTypePrimaryCategory;
 
         public bool IsMeal;
         public bool IsRawIngredient;
         public bool IsDirectFruit;
+
+        public bool HasTag(string tag)
+        {
+            return !tag.NullOrEmpty() && StaticTags.Contains(tag);
+        }
 
         public FoodDefAnalysis(ThingDef def)
         {
