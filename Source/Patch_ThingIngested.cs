@@ -12,6 +12,10 @@ namespace PersonalFoodPreferences
             if (ingester == null || !ingester.RaceProps.Humanlike)
                 return;
 
+            if (RaceCompatibilityRegistry.HasFoodRestrictions(ingester.def)
+                && !RaceCompatibilityRegistry.CanRaceEatFood(ingester.def, __instance.def))
+                return;
+
             CompFoodPreference prefComp = ingester.GetComp<CompFoodPreference>();
             if (prefComp == null || !prefComp.HasActivePreference)
                 return;

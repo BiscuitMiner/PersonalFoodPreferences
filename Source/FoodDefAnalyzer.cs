@@ -210,6 +210,20 @@ namespace PersonalFoodPreferences
                 }
             }
             }
+
+            // Priority 4: Insect meat detection — any raw ingredient derived from
+            // insectoid-flesh creatures is DarkCuisine regardless of defName.
+            if (FoodSpecialCaseRules.IsInsectMeatFoodSource(def))
+            {
+                analysis.StaticTags.Add("DarkCuisine");
+
+                if (!hasPrimary)
+                {
+                    analysis.StaticPrimaryCategory = "DarkCuisine";
+                    analysis.StaticPrimarySource = "InsectMeat";
+                    hasPrimary = true;
+                }
+            }
         }
 
         private static void AnalyzeFoodType(ThingDef def, FoodDefAnalysis analysis)

@@ -82,8 +82,11 @@ namespace PersonalFoodPreferences
             }
             else
             {
-                // Raw ingredients / fruit: neutral — breaks preferred streak but
-                // does not affect recovery counters (only proper meals drive recovery).
+                // Non-preferred raw ingredients / fruit are neutral:
+                // they break the consecutive-preferred streak but do NOT count
+                // toward picky-eating recovery. Only proper cooked meals
+                // (CountsForRecovery = true) advance the recovery counters.
+                // 吃非偏好生食材無法消除挑食症。
                 consecutivePreferredFoodCounter = 0;
             }
 
@@ -157,6 +160,14 @@ namespace PersonalFoodPreferences
                     consecutivePreferredFoodCounter = 0;
                     parent.Severity = SeverityNone;
                     PFP_Utility.DebugLog($"  -> RECOVER Mild→None");
+                    return;
+                }
+
+                if (consecutivePreferredFoodCounter >= severeThreshold)
+                {
+                    severePickyEatingRecoveryCounter = 0;
+                    parent.Severity = SeveritySevere;
+                    PFP_Utility.DebugLog($"  -> PROMOTE Mild→Severe");
                     return;
                 }
 

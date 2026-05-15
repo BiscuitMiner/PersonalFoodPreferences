@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ============================================================
+       DefaultDetection - 預設種族偵測規則
+       這些規則在 RaceCompatibilityMapDef 精確覆蓋未命中時生效。
+
+       規則按文件順序掃描，先匹配先贏。
+       ============================================================ -->
+
+  <!--
+       Rule 1: HAR 外星種族自動偵測
+       偵測所有使用 AlienRace.ThingDef_AlienRace 的 ThingDef，
+       自動附加 CompFoodPreference，並嘗試讀取 HAR raceRestriction。
+  -->
+  <PersonalFoodPreferences.RaceDetectionRuleDef>
+    <defName>PFP_RaceDetect_HAR</defName>
+    <detectByThingClass>AlienRace.ThingDef_AlienRace</detectByThingClass>
+    <allowFoodPreferences>true</allowFoodPreferences>
+    <defaultHasFoodRestrictions>false</defaultHasFoodRestrictions>
+    <autoReadFoodRestrictions>true</autoReadFoodRestrictions>
+  </PersonalFoodPreferences.RaceDetectionRuleDef>
+
+  <!--
+       Rule 2: Humanlike 種族相容
+       對非 HAR 但 Humanlike=true 的種族（如自訂人類變體），
+       附加 CompFoodPreference，不假設食物限制。
+  -->
+  <PersonalFoodPreferences.RaceDetectionRuleDef>
+    <defName>PFP_RaceDetect_Humanlike</defName>
+    <detectByHumanlike>true</detectByHumanlike>
+    <allowFoodPreferences>true</allowFoodPreferences>
+    <defaultHasFoodRestrictions>false</defaultHasFoodRestrictions>
+    <autoReadFoodRestrictions>false</autoReadFoodRestrictions>
+  </PersonalFoodPreferences.RaceDetectionRuleDef>
+
+</Defs>

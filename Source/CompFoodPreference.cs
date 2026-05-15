@@ -49,6 +49,35 @@ namespace PersonalFoodPreferences
             }
         }
 
+        /// <summary>
+        /// Returns preferences that the given pawn can actually satisfy.
+        /// Filters out categories where no edible food exists for the pawn's race.
+        /// Falls back to global AvailablePreferences when no race restrictions exist.
+        /// </summary>
+        public static List<string> GetAvailablePreferencesForPawn(Pawn pawn)
+        {
+            if (pawn?.def == null)
+                return AvailablePreferences;
+
+            if (!RaceCompatibilityRegistry.HasFoodRestrictions(pawn.def))
+                return AvailablePreferences;
+
+            List<string> filtered = new List<string>();
+            IReadOnlyList<string> allPreferences = FoodCategoryRegistry.PreferenceCategories;
+
+            for (int i = 0; i < allPreferences.Count; i++)
+            {
+                string preference = allPreferences[i];
+                if (IsPreferenceAvailableForPawn(preference, pawn))
+                    filtered.Add(preference);
+            }
+
+            if (filtered.Count == 0)
+                return AvailablePreferences;
+
+            return filtered;
+        }
+
         public static void ClearAvailablePreferencesCache()
         {
             cachedAvailablePreferences = null;
@@ -109,13 +138,13 @@ namespace PersonalFoodPreferences
             // 已有存檔值時不覆蓋，避免重生或讀檔後重新抽偏好。
             if (!currentPreference.NullOrEmpty())
             {
-                NormalizeCurrentPreference();
+                NormalizeCurrentPreference(pawn);
                 EnsureLastPreferredFoodIngestedTickInitialized();
                 return;
             }
 
-            // 其餘情況從目前可用偏好池隨機抽選。
-            currentPreference = AvailablePreferences.RandomElement();
+            // 其餘情況從目前可用偏好池隨機抽選（考慮種族食物限制）。
+            currentPreference = GetAvailablePreferencesForPawn(pawn).RandomElement();
             EnsureLastPreferredFoodIngestedTickInitialized();
         }
 
@@ -198,12 +227,13 @@ namespace PersonalFoodPreferences
             }
         }
 
-        private void NormalizeCurrentPreference()
+        private void NormalizeCurrentPreference(Pawn pawn)
         {
+            List<string> available = GetAvailablePreferencesForPawn(pawn);
             if (!IsValidPreference(currentPreference)
-                || !AvailablePreferences.Contains(currentPreference))
+                || !available.Contains(currentPreference))
             {
-                currentPreference = AvailablePreferences.RandomElement();
+                currentPreference = available.RandomElement();
             }
         }
 
@@ -231,6 +261,33 @@ namespace PersonalFoodPreferences
             }
 
             return available;
+        }
+
+        private static bool IsPreferenceAvailableForPawn(string preference, Pawn pawn)
+        {
+            if (pawn?.def == null || !RaceCompatibilityRegistry.HasFoodRestrictions(pawn.def))
+                return FoodClassifier.IsPreferenceAvailable(preference);
+
+            List<ThingDef> defs = DefDatabase<ThingDef>.AllDefsListForReading;
+            for (int i = 0; i < defs.Count; i++)
+            {
+                ThingDef def = defs[i];
+                if (!FoodSpecialCaseRules.CanFallbackToGenericFood(def))
+                    continue;
+
+                if (!RaceCompatibilityRegistry.CanRaceEatFood(pawn.def, def))
+                    continue;
+
+                FoodDefAnalysis analysis = FoodDefAnalyzer.GetAnalysis(def);
+                if (FoodClassifier.CategoryEquals(analysis.StaticPrimaryCategory, preference)
+                    || FoodClassifier.CategoryEquals(analysis.FoodTypePrimaryCategory, preference)
+                    || analysis.StaticTags.Contains(preference))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public bool TrySetPreference(string preference)
