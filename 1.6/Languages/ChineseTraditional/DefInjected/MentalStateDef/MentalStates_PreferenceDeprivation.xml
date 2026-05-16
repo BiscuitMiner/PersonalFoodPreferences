@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <!--
+    Legacy save compatibility only.
+    New preference-deprivation outbursts use PFP_BingePreferredFood translations in
+    MentalStates_PreferenceBinge.xml. Keep these entries so pawns already saved in
+    the old hide-in-room / sad-wander mental states still display localized text
+    until those mental states naturally recover.
+  -->
   <PFP_PreferenceDeprivationHideInRoom.label>偏好剝奪：閉門不出</PFP_PreferenceDeprivationHideInRoom.label>
   <PFP_PreferenceDeprivationHideInRoom.recoveryMessage>{0} 不再因偏好剝奪而閉門不出。</PFP_PreferenceDeprivationHideInRoom.recoveryMessage>
   <PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>偏好剝奪</PFP_PreferenceDeprivationHideInRoom.beginLetterLabel>

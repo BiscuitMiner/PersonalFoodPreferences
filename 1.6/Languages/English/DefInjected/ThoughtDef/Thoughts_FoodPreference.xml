@@ -4,14 +4,14 @@
   <AtePreferredFood.stages.0.label>ate preferred food</AtePreferredFood.stages.0.label>
   <AtePreferredFood.stages.0.description>Ate a favorite type of food.</AtePreferredFood.stages.0.description>
   <PFP_PreferenceSatisfied.label>finally ate what I wanted</PFP_PreferenceSatisfied.label>
-  <PFP_PreferenceSatisfied.stages.0.label>finally ate what I wanted!</PFP_PreferenceSatisfied.stages.0.label>
+  <PFP_PreferenceSatisfied.stages.0.label>finally ate what I wanted</PFP_PreferenceSatisfied.stages.0.label>
   <PFP_PreferenceSatisfied.stages.0.description>Finally! That's exactly what I wanted to eat.</PFP_PreferenceSatisfied.stages.0.description>
   <AteNonPreferredFood.label>ate non-preferred food</AteNonPreferredFood.label>
   <AteNonPreferredFood.stages.0.label>ate non-preferred food</AteNonPreferredFood.stages.0.label>
-  <AteNonPreferredFood.stages.0.description>Ate a disliked type of food.</AteNonPreferredFood.stages.0.description>
-  <PFP_NoRecentPreferredFood.label>dietary fatigue</PFP_NoRecentPreferredFood.label>
-  <PFP_NoRecentPreferredFood.stages.0.label>taste fatigue</PFP_NoRecentPreferredFood.stages.0.label>
-  <PFP_NoRecentPreferredFood.stages.0.description>Every day it's the same thing... I can't even remember the last time I ate food I liked.</PFP_NoRecentPreferredFood.stages.0.description>
-  <PFP_NoRecentPreferredFood.stages.1.label>dietary aversion</PFP_NoRecentPreferredFood.stages.1.label>
-  <PFP_NoRecentPreferredFood.stages.1.description>This again! Can't we grow something else?</PFP_NoRecentPreferredFood.stages.1.description>
+  <AteNonPreferredFood.stages.0.description>Ate a type of food I did not want.</AteNonPreferredFood.stages.0.description>
+  <PFP_NoRecentPreferredFood.label>missing preferred food</PFP_NoRecentPreferredFood.label>
+  <PFP_NoRecentPreferredFood.stages.0.label>missing preferred food</PFP_NoRecentPreferredFood.stages.0.label>
+  <PFP_NoRecentPreferredFood.stages.0.description>I haven't eaten the kind of food I actually like in a while.</PFP_NoRecentPreferredFood.stages.0.description>
+  <PFP_NoRecentPreferredFood.stages.1.label>preference deprivation</PFP_NoRecentPreferredFood.stages.1.label>
+  <PFP_NoRecentPreferredFood.stages.1.description>It has been far too long since I ate the kind of food I prefer.</PFP_NoRecentPreferredFood.stages.1.description>
 </LanguageData>

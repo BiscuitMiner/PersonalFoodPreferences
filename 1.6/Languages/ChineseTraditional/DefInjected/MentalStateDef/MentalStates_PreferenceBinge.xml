@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_BingePreferredFood.label>偏好性暴飲暴食</PFP_BingePreferredFood.label>
+  <PFP_BingePreferredFood.beginLetterLabel>偏好性暴飲暴食</PFP_BingePreferredFood.beginLetterLabel>
+  <PFP_BingePreferredFood.beginLetter>{0} 已經太久沒有吃到偏好的食物，因此開始暴飲暴食，並優先尋找能滿足[PAWN_possessive]渴望的食物。</PFP_BingePreferredFood.beginLetter>
+  <PFP_BingePreferredFood.recoveryMessage>{0} 不再暴飲暴食地尋找偏好食物。</PFP_BingePreferredFood.recoveryMessage>
+  <PFP_BingePreferredFood.baseInspectLine>精神狀態：暴飲暴食地尋找偏好食物</PFP_BingePreferredFood.baseInspectLine>
+</LanguageData>

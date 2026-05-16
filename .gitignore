@@ -3,13 +3,13 @@
 **/obj/
 
 # RimWorld game DLLs
-Assemblies/Assembly-CSharp.dll
-Assemblies/UnityEngine*.dll
-Assemblies/Verse.dll
-Assemblies/RimWorld*.dll
+1.6/Assemblies/Assembly-CSharp.dll
+1.6/Assemblies/UnityEngine*.dll
+1.6/Assemblies/Verse.dll
+1.6/Assemblies/RimWorld*.dll
 
 # Harmony
-Assemblies/0Harmony.dll
+1.6/Assemblies/0Harmony.dll
 
 # Debug symbols
 **/*.pdb

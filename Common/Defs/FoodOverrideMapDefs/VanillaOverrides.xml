@@ -29,6 +29,7 @@
       <li><defName>MealNutrientPaste</defName><primaryCategory>DarkCuisine</primaryCategory></li>
       <li><defName>InsectJelly</defName><primaryCategory>DarkCuisine</primaryCategory></li>
       <li><defName>Meat_Twisted</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>Meat_Insect</defName><primaryCategory>DarkCuisine</primaryCategory></li>
 
       <!-- Canned -->
       <li><defName>MealSurvivalPack</defName><primaryCategory>Canned</primaryCategory></li>

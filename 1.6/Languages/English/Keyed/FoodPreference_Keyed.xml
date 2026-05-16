@@ -48,7 +48,7 @@
   <FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>Days before preference deprivation</FoodPreference_SettingsPreferenceDeprivationNoPreferredFoodDays>
   <FoodPreference_SettingsPreferenceDeprivationHeader>Preference deprivation</FoodPreference_SettingsPreferenceDeprivationHeader>
   <FoodPreference_SettingsTasteFatigueDays>Days before taste fatigue</FoodPreference_SettingsTasteFatigueDays>
-  <FoodPreference_SettingsDietaryAversionDays>Days before dietary aversion (preference deprivation)</FoodPreference_SettingsDietaryAversionDays>
+  <FoodPreference_SettingsDietaryAversionDays>Days before dietary aversion</FoodPreference_SettingsDietaryAversionDays>
   <FoodPreference_SettingsPickyEatingHeader>Monotonous diet picky eating</FoodPreference_SettingsPickyEatingHeader>
   <FoodPreference_SettingsMildPickyEatingThreshold>Meals before mild picky eating</FoodPreference_SettingsMildPickyEatingThreshold>
   <FoodPreference_SettingsSeverePickyEatingThreshold>Meals before severe picky eating</FoodPreference_SettingsSeverePickyEatingThreshold>

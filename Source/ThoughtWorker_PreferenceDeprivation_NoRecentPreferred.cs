@@ -13,7 +13,10 @@ namespace PersonalFoodPreferences
             }
 
             CompFoodPreference comp = p?.GetComp<CompFoodPreference>();
-            if (comp == null || !comp.HasActivePreference || p.needs?.food == null || p.needs.mood == null)
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(p)
+                || comp == null
+                || !comp.HasActivePreference
+                || p.needs.mood == null)
             {
                 return ThoughtState.Inactive;
             }

@@ -309,6 +309,121 @@
   </PersonalFoodPreferences.FoodOverrideMapDef>
 
   <!-- ============================================================
+       Fast Meals (Steam Workshop 2971384423)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_FastMeals</defName>
+    <overrides>
+      <li><defName>CM_SimpleFastMeal</defName><primaryCategory></primaryCategory></li>
+      <li><defName>CM_DeluxeFastMeal</defName><primaryCategory></primaryCategory></li>
+      <li><defName>CM_DeluxeFastMeal_Veg</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>CM_DeluxeFastMeal_Meat</defName><primaryCategory>Meat</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Neolithic Scavenging (Continued) (Steam Workshop 2893843175)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_NeolithicScavenging</defName>
+    <overrides>
+      <li><defName>SC_NeolithicDriedMush</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>SC_Worm</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>SC_Grub</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>SC_Termite</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>SC_Grasshopper</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>SC_Snail</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_FreshwaterCrab</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_Frog</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>SC_Catfish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_SoftshellTurtle</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_Mussel</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_Oyster</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_KingCrab</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>SC_Scorpion</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>SC_Beetle</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>SC_WildrootPotato</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_Lichen</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_Moss</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_Cattail</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_Plantago</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_WildRice</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_LotusRoot</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_WaterLily</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_WaterSpinach</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_Kelp</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_Seaweed</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_FrostBud</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_PricklyPearCactus</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>SC_Aloe</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>SC_PetrifiedSpiderEgg</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Crimson - Berry Desserts (Steam Workshop 3298840050)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_CrimsonBerryDesserts</defName>
+    <overrides>
+      <li><defName>CC_Parfait</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li><li>Fruit</li></tags></li>
+      <li><defName>CC_LemonCreamToast</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
+      <li><defName>CC_StrawberrySweetroll</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
+      <li><defName>CC_FruitTart</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
+      <li><defName>CC_BerryDelight</defName><primaryCategory>Sweets</primaryCategory><tags><li>Fruit</li></tags></li>
+      <li><defName>CC_OreoCupcake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Dairy</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Erin's Japanese Cuisine (Steam Workshop 2542432157)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_ErinsJapaneseCuisine</defName>
+    <overrides>
+      <li><defName>EJC_Tempura</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>EJC_Onigiri</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>EJC_Katsudon</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>EJC_Ramen</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>EJC_Udon</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>EJC_Yakisoba</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>EJC_CurryRice</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>EJC_Zarusoba</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>EJC_Unajuu</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>EJC_InstantRamen</defName><primaryCategory>Canned</primaryCategory><tags><li>Soup</li><li>Meat</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       UNAGI CAFE (Steam Workshop 3325530853)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_UNAGICafe</defName>
+    <overrides>
+      <li><defName>UNAGI_RicePancake</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>UNAGI_RiceBagel</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>UNAGI_Bento</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>UNA_PotatoGratin</defName><primaryCategory>Dairy</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>UNA_Jelly</defName><primaryCategory>Sweets</primaryCategory><tags><li>Fruit</li><li>DarkCuisine</li></tags></li>
+      <li><defName>UNA_Berrycake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li><li>Dairy</li></tags></li>
+      <li><defName>UNA_HerbalTea</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>UNA_CornDango</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>UNAGI_SweetResearchCandy</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Breakfast Meals (Continued) (Steam Workshop 2881521917)
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_BreakfastMeals</defName>
+    <overrides>
+      <li><defName>TRAHS_MealCereal</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>TRAHS_MealWaffles</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
        Misc Mod Items
        ============================================================ -->
   <PersonalFoodPreferences.FoodOverrideMapDef>

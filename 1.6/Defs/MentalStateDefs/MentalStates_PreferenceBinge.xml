@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MentalStateDef ParentName="BaseMentalState">
+    <defName>PFP_BingePreferredFood</defName>
+    <stateClass>MentalState_Binging</stateClass>
+    <workerClass>MentalStateWorker_BingingFood</workerClass>
+    <label>preference-seeking food binge</label>
+    <category>Misc</category>
+    <prisonersCanDo>false</prisonersCanDo>
+    <colonistsOnly>true</colonistsOnly>
+    <minTicksBeforeRecovery>25000</minTicksBeforeRecovery>
+    <maxTicksBeforeRecovery>45000</maxTicksBeforeRecovery>
+    <recoveryMtbDays>0.166</recoveryMtbDays>
+    <recoverFromSleep>true</recoverFromSleep>
+    <nameColor>(0.5, 0.9, 0.5)</nameColor>
+    <beginLetterLabel>preference-seeking food binge</beginLetterLabel>
+    <beginLetter>{0} has gone too long without eating preferred food and is binging on anything that satisfies [PAWN_possessive] craving.</beginLetter>
+    <beginLetterDef>NegativeEvent</beginLetterDef>
+    <moodRecoveryThought>Catharsis</moodRecoveryThought>
+    <recoveryMessage>{0} is no longer binging on preferred food.</recoveryMessage>
+    <baseInspectLine>Mental state: Binging on preferred food</baseInspectLine>
+    <allowBeatfire>true</allowBeatfire>
+    <escapingPrisonersIgnore>true</escapingPrisonersIgnore>
+  </MentalStateDef>
+</Defs>

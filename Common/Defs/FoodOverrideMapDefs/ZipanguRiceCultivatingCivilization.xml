@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- 【ZP】Rice cultivating civilization (Steam Workshop 3046830338) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_ZipanguRiceCultivatingCivilization</defName>
+    <overrides>
+      <!-- Raw and processed ingredients -->
+      <li><defName>ZP_Fish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_FishFillet</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_DriedFish</defName><primaryCategory>Canned</primaryCategory><tags><li>Seafood</li></tags></li>
+      <li><defName>ZP_Tikuwa</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_ChoppedMeat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>ZP_SeasonedMeat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>ZP_Rawtofu</defName><primaryCategory>SoyProduct</primaryCategory></li>
+      <li><defName>ZP_FermentedSoybeans</defName><primaryCategory>SoyProduct</primaryCategory></li>
+      <li><defName>ZP_Konnyaku</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RiceBranPickled</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_DriedBoiledRice</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Flour</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_BreadDough</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ZP_SoyBeen</defName><primaryCategory>SoyProduct</primaryCategory></li>
+      <li><defName>ZP_RawBrownRice</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawGlutinousRice</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawCabbage</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawCucumber</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawEggplant</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawGreenOnion</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawPumpkin</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawTomato</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RawMandarinOrange</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>ZP_RawPersimmon</defName><primaryCategory>Fruit</primaryCategory></li>
+
+      <!-- Drinks that are food-like rather than liquor -->
+      <li><defName>ZP_GreenTea</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_Hojicha</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_Matcha</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_Amazake</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_SweetGingerWater</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Misosiru</defName><primaryCategory>Soup</primaryCategory><tags><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_CoffeeMilk</defName><primaryCategory>Dairy</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>ZP_FruitMilk</defName><primaryCategory>Dairy</primaryCategory><tags><li>Fruit</li><li>Sweets</li></tags></li>
+      <li><defName>ZP_MilkShake</defName><primaryCategory>Dairy</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>ZP_StrawberryMilk</defName><primaryCategory>Dairy</primaryCategory><tags><li>Fruit</li><li>Sweets</li></tags></li>
+
+      <!-- Bread and toast -->
+      <li><defName>ASU_WhiteBread</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ASU_ButterWhiteBread</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>ASU_BaconWhiteBread</defName><primaryCategory>Baked</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>ASU_FriedEggWhiteBread</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>ASU_JamWhiteBread</defName><primaryCategory>Baked</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>ASU_OguraWhiteBread</defName><primaryCategory>Baked</primaryCategory><tags><li>Sweets</li><li>SoyProduct</li></tags></li>
+      <li><defName>ASU_Sandwich</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ASU_BreakfastBreadSet</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ASU_ChocolateCorne</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ASU_CreamBun</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Dairy</li></tags></li>
+      <li><defName>ASU_CroquetteBread</defName><primaryCategory>Baked</primaryCategory><tags><li>Fried</li></tags></li>
+      <li><defName>ASU_CurryBun</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ASU_FriedNoodleSandwich</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ASU_Melonpan</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ASU_SweetBeanPasteBun</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>SoyProduct</li></tags></li>
+
+      <!-- Sweets -->
+      <li><defName>ZP_BekkoCandy</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_CottonCandy</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_Kompeito</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_KyoCandy</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_BabyCastella</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_BuckwheatBolo</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ASU_Dorayaki</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_Kintsuba</defName><primaryCategory>Sweets</primaryCategory><tags><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_Makoron</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_Manju</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_MomijiManju</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_RabbitManju</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_MizuManju</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_Nerikiri</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ASU_Pancake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_Daifuku</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_MugwortDaifuku</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_ThreeColoredDumplings</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_ZundaMochi</defName><primaryCategory>Sweets</primaryCategory><tags><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_Anmitsu</defName><primaryCategory>Sweets</primaryCategory><tags><li>Fruit</li></tags></li>
+      <li><defName>ZP_CandiedSweetPotato</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Kakigori</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_PurineALaMode</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li><li>Fruit</li></tags></li>
+      <li><defName>ZP_Ohagi</defName><primaryCategory>Sweets</primaryCategory><tags><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_Okoshi</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_PuffedRice</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>ZP_InariSushi</defName><primaryCategory>VeganMeal</primaryCategory><tags><li>Sweets</li><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_BucketPudding</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li></tags></li>
+
+      <!-- Salty snacks and side dishes -->
+      <li><defName>ZP_Karaage</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>ZP_Yakitori</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>ZP_Chawanmushi</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>ZP_Chikukyu</defName><primaryCategory>Seafood</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Misotanpo</defName><primaryCategory>VeganMeal</primaryCategory><tags><li>SoyProduct</li></tags></li>
+      <li><defName>ZP_RiceCracker</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ZP_Tempura</defName><primaryCategory>Fried</primaryCategory></li>
+      <li><defName>ZP_BoiledEdamame</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_FukufukiDaikon</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_GrilledEggplant</defName><primaryCategory>Barbecue</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Hiyayakko</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Ohitashi</defName><primaryCategory>VeganMeal</primaryCategory></li>
+
+      <!-- Generic meals -->
+      <li><defName>ZP_MealSimple</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_MealSimple_Meat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>ZP_MealSimple_Veg</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_MealFine</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_MealFine_Meat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>ZP_MealFine_Veg</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_MealLavish</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_MealLavish_Meat</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>ZP_MealLavish_Veg</defName><primaryCategory>VeganMeal</primaryCategory></li>
+
+      <!-- Rice, mochi, and survival foods -->
+      <li><defName>ZP_BRGohan</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_WRGohan</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_BROnigiri</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_WROnigiri</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_BRTKG</defName><primaryCategory>Dairy</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_WRTKG</defName><primaryCategory>Dairy</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_GoheiMochi</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_IsobeMochi</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_RoastedMochi</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_VinegarMochi</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_Hardtack</defName><primaryCategory>Canned</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_Hyourougan</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Timaki</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_aRice</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+
+      <!-- Fine and lavish meals -->
+      <li><defName>ZP_BakedSweetPotato</defName><primaryCategory>Barbecue</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Korokke</defName><primaryCategory>Fried</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Oden</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>ZP_SalmonRiceBall</defName><primaryCategory>Seafood</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_SaltGrilledFish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_Sasimi</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_SteamedFish</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_TempuraRiceBall</defName><primaryCategory>Fried</primaryCategory><tags><li>Seafood</li></tags></li>
+      <li><defName>ZP_HiyashiChuka</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_KakuniManju</defName><primaryCategory>Meat</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>ZP_Okonomiyaki</defName><primaryCategory>Baked</primaryCategory></li>
+      <li><defName>ZP_Oyaki</defName><primaryCategory>Baked</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_OyakiEggplant</defName><primaryCategory>Baked</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_OyakiPumpkin</defName><primaryCategory>Baked</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_Udon</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_BRBento</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_WRBento</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>ZP_BRGyudon</defName><primaryCategory>Meat</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_WRGyudon</defName><primaryCategory>Meat</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_GRTakikomi</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_NattoRice</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>ZP_ChirashiSushi</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_WRSushi</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>ZP_Ramen</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>ZP_HorseMeatSashimi</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>ZP_Jingisukan</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>ZP_Katsudon</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>ZP_Sukiyaki</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>ZP_Tyannko</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>ZP_BRJubako</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_WRJubako</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_WRJPCurryRice</defName><primaryCategory></primaryCategory></li>
+      <li><defName>ZP_Tendon</defName><primaryCategory>Fried</primaryCategory><tags><li>Seafood</li></tags></li>
+      <li><defName>ZP_BoiledTofu</defName><primaryCategory>SoyProduct</primaryCategory><tags><li>VeganMeal</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+</Defs>

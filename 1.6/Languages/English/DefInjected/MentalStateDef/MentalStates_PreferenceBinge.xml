@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_BingePreferredFood.label>preference-seeking food binge</PFP_BingePreferredFood.label>
+  <PFP_BingePreferredFood.beginLetterLabel>preference-seeking food binge</PFP_BingePreferredFood.beginLetterLabel>
+  <PFP_BingePreferredFood.beginLetter>{0} has gone too long without eating preferred food and is binging on anything that satisfies [PAWN_possessive] craving.</PFP_BingePreferredFood.beginLetter>
+  <PFP_BingePreferredFood.recoveryMessage>{0} is no longer binging on preferred food.</PFP_BingePreferredFood.recoveryMessage>
+  <PFP_BingePreferredFood.baseInspectLine>Mental state: Binging on preferred food</PFP_BingePreferredFood.baseInspectLine>
+</LanguageData>

@@ -91,9 +91,7 @@ namespace PersonalFoodPreferences
 
         public static bool CanPawnHaveFoodPreference(Pawn pawn)
         {
-            return pawn != null
-                && pawn.RaceProps.Humanlike
-                && (pawn.DevelopmentalStage.Child() || pawn.DevelopmentalStage.Adult());
+            return FoodPreferencePawnEligibility.CanHaveFoodPreference(pawn);
         }
 
         public bool CanHaveFoodPreferenceNow()

@@ -158,7 +158,9 @@ namespace PersonalFoodPreferences
 
         public static void PawnCustomizer_ApplyOtherCustomizationsToPawn_Postfix(Pawn pawn, object customizations)
         {
-            if (pawn == null || customizations == null)
+            if (pawn == null
+                || customizations == null
+                || !CompFoodPreference.CanPawnHaveFoodPreference(pawn))
             {
                 return;
             }

@@ -15,7 +15,7 @@ namespace PersonalFoodPreferences
                 return;
             }
 
-            if (!ingester.RaceProps.Humanlike)
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(ingester))
             {
                 return;
             }

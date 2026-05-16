@@ -2,5 +2,5 @@
 <LanguageData>
   <PFP_PreferenceDeprivationIncident.label>preference deprivation</PFP_PreferenceDeprivationIncident.label>
   <PFP_PreferenceDeprivationIncident.letterLabel>Preference deprivation: {PAWN_labelShort}</PFP_PreferenceDeprivationIncident.letterLabel>
-  <PFP_PreferenceDeprivationIncident.letterText>{PAWN_labelShort} has gone too long without eating {PAWN_possessive} preferred type of food. This will slow {PAWN_objective} down while eating until {PAWN_pronoun} gets a preferred meal. The frustration may also cause a short outburst, such as hiding away or wandering outside.</PFP_PreferenceDeprivationIncident.letterText>
+  <PFP_PreferenceDeprivationIncident.letterText>{PAWN_labelShort} has gone too long without eating {PAWN_possessive} preferred type of food. This will slow {PAWN_objective} down while eating until {PAWN_pronoun} gets preferred food. The frustration may also cause a food binge where {PAWN_pronoun} seeks out food matching {PAWN_possessive} preference first.</PFP_PreferenceDeprivationIncident.letterText>
 </LanguageData>

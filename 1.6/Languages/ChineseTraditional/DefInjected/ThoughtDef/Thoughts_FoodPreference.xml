@@ -4,15 +4,14 @@
   <AtePreferredFood.stages.0.label>吃到偏好食物</AtePreferredFood.stages.0.label>
   <AtePreferredFood.stages.0.description>吃到了自己愛吃的食物。</AtePreferredFood.stages.0.description>
   <PFP_PreferenceSatisfied.label>終於吃到想吃的了</PFP_PreferenceSatisfied.label>
-  <PFP_PreferenceSatisfied.stages.0.label>終於吃到想吃的了！</PFP_PreferenceSatisfied.stages.0.label>
+  <PFP_PreferenceSatisfied.stages.0.label>終於吃到想吃的了</PFP_PreferenceSatisfied.stages.0.label>
   <PFP_PreferenceSatisfied.stages.0.description>就是這個！我等這一口等太久了。</PFP_PreferenceSatisfied.stages.0.description>
-  <AteNonPreferredFood.label>吃到不喜歡吃的食物</AteNonPreferredFood.label>
+  <AteNonPreferredFood.label>吃到非偏好食物</AteNonPreferredFood.label>
   <AteNonPreferredFood.stages.0.label>吃到非偏好食物</AteNonPreferredFood.stages.0.label>
-  <AteNonPreferredFood.stages.0.description>吃到了自己不喜歡吃的食物類型。</AteNonPreferredFood.stages.0.description>
-  <PFP_NoRecentPreferredFood.label>飲食倦怠</PFP_NoRecentPreferredFood.label>
-  <PFP_NoRecentPreferredFood.stages.0.label>味覺疲勞</PFP_NoRecentPreferredFood.stages.0.label>
-  <PFP_NoRecentPreferredFood.stages.0.description>每天都是同樣的東西...我已經記不得上次吃到喜歡的食物是什麼時候了。</PFP_NoRecentPreferredFood.stages.0.description>
-  <PFP_NoRecentPreferredFood.stages.1.label>飲食厭倦</PFP_NoRecentPreferredFood.stages.1.label>
-  <PFP_NoRecentPreferredFood.stages.1.description>又是這個！難道我們不能吃點別的東西嗎？</PFP_NoRecentPreferredFood.stages.1.description>
+  <AteNonPreferredFood.stages.0.description>吃到了不是自己想吃的食物類型。</AteNonPreferredFood.stages.0.description>
+  <PFP_NoRecentPreferredFood.label>缺少偏好食物</PFP_NoRecentPreferredFood.label>
+  <PFP_NoRecentPreferredFood.stages.0.label>缺少偏好食物</PFP_NoRecentPreferredFood.stages.0.label>
+  <PFP_NoRecentPreferredFood.stages.0.description>我已經有一段時間沒有吃到自己真正喜歡的食物類型了。</PFP_NoRecentPreferredFood.stages.0.description>
+  <PFP_NoRecentPreferredFood.stages.1.label>偏好剝奪</PFP_NoRecentPreferredFood.stages.1.label>
+  <PFP_NoRecentPreferredFood.stages.1.description>我已經太久沒有吃到自己偏好的食物類型了。</PFP_NoRecentPreferredFood.stages.1.description>
 </LanguageData>
-

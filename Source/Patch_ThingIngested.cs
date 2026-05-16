@@ -9,7 +9,7 @@ namespace PersonalFoodPreferences
     {
         public static void Postfix(Thing __instance, Pawn ingester)
         {
-            if (ingester == null || !ingester.RaceProps.Humanlike)
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(ingester))
                 return;
 
             if (RaceCompatibilityRegistry.HasFoodRestrictions(ingester.def)

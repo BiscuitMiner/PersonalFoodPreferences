@@ -2,5 +2,5 @@
 <LanguageData>
   <PFP_PreferenceDeprivationIncident.label>偏好剝奪</PFP_PreferenceDeprivationIncident.label>
   <PFP_PreferenceDeprivationIncident.letterLabel>偏好剝奪：{PAWN_labelShort}</PFP_PreferenceDeprivationIncident.letterLabel>
-  <PFP_PreferenceDeprivationIncident.letterText>{PAWN_labelShort} 已經太久沒有吃到自己偏好的食物類型。直到吃到偏好食物前，{PAWN_objective} 的進食速度會下降。這份挫折感也可能引發短暫的精神崩潰，例如閉門不出或在外閒晃。</PFP_PreferenceDeprivationIncident.letterText>
+  <PFP_PreferenceDeprivationIncident.letterText>{PAWN_labelShort} 已經太久沒有吃到自己偏好的食物類型。直到吃到偏好食物前，{PAWN_objective} 的進食速度會下降。這份挫折感也可能引發暴飲暴食，優先尋找符合{PAWN_possessive}偏好的食物。</PFP_PreferenceDeprivationIncident.letterText>
 </LanguageData>

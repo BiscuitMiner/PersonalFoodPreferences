@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Anty the war ant race (Steam Workshop 2297729625) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_AntyRace</defName>
+    <overrides>
+      <li><defName>ProtyGum</defName><primaryCategory>DarkCuisine</primaryCategory></li>
+      <li><defName>AT_Aphidextract</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- MoeLotl Race (Steam Workshop 3292351432) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_AxolotlRace</defName>
+    <overrides>
+      <li><defName>Axolotl_DropTail</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>Axolotl_Egg</defName><primaryCategory>Dairy</primaryCategory></li>
+      <li><defName>CharredTail</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Axolotl_LeafFlowerJelly</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>Axolotl_StargazyPie</defName><primaryCategory>Seafood</primaryCategory><tags><li>Baked</li><li>DarkCuisine</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- Gloomy Dragonian race (Steam Workshop 2960593459) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_DragonianRace</defName>
+    <overrides>
+      <li><defName>Plant_Grass_DragoFood</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>Plant_TallGrass_DragoFood</defName><primaryCategory>VeganMeal</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- Kiiro Race (Steam Workshop 2988200143) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_KiiroRace</defName>
+    <overrides>
+      <li><defName>Kiiro_CannedCatFood</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
+      <li><defName>Kiiro_CannedMintedCatFood</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
+      <li><defName>Kiiro_BabyCatTreat</defName><primaryCategory></primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- Maru Race (Steam Workshop 2817638066) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_MaruRace</defName>
+    <overrides>
+      <li><defName>MR_huntfood</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- Miho, the celestial fox (Steam Workshop 2816826107) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_MihoRace</defName>
+    <overrides>
+      <li><defName>Miho_InariZushi</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>Miho_Ebony_Mulberry</defName><primaryCategory>Fruit</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- NewRatkinPlus (Steam Workshop 1578693166) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_RatkinRace</defName>
+    <overrides>
+      <li><defName>RK_Food_Hardtack</defName><primaryCategory>Canned</primaryCategory><tags><li>VeganMeal</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- Wolfein Race (Steam Workshop 3473140562) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_WolfeinRace</defName>
+    <overrides>
+      <li><defName>Wolfein_PackingStaffMeals</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
+      <li><defName>Wolfein_ResistanceArmyRations</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
+      <li><defName>Wolfein_HoneyGlazedHam</defName><primaryCategory>Meat</primaryCategory><tags><li>Sweets</li></tags></li>
+      <li><defName>Wolfein_GrilledSteak</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Wolfein_BoneBroth</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>Wolfein_BaconAndEggs</defName><primaryCategory>Meat</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>Wolfein_MeatBites</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>Wolfein_CustardCake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>Wolfein_MeatNutrientJuice</defName><primaryCategory>Meat</primaryCategory><tags><li>VeganMeal</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- Yuran race (Steam Workshop 2844129100) -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_YuranRace</defName>
+    <overrides>
+      <li><defName>YR_yedoensisBerries</defName><primaryCategory>Fruit</primaryCategory></li>
+      <li><defName>YR_yedoensisBerries_Dango</defName><primaryCategory>Sweets</primaryCategory><tags><li>Fruit</li><li>VeganMeal</li></tags></li>
+      <li><defName>YR_yedoensisBerries_RiceBall</defName><primaryCategory>VeganMeal</primaryCategory></li>
+      <li><defName>YR_yedoensisBerries_GrilledCorn</defName><primaryCategory>Barbecue</primaryCategory><tags><li>VeganMeal</li></tags></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+</Defs>

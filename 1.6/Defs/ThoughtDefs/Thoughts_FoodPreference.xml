@@ -49,13 +49,13 @@
     <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
     <stages>
       <li>
-        <label>taste fatigue</label>
-        <description>Every day it's the same thing... I can't even remember the last time I ate food I liked.</description>
+        <label>missing preferred food</label>
+        <description>I haven't eaten the kind of food I actually like in a while.</description>
         <baseMoodEffect>-3</baseMoodEffect>
       </li>
       <li>
-        <label>dietary aversion</label>
-        <description>This again! Can't we grow something else?</description>
+        <label>preference deprivation</label>
+        <description>It has been far too long since I ate the kind of food I prefer.</description>
         <baseMoodEffect>-8</baseMoodEffect>
       </li>
     </stages>

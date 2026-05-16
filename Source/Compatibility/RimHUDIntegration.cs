@@ -96,6 +96,11 @@ namespace PersonalFoodPreferences
                 return;
             }
 
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(pawn))
+            {
+                return;
+            }
+
             CompFoodPreference comp = pawn.GetComp<CompFoodPreference>();
             if (comp == null)
             {

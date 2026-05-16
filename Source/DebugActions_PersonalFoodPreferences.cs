@@ -10,9 +10,9 @@ namespace PersonalFoodPreferences
         [DebugAction("Personal Food Preferences", "Trigger preference deprivation", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
         private static void TriggerPreferenceDeprivation(Pawn pawn)
         {
-            if (pawn == null || !pawn.RaceProps.Humanlike)
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(pawn))
             {
-                Messages.Message("PFP dev: target must be a humanlike pawn.", MessageTypeDefOf.RejectInput, historical: false);
+                Messages.Message("PFP dev: target cannot have food preferences.", MessageTypeDefOf.RejectInput, historical: false);
                 return;
             }
 
@@ -47,9 +47,9 @@ namespace PersonalFoodPreferences
         [DebugAction("Personal Food Preferences", "Cycle picky eating severity", actionType = DebugActionType.ToolMapForPawns, allowedGameStates = AllowedGameStates.PlayingOnMap)]
         private static void CyclePickyEatingSeverity(Pawn pawn)
         {
-            if (pawn == null || !pawn.RaceProps.Humanlike)
+            if (!CompFoodPreference.CanPawnHaveFoodPreference(pawn))
             {
-                Messages.Message("PFP dev: target must be a humanlike pawn.", MessageTypeDefOf.RejectInput, historical: false);
+                Messages.Message("PFP dev: target cannot have food preferences.", MessageTypeDefOf.RejectInput, historical: false);
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace PersonalFoodPreferences
 
             Pawn pawn = Find.Selector.SelectedObjects
                 .OfType<Pawn>()
-                .FirstOrDefault(p => p.RaceProps.Humanlike);
+                .FirstOrDefault(CompFoodPreference.CanPawnHaveFoodPreference);
             if (pawn != null)
             {
                 CompFoodPreference comp = pawn.GetComp<CompFoodPreference>();

@@ -56,8 +56,7 @@ namespace PersonalFoodPreferences
         {
             CompFoodPreference preference = pawn?.GetComp<CompFoodPreference>();
             return pawn != null
-                && pawn.RaceProps.Humanlike
-                && pawn.needs?.food != null
+                && CompFoodPreference.CanPawnHaveFoodPreference(pawn)
                 && pawn.needs.mood != null
                 && preference != null
                 && preference.HasActivePreference
