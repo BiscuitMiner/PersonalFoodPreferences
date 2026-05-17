@@ -366,7 +366,7 @@
   <PersonalFoodPreferences.FoodOverrideMapDef>
     <defName>PFP_Override_CrimsonBerryDesserts</defName>
     <overrides>
-      <li><defName>CC_Parfait</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li><li>Fruit</li></tags></li>
+      <li><defName>CC_Parfait</defName><primaryCategory>Sweets</primaryCategory><tags><li>Dairy</li></tags></li>
       <li><defName>CC_LemonCreamToast</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
       <li><defName>CC_StrawberrySweetroll</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
       <li><defName>CC_FruitTart</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
@@ -381,16 +381,16 @@
   <PersonalFoodPreferences.FoodOverrideMapDef>
     <defName>PFP_Override_ErinsJapaneseCuisine</defName>
     <overrides>
-      <li><defName>EJC_Tempura</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
+      <li><defName>EJC_Tempura</defName><primaryCategory>Fried</primaryCategory></li>
       <li><defName>EJC_Onigiri</defName><primaryCategory>VeganMeal</primaryCategory></li>
       <li><defName>EJC_Katsudon</defName><primaryCategory>Fried</primaryCategory><tags><li>Meat</li></tags></li>
-      <li><defName>EJC_Ramen</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
-      <li><defName>EJC_Udon</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
-      <li><defName>EJC_Yakisoba</defName><primaryCategory>Meat</primaryCategory></li>
+      <li><defName>EJC_Ramen</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>EJC_Udon</defName><primaryCategory>Soup</primaryCategory></li>
+      <li><defName>EJC_Yakisoba</defName><primaryCategory></primaryCategory></li>
       <li><defName>EJC_CurryRice</defName><primaryCategory>Meat</primaryCategory></li>
-      <li><defName>EJC_Zarusoba</defName><primaryCategory>Meat</primaryCategory></li>
-      <li><defName>EJC_Unajuu</defName><primaryCategory>Seafood</primaryCategory></li>
-      <li><defName>EJC_InstantRamen</defName><primaryCategory>Canned</primaryCategory><tags><li>Soup</li><li>Meat</li></tags></li>
+      <li><defName>EJC_Zarusoba</defName><primaryCategory></primaryCategory></li>
+      <li><defName>EJC_Unajuu</defName><primaryCategory></primaryCategory></li>
+      <li><defName>EJC_InstantRamen</defName><primaryCategory>Canned</primaryCategory></li>
     </overrides>
   </PersonalFoodPreferences.FoodOverrideMapDef>
 
@@ -400,15 +400,15 @@
   <PersonalFoodPreferences.FoodOverrideMapDef>
     <defName>PFP_Override_UNAGICafe</defName>
     <overrides>
-      <li><defName>UNAGI_RicePancake</defName><primaryCategory>Baked</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>UNAGI_RicePancake</defName><primaryCategory>Baked</primaryCategory></li>
       <li><defName>UNAGI_RiceBagel</defName><primaryCategory>Baked</primaryCategory></li>
-      <li><defName>UNAGI_Bento</defName><primaryCategory>Meat</primaryCategory></li>
-      <li><defName>UNA_PotatoGratin</defName><primaryCategory>Dairy</primaryCategory><tags><li>Baked</li></tags></li>
+      <li><defName>UNAGI_Bento</defName><primaryCategory></primaryCategory></li>
+      <li><defName>UNA_PotatoGratin</defName><primaryCategory>Baked</primaryCategory></li>
       <li><defName>UNA_Jelly</defName><primaryCategory>Sweets</primaryCategory><tags><li>Fruit</li><li>DarkCuisine</li></tags></li>
-      <li><defName>UNA_Berrycake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li><li>Dairy</li></tags></li>
+      <li><defName>UNA_Berrycake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li><li>Fruit</li></tags></li>
       <li><defName>UNA_HerbalTea</defName><primaryCategory>VeganMeal</primaryCategory></li>
-      <li><defName>UNA_CornDango</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
-      <li><defName>UNAGI_SweetResearchCandy</defName><primaryCategory>Sweets</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>UNA_CornDango</defName><primaryCategory>Sweets</primaryCategory></li>
+      <li><defName>UNAGI_SweetResearchCandy</defName><primaryCategory>Sweets</primaryCategory></li>
     </overrides>
   </PersonalFoodPreferences.FoodOverrideMapDef>
 

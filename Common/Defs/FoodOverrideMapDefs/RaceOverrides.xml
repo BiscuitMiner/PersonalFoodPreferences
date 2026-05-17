@@ -35,8 +35,8 @@
   <PersonalFoodPreferences.FoodOverrideMapDef>
     <defName>PFP_Override_KiiroRace</defName>
     <overrides>
-      <li><defName>Kiiro_CannedCatFood</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
-      <li><defName>Kiiro_CannedMintedCatFood</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
+      <li><defName>Kiiro_CannedCatFood</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Kiiro_CannedMintedCatFood</defName><primaryCategory>Canned</primaryCategory></li>
       <li><defName>Kiiro_BabyCatTreat</defName><primaryCategory></primaryCategory></li>
     </overrides>
   </PersonalFoodPreferences.FoodOverrideMapDef>
@@ -70,15 +70,15 @@
   <PersonalFoodPreferences.FoodOverrideMapDef>
     <defName>PFP_Override_WolfeinRace</defName>
     <overrides>
-      <li><defName>Wolfein_PackingStaffMeals</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
-      <li><defName>Wolfein_ResistanceArmyRations</defName><primaryCategory>Canned</primaryCategory><tags><li>Meat</li><li>VeganMeal</li></tags></li>
+      <li><defName>Wolfein_PackingStaffMeals</defName><primaryCategory>Canned</primaryCategory></li>
+      <li><defName>Wolfein_ResistanceArmyRations</defName><primaryCategory>Canned</primaryCategory></li>
       <li><defName>Wolfein_HoneyGlazedHam</defName><primaryCategory>Meat</primaryCategory><tags><li>Sweets</li></tags></li>
       <li><defName>Wolfein_GrilledSteak</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
       <li><defName>Wolfein_BoneBroth</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
       <li><defName>Wolfein_BaconAndEggs</defName><primaryCategory>Meat</primaryCategory><tags><li>Dairy</li></tags></li>
       <li><defName>Wolfein_MeatBites</defName><primaryCategory>Meat</primaryCategory></li>
       <li><defName>Wolfein_CustardCake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
-      <li><defName>Wolfein_MeatNutrientJuice</defName><primaryCategory>Meat</primaryCategory><tags><li>VeganMeal</li></tags></li>
+      <li><defName>Wolfein_MeatNutrientJuice</defName><primaryCategory>Meat</primaryCategory></li>
     </overrides>
   </PersonalFoodPreferences.FoodOverrideMapDef>
 
