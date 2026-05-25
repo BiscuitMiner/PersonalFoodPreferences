@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnColumnDef>
+    <defName>PFP_FoodPreference</defName>
+    <headerIcon>FoodPreferences/Meat</headerIcon>
+    <workerClass>PersonalFoodPreferences.PawnColumnWorker_FoodPreference</workerClass>
+    <headerTip>Food preference</headerTip>
+    <sortable>true</sortable>
+  </PawnColumnDef>
+
+</Defs>

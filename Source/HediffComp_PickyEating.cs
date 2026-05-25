@@ -20,7 +20,7 @@ namespace PersonalFoodPreferences
         public const float SeveritySevere = 0.6f;
         public const float SeverityPermanent = 0.95f;
 
-        // Counter fields — use pfp_ prefix to avoid key collisions with old CompFoodPreference Scribe keys.
+        // Counter fields
         public int dietaryMonotonyCounter;
         public int consecutivePreferredFoodCounter;
         public int severePickyEatingRecoveryCounter;
@@ -84,13 +84,11 @@ namespace PersonalFoodPreferences
             {
                 // Non-preferred raw ingredients / fruit are neutral:
                 // they break the consecutive-preferred streak but do NOT count
-                // toward picky-eating recovery. Only proper cooked meals
-                // (CountsForRecovery = true) advance the recovery counters.
-                // 吃非偏好生食材無法消除挑食症。
+                // toward picky-eating recovery.
                 consecutivePreferredFoodCounter = 0;
             }
 
-            UpdateSeverity(countsForMonotony);
+            UpdateSeverity();
         }
 
         public void ResetCounters()
@@ -103,10 +101,9 @@ namespace PersonalFoodPreferences
             parent.Severity = SeverityNone;
         }
 
-        private void UpdateSeverity(bool? countsForMonotony = null)
+        private void UpdateSeverity()
         {
-            PFP_Utility.DebugLog($"UpdateSeverity: countsForMonotony={countsForMonotony} "
-                + $"diet={dietaryMonotonyCounter} cons={consecutivePreferredFoodCounter} "
+            PFP_Utility.DebugLog($"UpdateSeverity: diet={dietaryMonotonyCounter} cons={consecutivePreferredFoodCounter} "
                 + $"sR={severePickyEatingRecoveryCounter} mR={mildPickyEatingRecoveryCounter} "
                 + $"perm={isPermanentPickyEating}");
 
@@ -118,11 +115,11 @@ namespace PersonalFoodPreferences
             }
 
             PersonalFoodPreferencesSettings settings = PersonalFoodPreferencesMod.Settings;
-            int permanentThreshold = settings?.permanentPickyEatingThreshold ?? 20;
-            int severeThreshold = settings?.severePickyEatingThreshold ?? PreferenceDeprivationUtility.SeverePickyEatingThreshold;
-            int mildThreshold = settings?.mildPickyEatingThreshold ?? 5;
-            int recoveryThreshold = settings?.recoveryThreshold ?? 3;
-            int severeRecoveryThreshold = settings?.severePickyEatingRecoveryThreshold ?? PreferenceDeprivationUtility.SeverePickyEatingRecoveryThreshold;
+            int permanentThreshold = settings?.permanentPickyEatingThreshold ?? 40;
+            int severeThreshold = settings?.severePickyEatingThreshold ?? 20;
+            int mildThreshold = settings?.mildPickyEatingThreshold ?? 10;
+            int recoveryThreshold = settings?.recoveryThreshold ?? 5;
+            int severeRecoveryThreshold = settings?.severePickyEatingRecoveryThreshold ?? 8;
 
             if (consecutivePreferredFoodCounter >= permanentThreshold)
             {
@@ -241,7 +238,7 @@ namespace PersonalFoodPreferences
             if (pawn == null)
                 return;
 
-            // 1) Migrate from old CompFoodPreference counters.
+            // Migrate from old CompFoodPreference counters (but NOT thresholds)
             CompFoodPreference oldComp = pawn.GetComp<CompFoodPreference>();
             if (oldComp != null)
             {
@@ -265,70 +262,20 @@ namespace PersonalFoodPreferences
                 if (migrated)
                 {
                     PFP_Utility.DebugLog($"TryMigrate FROM OLD COMP: diet={dietaryMonotonyCounter} cons={consecutivePreferredFoodCounter} perm={isPermanentPickyEating}");
+                    
+                    // Clear old comp data to prevent double migration
                     oldComp.dietaryMonotonyCounter = 0;
                     oldComp.consecutivePreferredFoodCounter = 0;
                     oldComp.severePickyEatingRecoveryCounter = 0;
                     oldComp.isPermanentPickyEating = false;
+                    
                     UpdateSeverity();
                     return;
                 }
             }
 
-            // 2) Migrate from old per-severity hediffs (PFP_MildPickyEating, etc.).
-            if (pawn.health?.hediffSet == null)
-                return;
-
-            HediffDef oldMildDef = DefDatabase<HediffDef>.GetNamedSilentFail("PFP_MildPickyEating");
-            HediffDef oldSevereDef = DefDatabase<HediffDef>.GetNamedSilentFail("PFP_SeverePickyEating");
-            HediffDef oldPermanentDef = DefDatabase<HediffDef>.GetNamedSilentFail("PFP_PermanentPickyEating");
-
-            PersonalFoodPreferencesSettings settings = PersonalFoodPreferencesMod.Settings;
-            int mildThreshold = settings?.mildPickyEatingThreshold ?? 5;
-            int severeThreshold = settings?.severePickyEatingThreshold ?? PreferenceDeprivationUtility.SeverePickyEatingThreshold;
-            int permanentThreshold = settings?.permanentPickyEatingThreshold ?? 20;
-
-            if (oldPermanentDef != null)
-            {
-                Hediff oldPermanent = pawn.health.hediffSet.GetFirstHediffOfDef(oldPermanentDef);
-                if (oldPermanent != null)
-                {
-                    isPermanentPickyEating = true;
-                    dietaryMonotonyCounter = permanentThreshold;
-                    consecutivePreferredFoodCounter = permanentThreshold;
-                    pawn.health.RemoveHediff(oldPermanent);
-                }
-            }
-
-            if (!isPermanentPickyEating && oldSevereDef != null)
-            {
-                Hediff oldSevere = pawn.health.hediffSet.GetFirstHediffOfDef(oldSevereDef);
-                if (oldSevere != null)
-                {
-                    dietaryMonotonyCounter = severeThreshold;
-                    consecutivePreferredFoodCounter = severeThreshold;
-                    pawn.health.RemoveHediff(oldSevere);
-                }
-            }
-
-            if (!isPermanentPickyEating && dietaryMonotonyCounter == 0 && oldMildDef != null)
-            {
-                Hediff oldMild = pawn.health.hediffSet.GetFirstHediffOfDef(oldMildDef);
-                if (oldMild != null)
-                {
-                    dietaryMonotonyCounter = mildThreshold;
-                    pawn.health.RemoveHediff(oldMild);
-                }
-            }
-
-            if (dietaryMonotonyCounter > 0 || isPermanentPickyEating)
-            {
-                PFP_Utility.DebugLog($"TryMigrate FROM OLD HEDIFF: diet={dietaryMonotonyCounter} cons={consecutivePreferredFoodCounter} perm={isPermanentPickyEating}");
-                UpdateSeverity();
-            }
-            else
-            {
-                PFP_Utility.DebugLog($"TryMigrate: no old data found");
-            }
+            // No migration from old hediffs - thresholds are handled by Settings now
+            PFP_Utility.DebugLog($"TryMigrate: no old CompFoodPreference data found");
         }
     }
 }

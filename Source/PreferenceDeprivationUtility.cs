@@ -16,8 +16,8 @@ namespace PersonalFoodPreferences
     public static class PreferenceDeprivationUtility
     {
         public const int TicksPerDay = 60000;
-        public const int SeverePickyEatingThreshold = 12;
-        public const int SeverePickyEatingRecoveryThreshold = 5;
+        public const int SeverePickyEatingThreshold = 20;
+        public const int SeverePickyEatingRecoveryThreshold = 8;
         public const int SeverePickyEatingMoodPenalty = -8;
         public const float MildMoveSpeedPenalty = -0.05f;
         public const float MildWorkSpeedPenalty = -0.05f;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/PawnTableDef[defName="Assign"]/columns/li[text()="Ideo"]</xpath>
+    <match Class="PatchOperationInsert">
+      <xpath>/Defs/PawnTableDef[defName="Assign"]/columns/li[text()="Ideo"]</xpath>
+      <order>Prepend</order>
+      <value>
+        <li>PFP_FoodPreference</li>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationInsert">
+      <xpath>/Defs/PawnTableDef[defName="Assign"]/columns/li[text()="LabelShortWithIcon"]</xpath>
+      <order>Append</order>
+      <value>
+        <li>PFP_FoodPreference</li>
+      </value>
+    </nomatch>
+  </Operation>
+
+</Patch>

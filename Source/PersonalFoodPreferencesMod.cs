@@ -77,6 +77,8 @@ namespace PersonalFoodPreferences
                 y += gap;
                 Widgets.Label(new Rect(viewRect.x, y, viewRect.width, rowHeight), "FoodPreference_SettingsPickyEatingHeader".Translate());
                 y += rowHeight;
+                
+                // 轻度阈值：范围 1-98（因为重度至少要 +2）
                 DrawIntSlider(
                     viewRect.x,
                     ref y,
@@ -84,23 +86,28 @@ namespace PersonalFoodPreferences
                     "FoodPreference_SettingsMildPickyEatingThreshold".Translate(),
                     ref Settings.mildPickyEatingThreshold,
                     1,
-                    100);
+                    98);
+                
+                // 重度阈值：最小值 = 轻度 + 2
                 DrawIntSlider(
                     viewRect.x,
                     ref y,
                     viewRect.width,
                     "FoodPreference_SettingsSeverePickyEatingThreshold".Translate(),
                     ref Settings.severePickyEatingThreshold,
-                    Settings.mildPickyEatingThreshold,
+                    Settings.mildPickyEatingThreshold + 2,
                     200);
+                
+                // 永久阈值：最小值 = 重度 + 2
                 DrawIntSlider(
                     viewRect.x,
                     ref y,
                     viewRect.width,
                     "FoodPreference_SettingsPermanentPickyEatingThreshold".Translate(),
                     ref Settings.permanentPickyEatingThreshold,
-                    Settings.severePickyEatingThreshold,
+                    Settings.severePickyEatingThreshold + 2,
                     200);
+                
                 DrawIntSlider(
                     viewRect.x,
                     ref y,
@@ -210,6 +217,5 @@ namespace PersonalFoodPreferences
                 roundTo: 1f);
             y += 34f;
         }
-
     }
 }
