@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PFP_RulePack_FoodPreferenceShare_InitiatorLog.rulePack.rulesStrings>
+    <li>r_logentry->[INITIATOR_nameDef] and [RECIPIENT_nameDef] [talkedabout] [INITIATOR_possessive] love of ##FOODPREFERENCE##.</li>
+    <li>r_logentry->[INITIATOR_nameDef] [talkedabout] [INITIATOR_possessive] favorite food, ##FOODPREFERENCE##, with [RECIPIENT_nameDef].</li>
+    <li>r_logentry->[INITIATOR_nameDef] [shared] [RECIPIENT_nameDef] [INITIATOR_possessive] passion for ##FOODPREFERENCE##.</li>
+    <li>r_logentry->[INITIATOR_nameDef] and [RECIPIENT_nameDef] chatted about ##FOODPREFERENCE## ingredient choices.</li>
+    <li>r_logentry->[INITIATOR_nameDef] [enthused] to [RECIPIENT_nameDef] about ##FOODPREFERENCE##.</li>
+    <li>r_logentry->[INITIATOR_nameDef] [expressed] [INITIATOR_possessive] fondness for ##FOODPREFERENCE## to [RECIPIENT_nameDef].</li>
+    <li>talkedabout(p=5)->chatted about</li>
+    <li>talkedabout->shared a word about</li>
+    <li>talkedabout->spoke about</li>
+    <li>talkedabout->gabbed about</li>
+    <li>talkedabout->talked about</li>
+    <li>shared->told</li>
+    <li>shared->shared with</li>
+    <li>shared->confided to</li>
+    <li>enthused->enthused</li>
+    <li>enthused->gushed</li>
+    <li>enthused->raved</li>
+    <li>expressed->expressed</li>
+    <li>expressed->voiced</li>
+    <li>expressed->declared</li>
+  </PFP_RulePack_FoodPreferenceShare_InitiatorLog.rulePack.rulesStrings>
+
+  <PFP_RulePack_FoodPreferenceShare_RecipientLog.rulePack.rulesStrings>
+    <li>r_logentry->[INITIATOR_nameDef] [talkedabout] ##FOODPREFERENCE## with you.</li>
+    <li>r_logentry->[INITIATOR_nameDef] [shared] you [INITIATOR_possessive] love of ##FOODPREFERENCE##.</li>
+    <li>r_logentry->[INITIATOR_nameDef] [enthused] to you about ##FOODPREFERENCE##.</li>
+    <li>talkedabout(p=5)->chatted about</li>
+    <li>talkedabout->spoke about</li>
+    <li>talkedabout->talked about</li>
+    <li>shared->told</li>
+    <li>shared->shared with</li>
+    <li>enthused->enthused</li>
+    <li>enthused->gushed</li>
+    <li>enthused->raved</li>
+  </PFP_RulePack_FoodPreferenceShare_RecipientLog.rulePack.rulesStrings>
+</LanguageData>

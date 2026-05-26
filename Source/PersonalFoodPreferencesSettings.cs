@@ -1,4 +1,4 @@
-using Verse;
+﻿using Verse;
 
 namespace PersonalFoodPreferences
 {
@@ -9,7 +9,6 @@ namespace PersonalFoodPreferences
         public int preferredFoodMoodOffset = 5;
         public int nonPreferredFoodMoodOffset = -5;
 
-        // 新默认值：10/20/40/5/8
         public int mildPickyEatingThreshold = 10;
         public int severePickyEatingThreshold = 20;
         public int permanentPickyEatingThreshold = 40;
@@ -21,6 +20,11 @@ namespace PersonalFoodPreferences
 
         public int tasteFatigueDays = 15;
         public int dietaryAversionDays = 30;
+
+        // Food preference sharing in social interactions.
+        // Weight relative to other random interactions (Chitchat = 1.0, DeepTalk = 0.075).
+        // Default 0.04 makes it a rare but noticeable event.
+        public float foodPreferenceShareWeight = 0.04f;
 
         public override void ExposeData()
         {
@@ -38,6 +42,7 @@ namespace PersonalFoodPreferences
             Scribe_Values.Look(ref permanentPickyEatingMoodPenalty, "permanentPickyEatingMoodPenalty", -12);
             Scribe_Values.Look(ref tasteFatigueDays, "tasteFatigueDays", 15);
             Scribe_Values.Look(ref dietaryAversionDays, "dietaryAversionDays", 30);
+            Scribe_Values.Look(ref foodPreferenceShareWeight, "foodPreferenceShareWeight", 0.04f);
 
             ClampValues();
         }
@@ -47,13 +52,11 @@ namespace PersonalFoodPreferences
             preferredFoodMoodOffset = Clamp(preferredFoodMoodOffset, 0, 50);
             nonPreferredFoodMoodOffset = Clamp(nonPreferredFoodMoodOffset, -50, 0);
             
-            mildPickyEatingThreshold = Clamp(mildPickyEatingThreshold, 1, 98);  // 上限 98
+            mildPickyEatingThreshold = Clamp(mildPickyEatingThreshold, 1, 98);
             
-            // 重度 ≥ 轻度 + 2
             int minSevere = mildPickyEatingThreshold + 2;
             severePickyEatingThreshold = Clamp(severePickyEatingThreshold, minSevere, 200);
             
-            // 永久 ≥ 重度 + 2
             int minPermanent = severePickyEatingThreshold + 2;
             permanentPickyEatingThreshold = Clamp(permanentPickyEatingThreshold, minPermanent, 200);
             
@@ -64,6 +67,7 @@ namespace PersonalFoodPreferences
             permanentPickyEatingMoodPenalty = Clamp(permanentPickyEatingMoodPenalty, -50, 0);
             tasteFatigueDays = Clamp(tasteFatigueDays, 1, dietaryAversionDays - 1);
             dietaryAversionDays = Clamp(dietaryAversionDays, tasteFatigueDays + 1, 60);
+            foodPreferenceShareWeight = ClampFloat(foodPreferenceShareWeight, 0f, 1f);
         }
 
         public void ResetToDefaults()
@@ -81,9 +85,25 @@ namespace PersonalFoodPreferences
             permanentPickyEatingMoodPenalty = -12;
             tasteFatigueDays = 15;
             dietaryAversionDays = 30;
+            foodPreferenceShareWeight = 0.04f;
         }
 
         private static int Clamp(int value, int min, int max)
+        {
+            if (value < min)
+            {
+                return min;
+            }
+
+            if (value > max)
+            {
+                return max;
+            }
+
+            return value;
+        }
+
+        private static float ClampFloat(float value, float min, float max)
         {
             if (value < min)
             {

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ============================================================
+       Personal Food Preferences: Share Food Preference Interaction
+       
+       A randomly selected social interaction where the initiator
+       shares their love of a specific food category with the recipient.
+       
+       Log grammar rules are in RulePackDefs:
+         - PFP_RulePack_FoodPreferenceShare_InitiatorLog (third-person)
+         - PFP_RulePack_FoodPreferenceShare_RecipientLog (second-person)
+       Translated via DefInjected/RulePackDef/ for other languages.
+       Minimal inline rulesStrings serve as fallback.
+       ============================================================ -->
+
+  <InteractionDef>
+    <defName>PFP_ShareFoodPreference</defName>
+    <label>share food preference</label>
+    <workerClass>PersonalFoodPreferences.InteractionWorker_FoodPreferenceShare</workerClass>
+    <symbol>Things/Mote/SpeechSymbols/Chitchat</symbol>
+    <socialFightBaseChance>0</socialFightBaseChance>
+    <initiatorXpGainSkill>Social</initiatorXpGainSkill>
+    <initiatorXpGainAmount>2</initiatorXpGainAmount>
+    <ignoreTimeSinceLastInteraction>false</ignoreTimeSinceLastInteraction>
+    <logRulesInitiator>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] and [RECIPIENT_nameDef] talked about ##FOODPREFERENCE##.</li>
+      </rulesStrings>
+      <include>
+        <li>PFP_RulePack_FoodPreferenceShare_InitiatorLog</li>
+      </include>
+    </logRulesInitiator>
+    <logRulesRecipient>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] talked about ##FOODPREFERENCE## with you.</li>
+      </rulesStrings>
+      <include>
+        <li>PFP_RulePack_FoodPreferenceShare_RecipientLog</li>
+      </include>
+    </logRulesRecipient>
+  </InteractionDef>
+
+</Defs>

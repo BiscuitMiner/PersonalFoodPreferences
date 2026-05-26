@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RulePackDef>
+    <defName>PFP_RulePack_FoodPreferenceShare_RecipientLog</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_nameDef] [talkedabout] ##FOODPREFERENCE## with you.</li>
+        <li>r_logentry->[INITIATOR_nameDef] [shared] you [INITIATOR_possessive] love of ##FOODPREFERENCE##.</li>
+        <li>r_logentry->[INITIATOR_nameDef] [enthused] to you about ##FOODPREFERENCE##.</li>
+
+        <li>talkedabout(p=5)->chatted about</li>
+        <li>talkedabout->spoke about</li>
+        <li>talkedabout->talked about</li>
+
+        <li>shared->told</li>
+        <li>shared->shared with</li>
+
+        <li>enthused->enthused</li>
+        <li>enthused->gushed</li>
+        <li>enthused->raved</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

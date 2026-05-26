@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- 发起者视角（第三人称） -->
+  <PFP_RulePack_FoodPreferenceShare_InitiatorLog.rulePack.rulesStrings>
+    <li>r_logentry->[INITIATOR_nameDef]和[RECIPIENT_nameDef][talkedabout][INITIATOR_possessive]对##FOODPREFERENCE##的热爱。</li>
+    <li>r_logentry->[INITIATOR_nameDef]向[RECIPIENT_nameDef][talkedabout][INITIATOR_possessive]最爱的##FOODPREFERENCE##。</li>
+    <li>r_logentry->[INITIATOR_nameDef][shared][RECIPIENT_nameDef][INITIATOR_possessive]对##FOODPREFERENCE##的热情。</li>
+    <li>r_logentry->[INITIATOR_nameDef]和[RECIPIENT_nameDef]聊到了对##FOODPREFERENCE##的食材选择。</li>
+    <li>r_logentry->[INITIATOR_nameDef]对[RECIPIENT_nameDef][enthused]##FOODPREFERENCE##。</li>
+    <li>r_logentry->[INITIATOR_nameDef]向[RECIPIENT_nameDef][expressed]对##FOODPREFERENCE##的喜爱。</li>
+
+    <li>talkedabout(p=5)->聊了</li>
+    <li>talkedabout->说了</li>
+    <li>talkedabout->谈了</li>
+    <li>talkedabout->聊起了</li>
+    <li>talkedabout->分享了</li>
+
+    <li>shared->告诉了</li>
+    <li>shared->分享给了</li>
+    <li>shared->向...诉说了</li>
+
+    <li>enthused->兴奋地聊起</li>
+    <li>enthused->滔滔不绝地讲了</li>
+    <li>enthused->热情地谈论</li>
+
+    <li>expressed->表达了</li>
+    <li>expressed->表示了</li>
+    <li>expressed->展现了</li>
+  </PFP_RulePack_FoodPreferenceShare_InitiatorLog.rulePack.rulesStrings>
+
+  <!-- 接收者视角（第二人称） -->
+  <PFP_RulePack_FoodPreferenceShare_RecipientLog.rulePack.rulesStrings>
+    <li>r_logentry->[INITIATOR_nameDef]和你[talkedabout]##FOODPREFERENCE##。</li>
+    <li>r_logentry->[INITIATOR_nameDef][shared]你[INITIATOR_possessive]对##FOODPREFERENCE##的热爱。</li>
+    <li>r_logentry->[INITIATOR_nameDef]对你[enthused]##FOODPREFERENCE##。</li>
+
+    <li>talkedabout(p=5)->聊了</li>
+    <li>talkedabout->说了</li>
+    <li>talkedabout->谈了</li>
+
+    <li>shared->告诉了</li>
+    <li>shared->分享给了</li>
+
+    <li>enthused->兴奋地聊起</li>
+    <li>enthused->滔滔不绝地讲了</li>
+    <li>enthused->热情地谈论</li>
+  </PFP_RulePack_FoodPreferenceShare_RecipientLog.rulePack.rulesStrings>
+</LanguageData>
