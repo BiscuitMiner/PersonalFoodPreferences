@@ -5,27 +5,25 @@ namespace PersonalFoodPreferences
 {
     internal static class FoodIngredientAnalyzer
     {
-        public static void AnalyzeInto(Thing food, FoodClassificationResult result)
+        public static FoodIngredientProfile AnalyzeInto(Thing food, FoodClassificationResult result)
         {
             if (food == null || food.def == null || result == null)
             {
-                return;
+                return FoodIngredientProfile.Empty;
             }
 
             CompIngredients compIngredients = food.TryGetComp<CompIngredients>();
             if (compIngredients?.ingredients == null || compIngredients.ingredients.Count == 0)
             {
-                return;
+                return FoodIngredientProfile.Empty;
             }
 
-            bool anyFish = false;
-            bool anyFruit = false;
-            bool anyDairy = false;
-            bool anySoyProduct = false;
-            bool anyDarkCuisine = false;
-            bool anyMeat = false;
-            bool allMeat = true;
-            bool vegan = true;
+            FoodIngredientProfile profile = new FoodIngredientProfile
+            {
+                HasIngredients = true,
+                AllMeat = true,
+                IsVegan = true
+            };
 
             for (int i = 0; i < compIngredients.ingredients.Count; i++)
             {
@@ -34,8 +32,8 @@ namespace PersonalFoodPreferences
 
                 if (ingredientIngestible == null)
                 {
-                    allMeat = false;
-                    vegan = false;
+                    profile.AllMeat = false;
+                    profile.IsVegan = false;
                     continue;
                 }
 
@@ -43,48 +41,62 @@ namespace PersonalFoodPreferences
 
                 if (ingredientAnalysis.HasTag("Seafood"))
                 {
-                    anyFish = true;
+                    profile.AnySeafood = true;
                 }
 
                 if (ingredientAnalysis.HasTag("Dairy"))
                 {
-                    anyDairy = true;
+                    profile.AnyDairy = true;
+                    profile.AnyAnimalProduct = true;
                 }
 
                 if (ingredientAnalysis.HasTag("SoyProduct"))
                 {
-                    anySoyProduct = true;
+                    profile.AnySoyProduct = true;
                 }
 
                 if (ingredientAnalysis.HasTag("DarkCuisine"))
                 {
-                    anyDarkCuisine = true;
+                    profile.AnyDarkCuisine = true;
                 }
 
                 FoodTypeFlags ingredientType = ingredientIngestible.foodType;
 
                 if ((ingredientType & FoodTypeFlags.Meat) != 0)
                 {
-                    anyMeat = true;
+                    profile.AnyMeat = true;
                 }
                 else
                 {
-                    allMeat = false;
+                    profile.AllMeat = false;
                 }
 
-                if ((ingredientType & (FoodTypeFlags.Meat | FoodTypeFlags.AnimalProduct | FoodTypeFlags.Corpse)) != 0)
+                if ((ingredientType & FoodTypeFlags.AnimalProduct) != 0)
                 {
-                    vegan = false;
+                    profile.AnyAnimalProduct = true;
+                }
+
+                if ((ingredientType & FoodTypeFlags.Corpse) != 0)
+                {
+                    profile.AnyCorpse = true;
                 }
 
                 if ((ingredientType & FoodTypeFlags.VegetableOrFruit) != 0
                     && ingredientAnalysis.HasTag("Fruit"))
                 {
-                    anyFruit = true;
+                    profile.AnyFruit = true;
                 }
             }
 
-            if (anyFish)
+            if (profile.AnyMeat
+                || profile.AnySeafood
+                || profile.AnyAnimalProduct
+                || profile.AnyCorpse)
+            {
+                profile.IsVegan = false;
+            }
+
+            if (profile.AnySeafood)
             {
                 result.AddTag("Seafood");
                 if (result.IsUnknown)
@@ -93,7 +105,7 @@ namespace PersonalFoodPreferences
                 }
             }
 
-            if (allMeat && anyMeat)
+            if (profile.AllMeat && profile.AnyMeat)
             {
                 result.AddTag("Meat");
                 if (result.IsUnknown)
@@ -102,7 +114,7 @@ namespace PersonalFoodPreferences
                 }
             }
 
-            if (vegan)
+            if (profile.IsVegan)
             {
                 result.AddTag("VeganMeal");
                 if (result.IsUnknown && FoodSpecialCaseRules.IsMeal(food.def))
@@ -111,12 +123,12 @@ namespace PersonalFoodPreferences
                 }
             }
 
-            if (anyFruit)
+            if (profile.AnyFruit)
             {
                 result.AddTag("Fruit");
             }
 
-            if (anyDairy)
+            if (profile.AnyDairy)
             {
                 result.AddTag("Dairy");
                 if (result.IsUnknown && FoodSpecialCaseRules.IsMeal(food.def))
@@ -125,7 +137,7 @@ namespace PersonalFoodPreferences
                 }
             }
 
-            if (anySoyProduct)
+            if (profile.AnySoyProduct)
             {
                 result.AddTag("SoyProduct");
                 if (result.IsUnknown && FoodSpecialCaseRules.IsMeal(food.def))
@@ -134,7 +146,7 @@ namespace PersonalFoodPreferences
                 }
             }
 
-            if (anyDarkCuisine)
+            if (profile.AnyDarkCuisine)
             {
                 result.AddTag("DarkCuisine");
                 if (result.IsUnknown && FoodSpecialCaseRules.IsMeal(food.def))
@@ -142,6 +154,8 @@ namespace PersonalFoodPreferences
                     result.SetPrimary("DarkCuisine", "Ingredients");
                 }
             }
+
+            return profile;
         }
     }
 }

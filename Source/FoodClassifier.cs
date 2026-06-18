@@ -27,10 +27,11 @@ namespace PersonalFoodPreferences
             FoodDefAnalysis defAnalysis = FoodDefAnalyzer.GetAnalysis(food.def);
             FoodClassificationResult result = CreateResultFromDefAnalysis(food.def, defAnalysis);
 
-            FoodIngredientAnalyzer.AnalyzeInto(food, result);
+            FoodIngredientProfile ingredientProfile = FoodIngredientAnalyzer.AnalyzeInto(food, result);
 
             // If no ingredient-level result produced a primary category, fall back to static food type.
             ApplyFoodTypeAndGenericFallback(food.def, result, defAnalysis);
+            FoodClassificationNormalizer.NormalizeResult(result, ingredientProfile);
 
             return result;
         }

@@ -61,6 +61,8 @@ namespace PersonalFoodPreferences
                 analysis.StaticTags.Add("Meal");
             }
 
+            FoodClassificationNormalizer.NormalizeDefAnalysis(analysis);
+
             return analysis;
         }
 

@@ -88,6 +88,37 @@ namespace PersonalFoodPreferences
             }
         }
 
+        public void RemoveTag(string tag)
+        {
+            tag = FoodCategoryRegistry.NormalizeCategory(tag);
+            if (!tag.NullOrEmpty())
+            {
+                Tags.Remove(tag);
+            }
+        }
+
+        public void ClearFallbackIf(string category)
+        {
+            if (FoodClassifier.CategoryEquals(FallbackCategory, category))
+            {
+                FallbackCategory = null;
+                RemoveTag(category);
+            }
+        }
+
+        public void ClearPrimaryIf(string category, string replacementSource = null)
+        {
+            if (!FoodClassifier.CategoryEquals(PrimaryCategory, category))
+            {
+                return;
+            }
+
+            PrimaryCategory = FoodCategoryRegistry.Unknown;
+            IsUnknown = true;
+            Source = replacementSource ?? "Normalized";
+            RemoveTag(category);
+        }
+
         public bool HasTag(string tag)
         {
             return !tag.NullOrEmpty() && Tags.Contains(tag);

@@ -1,0 +1,182 @@
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Food Type</th>
+      <th>Satisfies Preference</th>
+      <th>Removes Preference Deprivation</th>
+      <th>Preference Mood Bonus</th>
+      <th>Mood Bonus (while deprived)</th>
+      <th>Counts for Picky Eating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Meat meal</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: none / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Vegan meal</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: none / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Seafood</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: none / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Fruit</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: +1 / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Baked goods</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Meal: +5</td>
+      <td>Meal: +20</td>
+      <td>Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Sweets</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Meal: +5</td>
+      <td>Meal: +20</td>
+      <td>Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Soup</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Meal: +5</td>
+      <td>Meal: +20</td>
+      <td>Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Processed food</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Meal: +5</td>
+      <td>Meal: +20</td>
+      <td>Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Dairy</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: none / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Soy products</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: none / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Barbecue</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Meal: +5</td>
+      <td>Meal: +20</td>
+      <td>Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Fried food</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Meal: +5</td>
+      <td>Meal: +20</td>
+      <td>Meal: Yes</td>
+    </tr>
+    <tr>
+      <td>Dark cuisine</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Raw: none / Meal: +5</td>
+      <td>Raw: +10 / Meal: +20</td>
+      <td>Raw: No / Meal: Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<section>
+  <h2>Weak Satisfaction</h2>
+  <p>Means the pawn consumed a preferred ingredient, but not a complete preferred meal.</p>
+  <p>For example, eating raw meat, raw fish, raw vegetables, or grains can temporarily satisfy
+  a pawn's cravings and remove preference deprivation, but these foods do not provide the
+  full emotional satisfaction of a proper meal and will not contribute to picky-eating buildup.</p>
+</section>
+
+<section>
+  <h2>Recovery Restriction</h2>
+  <p>Eating non-preferred raw ingredients or raw fruit does <strong>not</strong> count toward picky-eating recovery.
+  The recovery counter only increments when a non-preferred proper meal (Meal) is consumed.</p>
+  <p>For example: a meat-preferring pawn with mild picky eating will not progress recovery by eating
+  raw vegetables — they must eat a cooked meal made from vegetables.</p>
+</section>
+
+<section>
+  <h2>Picky Eating Mechanism</h2>
+  <p>Requires <strong>Dietary Variety</strong> to be enabled in mod settings.</p>
+
+  <h3>Trigger</h3>
+  <ul>
+    <li><strong>Mild</strong>: Eat preferred proper meals consecutively (default 5). Only Meal-level primary/fallback matches count.</li>
+    <li><strong>Severe</strong>: Eat preferred proper meals consecutively (default 12).</li>
+    <li><strong>Permanent</strong>: Eat preferred proper meals consecutively (default 20).</li>
+  </ul>
+  <p>Only Meal-level preference matches (IsPrimaryMatch or IsFallbackMatch) accumulate picky-eating counters. Raw ingredients or Ingredient-level matches do not increase the tendency.</p>
+
+  <h3>Recovery / Demotion</h3>
+  <ul>
+    <li><strong>Mild → None</strong>: Eat non-preferred proper meals (default 3). Raw ingredients do not count.</li>
+    <li><strong>Severe → Mild</strong>: Eat non-preferred proper meals (default 5). Raw ingredients do not count.</li>
+    <li><strong>Permanent</strong>: Irreversible.</li>
+  </ul>
+  <p>Recovery counters reset to zero if a preferred meal is eaten midway. Thresholds are configurable in mod settings.</p>
+
+  <h3>Effects</h3>
+  <ul>
+    <li>Mild: Moving/Manipulation -5%, BloodFiltration/Immunity -10%</li>
+    <li>Severe: Moving/Manipulation -10%, BloodFiltration/Immunity -20%</li>
+    <li>Permanent: Moving/Manipulation -15%, BloodFiltration/Immunity -30%</li>
+    <li>Extra mood penalty when eating non-preferred food (configurable)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Preference Deprivation Mechanism</h2>
+  <p>Requires <strong>Dietary Variety</strong> to be enabled in mod settings.</p>
+
+  <h3>Trigger</h3>
+  <ul>
+    <li><strong>Taste Fatigue</strong>: No preferred food for X days (default 15). Stage 0: -3 mood.</li>
+    <li><strong>Dietary Aversion</strong>: No preferred food for X days (default 30). Stage 1: -8 mood.</li>
+    <li><strong>Deprivation Incident</strong>: Beyond dietary aversion days, a random incident can fire, adding the Preference Deprivation hediff (Eating -30%) with possible mental break (hide in room / sad wander).</li>
+  </ul>
+
+  <h3>Removal</h3>
+  <ul>
+    <li>Eating any food that satisfies the preference (raw or cooked) immediately removes the hediff.</li>
+    <li>Proper meal: +20 mood (PFP_PreferenceSatisfied). Raw ingredient: +10 mood.</li>
+    <li>Day thresholds are configurable in mod settings.</li>
+  </ul>
+</section>

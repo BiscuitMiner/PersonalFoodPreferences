@@ -75,7 +75,7 @@
       <li><defName>Wolfein_HoneyGlazedHam</defName><primaryCategory>Meat</primaryCategory><tags><li>Sweets</li></tags></li>
       <li><defName>Wolfein_GrilledSteak</defName><primaryCategory>Barbecue</primaryCategory><tags><li>Meat</li></tags></li>
       <li><defName>Wolfein_BoneBroth</defName><primaryCategory>Soup</primaryCategory><tags><li>Meat</li></tags></li>
-      <li><defName>Wolfein_BaconAndEggs</defName><primaryCategory>Meat</primaryCategory><tags><li>Dairy</li></tags></li>
+      <li><defName>Wolfein_BaconAndEggs</defName><primaryCategory>Dairy</primaryCategory></li>
       <li><defName>Wolfein_MeatBites</defName><primaryCategory>Meat</primaryCategory></li>
       <li><defName>Wolfein_CustardCake</defName><primaryCategory>Sweets</primaryCategory><tags><li>Baked</li></tags></li>
       <li><defName>Wolfein_MeatNutrientJuice</defName><primaryCategory>Meat</primaryCategory></li>
