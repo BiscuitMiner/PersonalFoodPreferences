@@ -75,7 +75,7 @@ namespace PersonalFoodPreferences
             yield return new StatDrawEntry(
                 StatCategory,
                 "FoodPreference_InfoTags".Translate(),
-                TranslateTags(result.Tags),
+                TranslateTags(result),
                 "FoodPreference_InfoTagsDesc".Translate(),
                 5049);
         }
@@ -108,15 +108,16 @@ namespace PersonalFoodPreferences
                 && !FoodClassifier.CategoryEquals(result.PrimaryCategory, FoodCategoryRegistry.Unknown);
         }
 
-        private static string TranslateTags(IEnumerable<string> tags)
+        private static string TranslateTags(FoodClassificationResult result)
         {
-            if (tags == null)
+            if (result?.Tags == null)
             {
                 return "FoodPreference_NoData".Translate();
             }
 
-            List<string> translated = tags
+            List<string> translated = result.Tags
                 .Where(FoodCategoryRegistry.IsKnownPreferenceCategory)
+                .Where(tag => !FoodClassifier.CategoryEquals(tag, result.PrimaryCategory))
                 .OrderBy(tag => tag)
                 .Select(TranslateCategory)
                 .Distinct()

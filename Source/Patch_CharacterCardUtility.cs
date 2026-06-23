@@ -149,11 +149,7 @@ namespace PersonalFoodPreferences
                     {
                         if (comp.TrySetPreference(pref))
                         {
-                            Messages.Message(
-                                "FoodPreference_DevSetSuccess".Translate(pawn.LabelShort, pref.Translate()),
-                                pawn,
-                                MessageTypeDefOf.TaskCompletion,
-                                historical: false);
+                            FoodPreferenceMessageUtility.NotifyPreferenceSet(pawn, pref);
                         }
                     });
                 })

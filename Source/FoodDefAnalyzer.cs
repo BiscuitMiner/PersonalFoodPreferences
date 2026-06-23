@@ -45,7 +45,7 @@ namespace PersonalFoodPreferences
             AnalyzeStaticCategories(def, analysis);
             AnalyzeFoodType(def, analysis);
 
-            analysis.IsMeal = (analysis.FoodType & FoodTypeFlags.Meal) != 0;
+            analysis.IsMeal = FoodSpecialCaseRules.IsMeal(def);
             analysis.IsRawIngredient =
                 !analysis.IsMeal
                 && ((analysis.FoodType & (FoodTypeFlags.Meat | FoodTypeFlags.VegetableOrFruit | FoodTypeFlags.Plant | FoodTypeFlags.AnimalProduct)) != 0);
@@ -122,12 +122,40 @@ namespace PersonalFoodPreferences
                 analysis.StaticTags.Add(analysis.ExtensionCategory);
             }
 
+            bool hasValidTag = false;
+            if (firstExtension.tags != null)
+            {
+                for (int i = 0; i < firstExtension.tags.Count; i++)
+                {
+                    string tag = FoodCategoryRegistry.NormalizeCategory(firstExtension.tags[i]);
+                    if (tag.NullOrEmpty())
+                    {
+                        continue;
+                    }
+
+                    if (FoodCategoryRegistry.IsKnownPreferenceCategory(tag))
+                    {
+                        analysis.StaticTags.Add(tag);
+                        hasValidTag = true;
+                    }
+                    else
+                    {
+                        Log.Warning("[PersonalFoodPreferences] Invalid tag '"
+                            + tag
+                            + "' on ThingDef '"
+                            + def.defName
+                            + "'. Tags must be one of the fixed preference categories.");
+                    }
+                }
+            }
+
             if (analysis.ExtensionCategory.NullOrEmpty()
-                && analysis.ExtensionFallbackCategory.NullOrEmpty())
+                && analysis.ExtensionFallbackCategory.NullOrEmpty()
+                && !hasValidTag)
             {
                 Log.Warning("[PersonalFoodPreferences] FoodCategoryExtension on ThingDef '"
                     + def.defName
-                    + "' has neither category nor valid fallbackCategory.");
+                    + "' has no category, valid fallbackCategory, or tags.");
             }
 
             if (extensionCount > 1)

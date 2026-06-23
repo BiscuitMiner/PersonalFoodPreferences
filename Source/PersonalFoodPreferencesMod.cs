@@ -21,6 +21,7 @@ namespace PersonalFoodPreferences
                 harmony.PatchAll();
                 EdBPrepareCarefullyIntegration.TryPatch(harmony);
                 RimHUDIntegration.TryPatch(harmony);
+                CharacterEditorIntegration.TryPatch(harmony);
                 harmonyPatched = true;
             }
         }

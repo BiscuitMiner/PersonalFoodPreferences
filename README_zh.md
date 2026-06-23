@@ -73,6 +73,14 @@
 
 若遇到未能正確分類的食物，歡迎提交 issue 或 compatibility patch。
 
+可選 UI 相容：
+
+* EdB Prepare Carefully：可在準備 Pawn 時設定食物偏好。
+* RimHUD：可在 inspect pane 顯示食物偏好資訊。
+* Character Editor：可在 Character Editor 介面中修改目前正在編輯 Pawn 的食物偏好。
+
+Character Editor 相容只同步「目前正在編輯的 Pawn」。不支援透過 Character Editor 自訂 pawn slot 保存、載入、匯入或匯出食物偏好。
+
 ---
 
 # 依賴
@@ -100,16 +108,13 @@
 
 # 給模組作者
 
-支援 `FoodCategoryExtension`：
+如果你的 MOD 想與 Personal Food Preferences 相容，請參考：
 
-```xml
-<li Class="PersonalFoodPreferences.FoodCategoryExtension">
-    <category>Dairy</category>
-    <fallbackCategory>Sweets</fallbackCategory>
-</li>
-```
+* [第三方 MOD 作者相容指南](Docs/Help/ModAuthorGuide.md)
 
-可直接為自訂食物指定分類。
+該文檔說明如何使用 `FoodCategoryExtension`、如何撰寫可選相容 patch、哪些食物不應加入 PFP 分類，以及如何把食物清單提供給 PFP 端維護 override。
+
+本專案的源碼會上傳至 GitHub；對外文檔以 `Docs/Help/` 目錄下的內容為準。
 
 ---
 

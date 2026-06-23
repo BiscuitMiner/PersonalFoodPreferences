@@ -237,11 +237,7 @@ namespace PersonalFoodPreferences
 
             if (comp != null && preference != comp.currentPreference && comp.TrySetPreference(preference))
             {
-                Messages.Message(
-                    "FoodPreference_DevSetSuccess".Translate(pawn.LabelShort, preference.Translate()),
-                    pawn,
-                    MessageTypeDefOf.TaskCompletion,
-                    historical: false);
+                FoodPreferenceMessageUtility.NotifyPreferenceSet(pawn, preference);
             }
 
             selectedPreference = preference;

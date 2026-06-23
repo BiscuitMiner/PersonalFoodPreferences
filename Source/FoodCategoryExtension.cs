@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Verse;
 
 namespace PersonalFoodPreferences
@@ -19,5 +20,11 @@ namespace PersonalFoodPreferences
         /// Example: BBQ -> Meat, Sushi -> Seafood.
         /// </summary>
         public string fallbackCategory;
+
+        /// <summary>
+        /// Secondary standard preference categories.
+        /// Example: Fried, VeganMeal, Dairy.
+        /// </summary>
+        public List<string> tags = new List<string>();
     }
 }

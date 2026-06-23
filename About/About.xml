@@ -18,6 +18,7 @@
     <li>brrainz.harmony</li>
     <li>Jaxe.RimHUD</li>
     <li>EdB.PrepareCarefully</li>
+    <li>void.charactereditor</li>
   </loadAfter>
   <description><![CDATA[讓每位殖民者都擁有自己的料理偏好。殖民者吃到喜歡的食物時會獲得心情加成；長時間吃不到偏好食物時，則可能產生負面心情與偏好剝奪狀態。
 
@@ -29,10 +30,11 @@
 可選相容 (非必需)：
 - RimHUD
 - EdB Prepare Carefully
+- Character Editor
 
 ---------------------------
 
-Gives every colonist their own food preference. Colonists gain a mood bonus when they eat food they like; if they go too long without their preferred food, they may suffer negative mood effects and preference deprivation. 
+Gives every colonist their own food preference. Colonists gain a mood bonus when they eat food they like; if they go too long without their preferred food, they may suffer negative mood effects and preference deprivation.
 
 The mod supports multiple food categories, ingredient-based detection, character card display, and adjustable settings.
 
@@ -41,5 +43,6 @@ Requirements:
 
 Optional Compatibility (not required):
 - RimHUD
-- EdB Prepare Carefully]]></description>
+- EdB Prepare Carefully
+- Character Editor]]></description>
 </ModMetaData>

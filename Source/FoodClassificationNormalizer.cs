@@ -41,12 +41,12 @@ namespace PersonalFoodPreferences
                 || hasSeafood
                 || hasDairy;
 
-            if (disallowMeat)
+            if (disallowMeat && !HasExplicitPrimary(analysis, Meat))
             {
                 RemoveCategory(analysis, Meat);
             }
 
-            if (disallowVeganMeal)
+            if (disallowVeganMeal && !HasExplicitPrimary(analysis, VeganMeal))
             {
                 RemoveCategory(analysis, VeganMeal);
             }
@@ -65,12 +65,12 @@ namespace PersonalFoodPreferences
                 return;
             }
 
-            if (!ingredients.IsVegan)
+            if (!ingredients.IsVegan && !HasExplicitPrimary(result, VeganMeal))
             {
                 RemoveCategory(result, VeganMeal);
             }
 
-            if (!ingredients.AllMeat)
+            if (!ingredients.AllMeat && !HasExplicitPrimary(result, Meat))
             {
                 RemoveCategory(result, Meat);
             }
@@ -86,6 +86,13 @@ namespace PersonalFoodPreferences
                 || FoodClassifier.CategoryEquals(analysis.StaticPrimaryCategory, category)
                 || FoodClassifier.CategoryEquals(analysis.StaticFallbackCategory, category)
                 || FoodClassifier.CategoryEquals(analysis.FoodTypePrimaryCategory, category);
+        }
+
+        private static bool HasExplicitPrimary(FoodDefAnalysis analysis, string category)
+        {
+            return FoodClassifier.CategoryEquals(analysis.ExtensionCategory, category)
+                || (FoodClassifier.CategoryEquals(analysis.StaticPrimaryCategory, category)
+                    && IsExplicitPrimarySource(analysis.StaticPrimarySource));
         }
 
         private static void RemoveCategory(FoodDefAnalysis analysis, string category)
@@ -126,6 +133,18 @@ namespace PersonalFoodPreferences
                 return;
             }
 
+            if (HasExplicitPrimary(result, Meat))
+            {
+                RemoveCategory(result, VeganMeal);
+                return;
+            }
+
+            if (HasExplicitPrimary(result, VeganMeal))
+            {
+                RemoveCategory(result, Meat);
+                return;
+            }
+
             RemoveCategory(result, Meat);
             RemoveCategory(result, VeganMeal);
         }
@@ -135,6 +154,17 @@ namespace PersonalFoodPreferences
             return result.HasTag(category)
                 || FoodClassifier.CategoryEquals(result.PrimaryCategory, category)
                 || FoodClassifier.CategoryEquals(result.FallbackCategory, category);
+        }
+
+        private static bool HasExplicitPrimary(FoodClassificationResult result, string category)
+        {
+            return FoodClassifier.CategoryEquals(result?.PrimaryCategory, category)
+                && IsExplicitPrimarySource(result.Source);
+        }
+
+        private static bool IsExplicitPrimarySource(string source)
+        {
+            return source == "Extension" || source == "ExactOverride";
         }
 
         private static void RemoveCategory(FoodClassificationResult result, string category)

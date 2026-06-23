@@ -40,8 +40,7 @@ namespace PersonalFoodPreferences
 
         public static bool IsMeal(ThingDef def)
         {
-            return def?.ingestible != null
-                && (def.ingestible.foodType & FoodTypeFlags.Meal) != 0;
+            return def?.ingestible != null && def.ingestible.IsMeal;
         }
 
         public static bool IsInsectMeatFoodSource(ThingDef def)

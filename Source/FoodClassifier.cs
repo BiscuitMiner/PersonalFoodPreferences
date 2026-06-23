@@ -201,11 +201,6 @@ namespace PersonalFoodPreferences
             {
                 result.SetPrimary(defAnalysis.ExtensionCategory, "Extension");
             }
-            else if (!defAnalysis.ExtensionFallbackCategory.NullOrEmpty())
-            {
-                // Allows XML to only provide fallbackCategory for simple compatibility cases.
-                result.SetPrimary(defAnalysis.ExtensionFallbackCategory, "ExtensionFallback");
-            }
 
             if (!defAnalysis.ExtensionFallbackCategory.NullOrEmpty())
             {

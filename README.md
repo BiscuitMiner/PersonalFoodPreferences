@@ -72,6 +72,14 @@ Designed with compatibility in mind for:
 
 If you encounter incorrectly classified food, feel free to submit an issue or compatibility patch.
 
+Optional UI integrations:
+
+* EdB Prepare Carefully: food preferences can be edited during pawn preparation.
+* RimHUD: food preference information can be displayed in the inspect pane.
+* Character Editor: food preferences can be changed for the currently edited pawn from the Character Editor interface.
+
+Character Editor integration only updates the currently edited pawn. It does not save, load, import, or export food preferences through Character Editor custom pawn slots.
+
 ---
 
 # Requirements
@@ -99,16 +107,13 @@ Food classification results are cached, helping maintain low overhead even in la
 
 # For Mod Authors
 
-Supports `FoodCategoryExtension`:
+If your mod wants to integrate with Personal Food Preferences, see:
 
-```xml
-<li Class="PersonalFoodPreferences.FoodCategoryExtension">
-    <category>Dairy</category>
-    <fallbackCategory>Sweets</fallbackCategory>
-</li>
-```
+* [Mod Author Compatibility Guide](Docs/Help/ModAuthorGuide.md)
 
-This allows custom food categories to be assigned directly through XML.
+The guide explains how to use `FoodCategoryExtension`, how to write optional compatibility patches, which foods should not be added to PFP classification, and how to provide food lists for PFP-side overrides.
+
+This project's source code is published on GitHub; public documentation should be treated as the content under `Docs/Help/`.
 
 ---
 

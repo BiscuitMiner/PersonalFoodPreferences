@@ -30,16 +30,18 @@ namespace PersonalFoodPreferences
 
             if (PersonalFoodPreferencesMod.Settings?.dietaryVarietyEnabled != true)
             {
-                PreferenceDeprivationUtility.ClearDietaryVarietyHediffs(ingester, prefComp);
-
                 if (match?.IsSatisfied == true)
                 {
-                    prefComp.NotifyPreferredFoodIngested();
-                    int moodOffset = PreferenceMoodOffset(match);
-                    if (moodOffset != 0)
-                        GiveFoodPreferenceMemory(ingester, atePreferredFood, moodOffset);
+                    HandlePreferredFoodIngested(
+                        ingester,
+                        prefComp,
+                        match,
+                        atePreferredFood,
+                        preferenceSatisfied,
+                        allowPreferenceDeprivationMood: false);
                 }
 
+                PreferenceDeprivationUtility.ClearDietaryVarietyHediffs(ingester, prefComp);
                 return;
             }
 
@@ -69,22 +71,13 @@ namespace PersonalFoodPreferences
 
             if (match?.IsSatisfied == true)
             {
-                prefComp.NotifyPreferredFoodIngested();
-                HediffComp_PreferenceDeprivation preferenceDeprivation =
-                    PreferenceDeprivationUtility.GetPreferenceDeprivationComp(ingester);
-
-                if (preferenceDeprivation != null)
-                {
-                    int moodOffset = match.SatisfactionLevel == FoodSatisfactionLevel.Meal ? 20 : 10;
-                    GiveFoodPreferenceMemory(ingester, preferenceSatisfied ?? atePreferredFood, moodOffset);
-                    preferenceDeprivation.Notify_PreferredFoodIngested();
-                }
-                else
-                {
-                    int moodOffset = PreferenceMoodOffset(match);
-                    if (moodOffset != 0)
-                        GiveFoodPreferenceMemory(ingester, atePreferredFood, moodOffset);
-                }
+                HandlePreferredFoodIngested(
+                    ingester,
+                    prefComp,
+                    match,
+                    atePreferredFood,
+                    preferenceSatisfied,
+                    allowPreferenceDeprivationMood: true);
             }
             else
             {
@@ -92,6 +85,33 @@ namespace PersonalFoodPreferences
                 if (moodPenalty != 0)
                     GiveFoodPreferenceMemory(ingester, ateNonPreferredFood, moodPenalty);
             }
+        }
+
+        private static void HandlePreferredFoodIngested(
+            Pawn pawn,
+            CompFoodPreference prefComp,
+            FoodPreferenceMatch match,
+            ThoughtDef atePreferredFood,
+            ThoughtDef preferenceSatisfied,
+            bool allowPreferenceDeprivationMood)
+        {
+            prefComp.NotifyPreferredFoodIngested();
+
+            HediffComp_PreferenceDeprivation preferenceDeprivation = allowPreferenceDeprivationMood
+                ? PreferenceDeprivationUtility.GetPreferenceDeprivationComp(pawn)
+                : null;
+
+            if (preferenceDeprivation != null)
+            {
+                int moodOffset = match.SatisfactionLevel == FoodSatisfactionLevel.Meal ? 20 : 10;
+                GiveFoodPreferenceMemory(pawn, preferenceSatisfied ?? atePreferredFood, moodOffset);
+                preferenceDeprivation.Notify_PreferredFoodIngested();
+                return;
+            }
+
+            int preferredMoodOffset = PreferenceMoodOffset(match);
+            if (preferredMoodOffset != 0)
+                GiveFoodPreferenceMemory(pawn, atePreferredFood, preferredMoodOffset);
         }
 
         private static int GetNonPreferredMoodPenalty(PickyEatingSeverity severity, Pawn pawn)
