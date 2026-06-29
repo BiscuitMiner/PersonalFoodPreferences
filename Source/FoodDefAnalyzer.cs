@@ -122,7 +122,6 @@ namespace PersonalFoodPreferences
                 analysis.StaticTags.Add(analysis.ExtensionCategory);
             }
 
-            bool hasValidTag = false;
             if (firstExtension.tags != null)
             {
                 for (int i = 0; i < firstExtension.tags.Count; i++)
@@ -136,7 +135,6 @@ namespace PersonalFoodPreferences
                     if (FoodCategoryRegistry.IsKnownPreferenceCategory(tag))
                     {
                         analysis.StaticTags.Add(tag);
-                        hasValidTag = true;
                     }
                     else
                     {
@@ -147,15 +145,6 @@ namespace PersonalFoodPreferences
                             + "'. Tags must be one of the fixed preference categories.");
                     }
                 }
-            }
-
-            if (analysis.ExtensionCategory.NullOrEmpty()
-                && analysis.ExtensionFallbackCategory.NullOrEmpty()
-                && !hasValidTag)
-            {
-                Log.Warning("[PersonalFoodPreferences] FoodCategoryExtension on ThingDef '"
-                    + def.defName
-                    + "' has no category, valid fallbackCategory, or tags.");
             }
 
             if (extensionCount > 1)

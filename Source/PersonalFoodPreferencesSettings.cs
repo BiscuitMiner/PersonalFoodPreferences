@@ -26,6 +26,8 @@ namespace PersonalFoodPreferences
         // Default 0.04 makes it a rare but noticeable event.
         public float foodPreferenceShareWeight = 0.04f;
 
+        public bool rimTalkFoodPreferenceContextEnabled = false;
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -43,6 +45,7 @@ namespace PersonalFoodPreferences
             Scribe_Values.Look(ref tasteFatigueDays, "tasteFatigueDays", 15);
             Scribe_Values.Look(ref dietaryAversionDays, "dietaryAversionDays", 30);
             Scribe_Values.Look(ref foodPreferenceShareWeight, "foodPreferenceShareWeight", 0.04f);
+            Scribe_Values.Look(ref rimTalkFoodPreferenceContextEnabled, "rimTalkFoodPreferenceContextEnabled", false);
 
             ClampValues();
         }
@@ -86,6 +89,7 @@ namespace PersonalFoodPreferences
             tasteFatigueDays = 15;
             dietaryAversionDays = 30;
             foodPreferenceShareWeight = 0.04f;
+            rimTalkFoodPreferenceContextEnabled = false;
         }
 
         private static int Clamp(int value, int min, int max)

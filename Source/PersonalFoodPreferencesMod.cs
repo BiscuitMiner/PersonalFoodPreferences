@@ -22,6 +22,7 @@ namespace PersonalFoodPreferences
                 EdBPrepareCarefullyIntegration.TryPatch(harmony);
                 RimHUDIntegration.TryPatch(harmony);
                 CharacterEditorIntegration.TryPatch(harmony);
+                RimTalkIntegration.TryRegister(harmony);
                 harmonyPatched = true;
             }
         }
@@ -41,7 +42,7 @@ namespace PersonalFoodPreferences
             }
 
             Rect scrollRect = new Rect(inRect.x, inRect.y + 44f, inRect.width, inRect.height - 44f);
-            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, Settings.dietaryVarietyEnabled ? 1000f : 260f);
+            Rect viewRect = new Rect(0f, 0f, inRect.width - 16f, GetSettingsViewHeight());
             Widgets.BeginScrollView(scrollRect, ref settingsScrollPosition, viewRect);
             float y = viewRect.y;
             float rowHeight = 28f;
@@ -171,6 +172,22 @@ namespace PersonalFoodPreferences
                     60);
             }
 
+            if (RimTalkIntegration.IsRimTalkActive())
+            {
+                y += gap;
+                Widgets.Label(new Rect(viewRect.x, y, viewRect.width, rowHeight), "FoodPreference_SettingsRimTalkHeader".Translate());
+                y += rowHeight;
+                Rect rimTalkContextRect = new Rect(viewRect.x, y, viewRect.width, rowHeight);
+                Widgets.CheckboxLabeled(
+                    rimTalkContextRect,
+                    "FoodPreference_SettingsRimTalkFoodPreferenceContextEnabled".Translate(),
+                    ref Settings.rimTalkFoodPreferenceContextEnabled);
+                TooltipHandler.TipRegion(
+                    rimTalkContextRect,
+                    "FoodPreference_SettingsRimTalkFoodPreferenceContextTooltip".Translate());
+                y += rowHeight;
+            }
+
             Widgets.EndScrollView();
         }
 
@@ -183,6 +200,17 @@ namespace PersonalFoodPreferences
         private static void DrawMoodSlider(float x, ref float y, float width, string label, ref int value, int min, int max)
         {
             DrawIntSlider(x, ref y, width, label, ref value, min, max);
+        }
+
+        private static float GetSettingsViewHeight()
+        {
+            float height = Settings.dietaryVarietyEnabled ? 1060f : 340f;
+            if (!RimTalkIntegration.IsRimTalkActive())
+            {
+                height -= 64f;
+            }
+
+            return height;
         }
 
         private static void DrawIntSlider(float x, ref float y, float width, string label, ref int value, int min, int max)

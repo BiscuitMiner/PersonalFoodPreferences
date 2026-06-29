@@ -58,6 +58,10 @@
   <FoodPreference_SettingsMildPickyEatingMoodPenalty>Non-preferred food mood while mildly picky</FoodPreference_SettingsMildPickyEatingMoodPenalty>
   <FoodPreference_SettingsSeverePickyEatingMoodPenalty>Non-preferred food mood while severely picky</FoodPreference_SettingsSeverePickyEatingMoodPenalty>
   <FoodPreference_SettingsPermanentPickyEatingMoodPenalty>Non-preferred food mood while permanently picky</FoodPreference_SettingsPermanentPickyEatingMoodPenalty>
+  <FoodPreference_SettingsRimTalkHeader>RimTalk compatibility</FoodPreference_SettingsRimTalkHeader>
+  <FoodPreference_SettingsRimTalkFoodPreferenceContextEnabled>Enable RimTalk food preference context</FoodPreference_SettingsRimTalkFoodPreferenceContextEnabled>
+  <FoodPreference_SettingsRimTalkFoodPreferenceContextTooltip>Allows RimTalk to see each pawn's active food preference when generating dialogue.</FoodPreference_SettingsRimTalkFoodPreferenceContextTooltip>
+  <FoodPreference_RimTalkFoodPreferenceContextLine>Food preference: {0}. This means the pawn especially likes this type of food. It is not a dietary restriction; the pawn can still eat other foods. Eating preferred food improves mood, and going too long without it can make the pawn miss it.</FoodPreference_RimTalkFoodPreferenceContextLine>
   <FoodPreference_SettingsReset>Reset settings</FoodPreference_SettingsReset>
   <FoodPreference_PreferenceDeprivationNoPreferredYet>No preferred food eaten since onset.</FoodPreference_PreferenceDeprivationNoPreferredYet>
   <FoodPreference_PreferenceDeprivationLastPreferredFood>Last preferred food: {0} ago.</FoodPreference_PreferenceDeprivationLastPreferredFood>

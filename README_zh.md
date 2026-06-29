@@ -78,6 +78,7 @@
 * EdB Prepare Carefully：可在準備 Pawn 時設定食物偏好。
 * RimHUD：可在 inspect pane 顯示食物偏好資訊。
 * Character Editor：可在 Character Editor 介面中修改目前正在編輯 Pawn 的食物偏好。
+* RimTalk：可在 PFP MOD 設定中主動勾選「啟用 RimTalk 料理偏好上下文」, 預設是關閉的。
 
 Character Editor 相容只同步「目前正在編輯的 Pawn」。不支援透過 Character Editor 自訂 pawn slot 保存、載入、匯入或匯出食物偏好。
 

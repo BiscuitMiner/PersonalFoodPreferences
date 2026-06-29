@@ -77,6 +77,7 @@ Optional UI integrations:
 * EdB Prepare Carefully: food preferences can be edited during pawn preparation.
 * RimHUD: food preference information can be displayed in the inspect pane.
 * Character Editor: food preferences can be changed for the currently edited pawn from the Character Editor interface.
+* RimTalk：Compatibility with RimTalk. To enable this feature, you must manually check the option "Enable RimTalk food preference context" in the PFP mod settings — it is disabled by default.
 
 Character Editor integration only updates the currently edited pawn. It does not save, load, import, or export food preferences through Character Editor custom pawn slots.
 

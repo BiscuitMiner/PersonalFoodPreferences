@@ -59,11 +59,16 @@
   <FoodPreference_SettingsMildPickyEatingMoodPenalty>輕度挑食時吃非偏好食物心情</FoodPreference_SettingsMildPickyEatingMoodPenalty>
   <FoodPreference_SettingsSeverePickyEatingMoodPenalty>重度挑食時吃非偏好食物心情</FoodPreference_SettingsSeverePickyEatingMoodPenalty>
   <FoodPreference_SettingsPermanentPickyEatingMoodPenalty>永久挑食時吃非偏好食物心情</FoodPreference_SettingsPermanentPickyEatingMoodPenalty>
+   <!-- RimTalk -->
+  <FoodPreference_SettingsRimTalkHeader>RimTalk 相容性</FoodPreference_SettingsRimTalkHeader>
+  <FoodPreference_SettingsRimTalkFoodPreferenceContextEnabled>啟用 RimTalk 料理偏好上下文</FoodPreference_SettingsRimTalkFoodPreferenceContextEnabled>
+  <FoodPreference_SettingsRimTalkFoodPreferenceContextTooltip>允許 RimTalk 在生成對話時讀取每個角色目前啟用的料理偏好。</FoodPreference_SettingsRimTalkFoodPreferenceContextTooltip>
+  <FoodPreference_RimTalkFoodPreferenceContextLine>料理偏好：{0}。這代表該角色特別喜愛這類食物，不是飲食限制；該角色仍然可以吃其他食物。吃到偏好食物時會提升心情，太久沒吃到時可能會想念這類食物。</FoodPreference_RimTalkFoodPreferenceContextLine>
   <FoodPreference_SettingsReset>重置參數</FoodPreference_SettingsReset>
   <FoodPreference_PreferenceDeprivationNoPreferredYet>發作後尚未吃到偏好食物。</FoodPreference_PreferenceDeprivationNoPreferredYet>
   <FoodPreference_PreferenceDeprivationLastPreferredFood>上次吃到偏好食物：{0}前。</FoodPreference_PreferenceDeprivationLastPreferredFood>
   <PFP_PreferenceDeprivationMentalStateReason>太久沒有吃到偏好的食物</PFP_PreferenceDeprivationMentalStateReason>
-  
+
   <!-- 偏好種類翻譯 (對應 C# 中回傳的字串) -->
   <Meat>純肉料理</Meat>
   <VeganMeal>全素料理</VeganMeal>
