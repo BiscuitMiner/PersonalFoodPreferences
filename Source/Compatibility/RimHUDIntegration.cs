@@ -39,7 +39,6 @@ namespace PersonalFoodPreferences
             harmony.Patch(
                 drawMethod,
                 transpiler: new HarmonyMethod(typeof(RimHUDIntegration), nameof(Transpiler)));
-            Log.Message("[PersonalFoodPreferences] RimHUD compatibility patch active.");
         }
 
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

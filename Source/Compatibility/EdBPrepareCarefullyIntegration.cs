@@ -75,7 +75,6 @@ namespace PersonalFoodPreferences
                 postfix: new HarmonyMethod(typeof(EdBPrepareCarefullyIntegration), nameof(MapperPawnToCustomizations_MapOtherValues_Postfix)));
 
             patched = true;
-            Log.Message("[PersonalFoodPreferences] EdB Prepare Carefully soft integration active.");
         }
 
         public static void TabViewPawns_LayoutReady_Postfix(object __instance)
