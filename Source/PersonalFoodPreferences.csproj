@@ -7,6 +7,8 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>../1.6/Assemblies/</OutputPath>
     <AssemblyName>PersonalFoodPreferences</AssemblyName>
+    <!-- 1.7 沿用同一支 net472 產物：重建時自動同步，避免 1.7/Assemblies 變舊（可用 -p:RimWorld17AssembliesDir=… 覆寫） -->
+    <RimWorld17AssembliesDir Condition="'$(RimWorld17AssembliesDir)' == ''">$(MSBuildProjectDirectory)\..\1.7\Assemblies\</RimWorld17AssembliesDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,4 +17,11 @@
     <!-- 自動下載並參考 Harmony -->
     <PackageReference Include="Lib.Harmony" Version="2.3.*" ExcludeAssets="runtime" />
   </ItemGroup>
+
+  <Target Name="SyncAssembliesTo17" AfterTargets="Build">
+    <MakeDir Directories="$(RimWorld17AssembliesDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(RimWorld17AssembliesDir)" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(RimWorld17AssembliesDir)" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+    <Message Importance="high" Text="[1.7 sync] $(TargetFileName) -> $(RimWorld17AssembliesDir)" />
+  </Target>
 </Project>

@@ -145,7 +145,7 @@
       <li><defName>RI_Food_StirFriedShreddedPotato</defName><primaryCategory>VeganMeal</primaryCategory></li>
       <li><defName>RI_Food_StirFriedVege</defName><primaryCategory>VeganMeal</primaryCategory></li>
       <li><defName>RI_Food_StuffedRoastDuck</defName><primaryCategory>Meat</primaryCategory></li>
-      <li><defName>RI_Food_SugarTangerine</defName><primaryCategory>Fried</primaryCategory></li>
+      <li><defName>RI_Food_SugarTangerine</defName><primaryCategory>Fruit</primaryCategory></li>
       <li><defName>RI_Food_SweetBerryYogurt</defName><primaryCategory>Dairy</primaryCategory><tags><li>Sweets</li></tags></li>
       <li><defName>RI_Food_SweetSoupBall</defName><primaryCategory>Sweets</primaryCategory></li>
       <li><defName>RI_Food_SweetSourFish</defName><primaryCategory>Seafood</primaryCategory></li>
@@ -448,6 +448,20 @@
       <li><defName>Omelettet</defName><primaryCategory>Dairy</primaryCategory></li>
       <li><defName>ScotchEgg</defName><primaryCategory>Dairy</primaryCategory></li>
       <li><defName>TsukimiUdon</defName><primaryCategory>Dairy</primaryCategory></li>
+    </overrides>
+  </PersonalFoodPreferences.FoodOverrideMapDef>
+
+  <!-- ============================================================
+       Vanilla Cooking Expanded - Raw Fish (Steam Workshop 3825361349)
+       四款魚生預設落在通用食物，統一覆蓋為海鮮料理
+       ============================================================ -->
+  <PersonalFoodPreferences.FoodOverrideMapDef>
+    <defName>PFP_Override_VCE_RawFish</defName>
+    <overrides>
+      <li><defName>RFE_FineYuSheng</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>RFE_JapaneseSashimi</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>RFE_LavishYuSheng</defName><primaryCategory>Seafood</primaryCategory></li>
+      <li><defName>RFE_SimpleYuSheng</defName><primaryCategory>Seafood</primaryCategory></li>
     </overrides>
   </PersonalFoodPreferences.FoodOverrideMapDef>
 

@@ -68,6 +68,9 @@ namespace PersonalFoodPreferences
             for (int i = 0; i < allPreferences.Count; i++)
             {
                 string preference = allPreferences[i];
+                if (!FoodCategoryRegistry.IsPreferenceEnabledBySettings(preference))
+                    continue;
+
                 if (IsPreferenceAvailableForPawn(preference, pawn))
                     filtered.Add(preference);
             }
@@ -144,6 +147,18 @@ namespace PersonalFoodPreferences
             // 其餘情況從目前可用偏好池隨機抽選（考慮種族食物限制）。
             currentPreference = GetAvailablePreferencesForPawn(pawn).RandomElement();
             EnsureLastPreferredFoodIngestedTickInitialized();
+        }
+
+        public bool NormalizeCurrentPreferenceAgainstSettings()
+        {
+            if (!(parent is Pawn pawn))
+            {
+                return false;
+            }
+
+            string previousPreference = currentPreference;
+            EnsureInitialized();
+            return previousPreference != currentPreference;
         }
 
         public void NotifyPreferredFoodIngested()
@@ -229,6 +244,7 @@ namespace PersonalFoodPreferences
         {
             List<string> available = GetAvailablePreferencesForPawn(pawn);
             if (!IsValidPreference(currentPreference)
+                || !FoodCategoryRegistry.IsPreferenceEnabledBySettings(currentPreference)
                 || !available.Contains(currentPreference))
             {
                 currentPreference = available.RandomElement();
@@ -243,6 +259,11 @@ namespace PersonalFoodPreferences
             for (int i = 0; i < preferences.Count; i++)
             {
                 string preference = preferences[i];
+                if (!FoodCategoryRegistry.IsPreferenceEnabledBySettings(preference))
+                {
+                    continue;
+                }
+
                 if (FoodClassifier.IsPreferenceAvailable(preference))
                 {
                     available.Add(preference);
@@ -254,7 +275,11 @@ namespace PersonalFoodPreferences
             {
                 for (int i = 0; i < preferences.Count; i++)
                 {
-                    available.Add(preferences[i]);
+                    string preference = preferences[i];
+                    if (FoodCategoryRegistry.IsPreferenceEnabledBySettings(preference))
+                    {
+                        available.Add(preference);
+                    }
                 }
             }
 
@@ -296,6 +321,11 @@ namespace PersonalFoodPreferences
             }
 
             if (!IsValidPreference(preference))
+            {
+                return false;
+            }
+
+            if (!FoodCategoryRegistry.IsPreferenceEnabledBySettings(preference))
             {
                 return false;
             }

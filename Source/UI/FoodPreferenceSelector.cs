@@ -32,6 +32,21 @@ namespace PersonalFoodPreferences
 
         public static void Draw(Rect rect, string preference, Action<string> onSelected)
         {
+            Draw(rect, preference, CompFoodPreference.AvailablePreferences, onSelected);
+        }
+
+        public static void Draw(Rect rect, string preference, IReadOnlyList<string> preferences, Action<string> onSelected)
+        {
+            Draw(rect, preference, preferences, onSelected, false);
+        }
+
+        public static void DrawWithSelectedIcon(Rect rect, string preference, IReadOnlyList<string> preferences, Action<string> onSelected)
+        {
+            Draw(rect, preference, preferences, onSelected, true);
+        }
+
+        private static void Draw(Rect rect, string preference, IReadOnlyList<string> preferences, Action<string> onSelected, bool showSelectedIcon)
+        {
             if (onSelected == null)
             {
                 return;
@@ -44,15 +59,33 @@ namespace PersonalFoodPreferences
                 ? "FoodPreference_NoData".Translate().ToString()
                 : preference.Translate();
 
-            Rect buttonRect = new Rect(labelRect.xMax + 8f, rect.y + 2f, rect.width - labelRect.width - 8f, 28f);
+            const float iconSize = 24f;
+            const float iconGap = 6f;
+            float buttonWidth = rect.width - labelRect.width - 8f;
+            Rect iconRect = new Rect(rect.xMax - iconSize, rect.y + 4f, iconSize, iconSize);
+            if (showSelectedIcon)
+            {
+                buttonWidth -= iconSize + iconGap;
+            }
+
+            Rect buttonRect = new Rect(labelRect.xMax + 8f, rect.y + 2f, buttonWidth, 28f);
             if (buttonRect.width <= 0f)
             {
                 return;
             }
 
+            if (showSelectedIcon)
+            {
+                Texture2D icon = FoodPreferenceTextures.GetIcon(preference);
+                if (icon != null)
+                {
+                    GUI.DrawTexture(iconRect, icon, ScaleMode.ScaleToFit);
+                }
+            }
+
             if (DropdownButton(buttonRect, buttonLabel))
             {
-                OpenPreferenceMenu(onSelected);
+                OpenPreferenceMenu(preferences, onSelected);
             }
         }
 
@@ -122,9 +155,9 @@ namespace PersonalFoodPreferences
             return Widgets.ButtonText(buttonRect, buttonLabel);
         }
 
-        private static void OpenPreferenceMenu(Action<string> onSelected)
+        private static void OpenPreferenceMenu(IReadOnlyList<string> preferences, Action<string> onSelected)
         {
-            List<FloatMenuOption> options = CompFoodPreference.AvailablePreferences
+            List<FloatMenuOption> options = preferences
                 .Select(pref => new FloatMenuOption(pref.Translate(), delegate
                 {
                     onSelected(pref);

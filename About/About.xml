@@ -3,8 +3,10 @@
   <name>Personal Food Preferences</name>
   <author>BiscuitMiner</author>
   <packageId>BiscuitMiner.personalfoodpreferences</packageId>
+  <modVersion>2.0.1</modVersion>
   <supportedVersions>
     <li>1.6</li>
+    <li>1.7</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -19,6 +21,7 @@
     <li>Jaxe.RimHUD</li>
     <li>EdB.PrepareCarefully</li>
     <li>void.charactereditor</li>
+    <li>isores.pawneditor</li>
   </loadAfter>
   <description><![CDATA[讓每位殖民者都擁有自己的料理偏好。殖民者吃到喜歡的食物時會獲得心情加成；長時間吃不到偏好食物時，則可能產生負面心情與偏好剝奪狀態。
 
@@ -31,6 +34,8 @@
 - RimHUD
 - EdB Prepare Carefully
 - Character Editor
+- Pawn Editor
+- RimTalk
 
 ---------------------------
 
@@ -44,5 +49,7 @@ Requirements:
 Optional Compatibility (not required):
 - RimHUD
 - EdB Prepare Carefully
-- Character Editor]]></description>
+- Character Editor
+- Pawn Editor
+- RimTalk]]></description>
 </ModMetaData>

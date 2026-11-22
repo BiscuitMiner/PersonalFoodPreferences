@@ -24,7 +24,7 @@
   <FoodPreference_InfoTags>标签</FoodPreference_InfoTags>
   <FoodPreference_InfoTagsDesc>该食物或其实际食材中检测到的所有食物偏好标签。</FoodPreference_InfoTagsDesc>
   <FoodPreference_DevSetSuccess>{0} 的料理偏好已切换为：{1}</FoodPreference_DevSetSuccess>
-  <FoodPreference_SelectorLabel>偏好的食物种类</FoodPreference_SelectorLabel>
+  <FoodPreference_SelectorLabel>偏好食物种类</FoodPreference_SelectorLabel>
   <FoodPreference_SelectorPanelTitle>料理偏好</FoodPreference_SelectorPanelTitle>
   <FoodPreference_CategoryPanelTitle>料理偏好分类</FoodPreference_CategoryPanelTitle>
   <FoodPreference_CurrentPreference>目前偏好：{0}</FoodPreference_CurrentPreference>
@@ -43,6 +43,8 @@
   <FoodPreference_ThisPawn>该角色</FoodPreference_ThisPawn>
   <FoodPreference_SettingsPreferredHeader>偏好食物心情</FoodPreference_SettingsPreferredHeader>
   <FoodPreference_SettingsPreferredMoodOffset>偏好食物心情值</FoodPreference_SettingsPreferredMoodOffset>
+  <FoodPreference_SettingsCategoryHeader>启用的料理偏好分类</FoodPreference_SettingsCategoryHeader>
+  <FoodPreference_SettingsCategoryRequired>{0}（固定启用）</FoodPreference_SettingsCategoryRequired>
   <FoodPreference_SettingsNonPreferredMoodOffset>期间没有吃到偏好食物所扣心情值</FoodPreference_SettingsNonPreferredMoodOffset>
   <FoodPreference_SettingsDietaryVarietyHeader>饮食多样性</FoodPreference_SettingsDietaryVarietyHeader>
   <FoodPreference_SettingsDietaryVarietyEnabled>启用饮食多样性</FoodPreference_SettingsDietaryVarietyEnabled>
@@ -67,7 +69,7 @@
   <FoodPreference_PreferenceDeprivationNoPreferredYet>发作后尚未吃到偏好食物。</FoodPreference_PreferenceDeprivationNoPreferredYet>
   <FoodPreference_PreferenceDeprivationLastPreferredFood>上次吃到偏好食物：{0}前。</FoodPreference_PreferenceDeprivationLastPreferredFood>
   <PFP_PreferenceDeprivationMentalStateReason>太久没有吃到偏好的食物</PFP_PreferenceDeprivationMentalStateReason>
-  
+
   <!-- 偏好种类翻译 (对应 C# 中回传的字串) -->
   <Meat>纯肉料理</Meat>
   <VeganMeal>全素料理</VeganMeal>

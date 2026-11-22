@@ -1,9 +1,13 @@
 ﻿using Verse;
 
+using System.Collections.Generic;
+
 namespace PersonalFoodPreferences
 {
     public class PersonalFoodPreferencesSettings : ModSettings
     {
+        private List<string> disabledOptionalPreferenceCategories = new List<string>();
+
         public bool dietaryVarietyEnabled = false;
 
         public int preferredFoodMoodOffset = 5;
@@ -46,12 +50,23 @@ namespace PersonalFoodPreferences
             Scribe_Values.Look(ref dietaryAversionDays, "dietaryAversionDays", 30);
             Scribe_Values.Look(ref foodPreferenceShareWeight, "foodPreferenceShareWeight", 0.04f);
             Scribe_Values.Look(ref rimTalkFoodPreferenceContextEnabled, "rimTalkFoodPreferenceContextEnabled", false);
+            Scribe_Collections.Look(ref disabledOptionalPreferenceCategories, "disabledOptionalPreferenceCategories", LookMode.Value);
 
             ClampValues();
         }
 
         public void ClampValues()
         {
+            if (disabledOptionalPreferenceCategories == null)
+            {
+                disabledOptionalPreferenceCategories = new List<string>();
+            }
+
+            disabledOptionalPreferenceCategories.RemoveAll(category =>
+                category.NullOrEmpty()
+                || !FoodCategoryRegistry.IsKnownPreferenceCategory(category)
+                || FoodCategoryRegistry.IsRequiredPreferenceCategory(category));
+
             preferredFoodMoodOffset = Clamp(preferredFoodMoodOffset, 0, 50);
             nonPreferredFoodMoodOffset = Clamp(nonPreferredFoodMoodOffset, -50, 0);
             
@@ -75,6 +90,7 @@ namespace PersonalFoodPreferences
 
         public void ResetToDefaults()
         {
+            disabledOptionalPreferenceCategories = new List<string>();
             dietaryVarietyEnabled = false;
             preferredFoodMoodOffset = 5;
             nonPreferredFoodMoodOffset = -5;
@@ -90,6 +106,45 @@ namespace PersonalFoodPreferences
             dietaryAversionDays = 30;
             foodPreferenceShareWeight = 0.04f;
             rimTalkFoodPreferenceContextEnabled = false;
+        }
+
+        public bool IsOptionalPreferenceCategoryEnabled(string category)
+        {
+            if (!FoodCategoryRegistry.IsKnownPreferenceCategory(category))
+            {
+                return false;
+            }
+
+            if (FoodCategoryRegistry.IsRequiredPreferenceCategory(category))
+            {
+                return true;
+            }
+
+            return disabledOptionalPreferenceCategories == null
+                || !disabledOptionalPreferenceCategories.Contains(category);
+        }
+
+        public void SetOptionalPreferenceCategoryEnabled(string category, bool enabled)
+        {
+            if (!FoodCategoryRegistry.IsKnownPreferenceCategory(category)
+                || FoodCategoryRegistry.IsRequiredPreferenceCategory(category))
+            {
+                return;
+            }
+
+            if (disabledOptionalPreferenceCategories == null)
+            {
+                disabledOptionalPreferenceCategories = new List<string>();
+            }
+
+            if (enabled)
+            {
+                disabledOptionalPreferenceCategories.Remove(category);
+            }
+            else if (!disabledOptionalPreferenceCategories.Contains(category))
+            {
+                disabledOptionalPreferenceCategories.Add(category);
+            }
         }
 
         private static int Clamp(int value, int min, int max)

@@ -1,5 +1,6 @@
 using HarmonyLib;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
@@ -22,6 +23,7 @@ namespace PersonalFoodPreferences
                 EdBPrepareCarefullyIntegration.TryPatch(harmony);
                 RimHUDIntegration.TryPatch(harmony);
                 CharacterEditorIntegration.TryPatch(harmony);
+                PawnEditorIntegration.TryPatch(harmony);
                 RimTalkIntegration.TryRegister(harmony);
                 harmonyPatched = true;
             }
@@ -39,6 +41,7 @@ namespace PersonalFoodPreferences
             if (Widgets.ButtonText(resetButtonRect, "FoodPreference_SettingsReset".Translate()))
             {
                 Settings.ResetToDefaults();
+                FoodPreferenceSettingsSyncUtility.NotifySettingsChanged();
             }
 
             Rect scrollRect = new Rect(inRect.x, inRect.y + 44f, inRect.width, inRect.height - 44f);
@@ -58,6 +61,9 @@ namespace PersonalFoodPreferences
                 ref Settings.preferredFoodMoodOffset,
                 0,
                 50);
+
+            y += gap;
+            DrawPreferenceCategorySettings(viewRect.x, ref y, viewRect.width);
 
             y += gap;
             Widgets.Label(new Rect(viewRect.x, y, viewRect.width, rowHeight), "FoodPreference_SettingsDietaryVarietyHeader".Translate());
@@ -195,6 +201,7 @@ namespace PersonalFoodPreferences
         {
             Settings.ClampValues();
             base.WriteSettings();
+            FoodPreferenceSettingsSyncUtility.NotifySettingsChanged();
         }
 
         private static void DrawMoodSlider(float x, ref float y, float width, string label, ref int value, int min, int max)
@@ -204,13 +211,50 @@ namespace PersonalFoodPreferences
 
         private static float GetSettingsViewHeight()
         {
-            float height = Settings.dietaryVarietyEnabled ? 1060f : 340f;
+            float height = Settings.dietaryVarietyEnabled ? 1480f : 760f;
             if (!RimTalkIntegration.IsRimTalkActive())
             {
                 height -= 64f;
             }
 
             return height;
+        }
+
+        private static void DrawPreferenceCategorySettings(float x, ref float y, float width)
+        {
+            float rowHeight = 28f;
+            Widgets.Label(new Rect(x, y, width, rowHeight), "FoodPreference_SettingsCategoryHeader".Translate());
+            y += rowHeight;
+
+            IReadOnlyList<string> requiredPreferences = FoodCategoryRegistry.RequiredPreferenceCategories;
+            for (int i = 0; i < requiredPreferences.Count; i++)
+            {
+                string preference = requiredPreferences[i];
+                Widgets.Label(
+                    new Rect(x + 24f, y, width - 24f, rowHeight),
+                    "FoodPreference_SettingsCategoryRequired".Translate(preference.Translate()));
+                y += rowHeight;
+            }
+
+            IReadOnlyList<string> optionalPreferences = FoodCategoryRegistry.OptionalPreferenceCategories;
+            for (int i = 0; i < optionalPreferences.Count; i++)
+            {
+                string preference = optionalPreferences[i];
+                bool enabled = Settings.IsOptionalPreferenceCategoryEnabled(preference);
+                bool previous = enabled;
+                Widgets.CheckboxLabeled(
+                    new Rect(x + 24f, y, width - 24f, rowHeight),
+                    preference.Translate(),
+                    ref enabled);
+
+                if (enabled != previous)
+                {
+                    Settings.SetOptionalPreferenceCategoryEnabled(preference, enabled);
+                    FoodPreferenceSettingsSyncUtility.NotifySettingsChanged();
+                }
+
+                y += rowHeight;
+            }
         }
 
         private static void DrawIntSlider(float x, ref float y, float width, string label, ref int value, int min, int max)

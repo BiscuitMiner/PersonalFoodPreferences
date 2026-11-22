@@ -30,10 +30,38 @@ namespace PersonalFoodPreferences
             "DarkCuisine"
         };
 
+        private static readonly List<string> requiredPreferenceCategories = new List<string>
+        {
+            "Meat",
+            "VeganMeal",
+            "Seafood"
+        };
+
+        private static readonly List<string> optionalPreferenceCategories = new List<string>
+        {
+            "Baked",
+            "Sweets",
+            "Soup",
+            "Canned",
+            "Fruit",
+            "Dairy",
+            "SoyProduct",
+            "Barbecue",
+            "Fried",
+            "DarkCuisine"
+        };
+
         private static readonly HashSet<string> preferenceCategorySet =
             new HashSet<string>(preferenceCategories, StringComparer.OrdinalIgnoreCase);
 
+        private static readonly HashSet<string> requiredPreferenceCategorySet =
+            new HashSet<string>(requiredPreferenceCategories, StringComparer.OrdinalIgnoreCase);
+
         public static IReadOnlyList<string> PreferenceCategories => preferenceCategories;
+
+        public static IReadOnlyList<string> RequiredPreferenceCategories => requiredPreferenceCategories;
+
+        public static IReadOnlyList<string> OptionalPreferenceCategories => optionalPreferenceCategories;
 
         static FoodCategoryRegistry()
         {
@@ -150,6 +178,28 @@ namespace PersonalFoodPreferences
         {
             return !category.NullOrEmpty()
                 && preferenceCategorySet.Contains(category);
+        }
+
+        public static bool IsRequiredPreferenceCategory(string category)
+        {
+            return !category.NullOrEmpty()
+                && requiredPreferenceCategorySet.Contains(category);
+        }
+
+        public static bool IsPreferenceEnabledBySettings(string category)
+        {
+            if (!IsKnownPreferenceCategory(category))
+            {
+                return false;
+            }
+
+            if (IsRequiredPreferenceCategory(category))
+            {
+                return true;
+            }
+
+            return PersonalFoodPreferencesMod.Settings == null
+                || PersonalFoodPreferencesMod.Settings.IsOptionalPreferenceCategoryEnabled(category);
         }
 
         public static bool IsValidFallbackCategory(string category)
