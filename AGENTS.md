@@ -4,7 +4,7 @@
 
 你是 RimWorld Mod 開發專家及架構師。不說客套話。當前模組：**PersonalFoodPreferences** (`BiscuitMiner.PersonalFoodPreferences`)。
 
-> **目前遊戲本體：RimWorld 1.7**（1.6 同時支援、產物凍結保留）。本模組 1.7 相容狀態見 `Docs/1.7_COMPAT.md`；平台規則與建置方式才查路由表中的共用指南。
+> **目前遊戲本體：RimWorld 1.7**（1.6 與 1.7 共用同一支 net472 DLL；本版建置同時寫入兩邊產物）。本模組 1.7 相容狀態見 `Docs/1.7_COMPAT.md`；平台規則與建置方式才查路由表中的共用指南。
 
 **最高架構準則：關注點分離**
 具體分層與職責見「C# Architecture」。
@@ -42,12 +42,12 @@
 
 ## 2.2 1.6 凍結與共用 XML 相容
 
-- 1.6 版維持凍結、不更新；若日後 1.6 副本停止隨建置同步，本節規則即為其紅字防線。
+- 1.6 玩家端可能仍是舊版 DLL（本地建置會寫入 `1.6\Assemblies`，但已發布的舊副本不會自動更新）；對舊 1.6 而言，新增／改名的 Def 欄位仍是未知欄位，本節規則即其紅字防線。
 - `Common/` 由 1.6 與 1.7 共用。原版對**未知 Def 欄位**的行為是 `Log.Error`（紅字）後跳過該節點，**不是靜默忽略**；真正 additive 的只有 Keyed 與 `Patches/`，原版支援的唯一豁免是節點屬性 `IgnoreIfNoMatchingField="true"`（1.6、1.7 皆有實作；欄位解析成功時不作用）。
 - 因此 1.7 內容更新若在 `Common/Defs` 新增、改名或移除欄位，或加入 1.6 產物不認得的節點（含 `compClass`／`modExtension`／自訂 Def 類別，如 `FoodOverrideMapDef`、`RaceDetectionRuleDef`），1.6 玩家每次啟動都會看到紅字；Def 其餘欄位仍正常載入、功能不受影響，但仍屬必須處理的缺陷。
 - 處理規則：發現或預期此情況時，**先回報使用者**，且**必須進行修正處理**——首選在該節點加 `IgnoreIfNoMatchingField="true"`；差異更大時改用 `1.7/Patches/` 或版本目錄。禁止以「additive、1.6 會忽略」為理由略過，也不得把 1.7-only 的 Def 內容放進共用 `Common/`。
 - 判定方式：對照現行 1.6 產物是否認得該欄位／節點；無法確認時預設加上屬性。實機複驗由使用者執行。
-- 提交前的 XML 檢查包含此項；狀態與待辦記錄在 `Docs/1.7_COMPAT.md`（本模組尚未建立時，先記在回報與提交說明）。
+- 提交前的 XML 檢查包含此項；狀態與待辦記錄在 `Docs/1.7_COMPAT.md`。
 
 ---
 
@@ -214,7 +214,7 @@ ModRoot/
 
 **本模組專屬入口**：
 
-- **狀態單一來源**（版本、進度、待驗證）→ `Docs/1.7_COMPAT.md`
+- **狀態單一來源**（版本、進度、待驗證，狀態檔類型）→ `Docs/1.7_COMPAT.md`
 - **機制現況**（7 份）→ `Docs/Mechanisms/NN_*.md`；改核心流程或要回答「為什麼這樣做」時讀對應主題，不整類讀
 - **對外整合 API**（6 份）→ `Docs/Integration/NN_*.md`；改相容層或第三方要接入時讀對應主題
 - **模組作者指南** → `Docs/Help/ModAuthorGuide.md`（食物覆寫／分類／種族限制的對外介面總覽）
@@ -230,7 +230,7 @@ ModRoot/
 3. 只讀相關 `DEVLOG.md` 錨點。
 4. 只有錨點明確指向且確有需要時，才讀 `DEVLOG_ARCHIVE.md`。
 
-本模組目前沒有獨立 Roadmap：Phase 範圍與依賴由各 Phase 的 TASKS／DEVLOG 管理（目前僅 Phase01、Phase02）；需要跨 Phase 分期規劃時才建立 `Docs/PHASE_ROADMAP.md` 並在此路由。`FEATURE_INDEX.md` 只保留導覽入口，實作狀態與驗證仍在各 Phase 的 TASKS／DEVLOG。
+本模組目前沒有獨立 Roadmap：Phase 範圍與依賴由各 Phase 的 TASKS／DEVLOG 管理（目前僅 Phase01、Phase02）；需要跨 Phase 分期規劃時才建立獨立的 Phase Roadmap（`PHASE_ROADMAP.md`，尚未建立）並在此路由。`FEATURE_INDEX.md` 只保留導覽入口，實作狀態與驗證仍在各 Phase 的 TASKS／DEVLOG。
 
 使用者已指定唯一檔案與修改點、純翻譯、純格式、
 純文案或單行 build error，可跳過 Feature Index。
