@@ -2,14 +2,17 @@
 **/bin/
 **/obj/
 
-# RimWorld game DLLs
+# RimWorld game DLLs / Harmony：不進版控、不可隨模組發布
 1.6/Assemblies/Assembly-CSharp.dll
 1.6/Assemblies/UnityEngine*.dll
 1.6/Assemblies/Verse.dll
 1.6/Assemblies/RimWorld*.dll
-
-# Harmony
 1.6/Assemblies/0Harmony.dll
+1.7/Assemblies/Assembly-CSharp.dll
+1.7/Assemblies/UnityEngine*.dll
+1.7/Assemblies/Verse.dll
+1.7/Assemblies/RimWorld*.dll
+1.7/Assemblies/0Harmony.dll
 
 # Debug symbols
 **/*.pdb
@@ -17,27 +20,19 @@
 # NTFS alternate data streams (mark-of-the-web)
 *:Zone.Identifier
 
-# Rider / VS / VSCode
+# IDE／AI 工具本機設定，不進版控
 .vs/
 .idea/
 .vscode/
 .claude/
-
-# Dotnet
+.codex/
+.agents/
 .dotnet_home/
 __pycache__/
 
-# AI / tooling
-.codex/
-.agents/
-AGENTS.md
-TASKS.md
-
-# Mod directories
-Docs/已完成/
-Docs/代碼指南/
-Docs/Integration/
-Docs/Mechanisms/
+# 工坊文案：不上傳、不進版控（本機保留）
 Docs/WORKSHOP_DESCRIPTION/
 
-
+# 註（2026-11-23）：AGENTS.md 與其餘 Docs/** 全部納入版控。
+# 合約與知識庫（Mechanisms／Integration／代碼指南）不再 ignore；
+# 只有工具設定、建置產物、遊戲本體 DLL、PDB 與工坊文案留在上面。
