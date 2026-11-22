@@ -21,7 +21,7 @@
 | `D:\Game\Steam\steamapps\common\RimWorld\Data\` | *原版 XML |
 | `G:\Rimworld\1.7\Harmony-source\` | *Harmony 參考 |
 | `G:\Rimworld\代碼指南\` | *公共開發指南 |
-| `G:\Rimworld\PROMPT\` | *公共 AI 工作規範 |
+| `G:\Rimworld\PROMPT\` | *其他 AI 工作規範（協議與陷阱提示詞已於 2026-11-23 遷入 `00_共通規範`） |
 | `G:\Rimworld\Mods\PersonalFoodPreferences\` | 模組專案（唯此可寫） |
 
 除非使用者當輪明確要求，禁止修改專案外文件。
@@ -92,9 +92,12 @@ XML → PatchOperation → ThingComp → Harmony → Transpiler
 
 | 類型 | 格式 | 範例 |
 |------|------|------|
-| DefName | `DT_` 前綴 + PascalCase | `DT_UnagedCheese` |
-| Label | 禁止前綴，純英文 | `aged hard cheese` |
-| C# Class | `DT_` 前綴 | `DT_FoodUtility` |
+| DefName（新） | `PFP_` 前綴 + PascalCase | `PFP_PreferenceSatisfied` |
+| DefName（既有） | 已發布且無前綴者**不改名**（`AtePreferredFood`、`AteNonPreferredFood`），改名會破壞存檔 | — |
+| Label | 禁止前綴，純英文 | `preference satisfied` |
+| C# Class | 新類別 `PFP_` 前綴；既有 `PersonalFoodPreferences*`／`CompFoodPreference` 不動 | `PersonalFoodPreferencesSettings` |
+
+> 例外：`Common/Defs/FoodOverrideMapDefs` 等資料檔引用的是**他模組的 defName**（`ZP_`／`VCE_`／`RI_`／`SC_`…）與原版食物名，不套用本表前綴規則。
 
 ---
 
@@ -104,18 +107,18 @@ XML → PatchOperation → ThingComp → Harmony → Transpiler
 ModRoot/
 ├── About/
 ├── Common/
-│   ├── Defs/           # 版本無關 XML
+│   ├── Defs/           # 版本無關 XML（FoodOverrideMapDefs／RaceDetectionRuleDefs／Keyword 等）
+│   ├── Languages/      # 英／簡中／繁中
+│   ├── Patches/
 │   └── Textures/
-├── Source/             # C# 原始碼
-│   ├── PersonalFoodPreferences.csproj       # net472；建置後同步 1.6／1.7 產物
-├── 1.6/
-│   ├── Assemblies/     # 編譯後 DLL
-│   ├── Patches/        # XML PatchOperation
-│   └── Languages/
-└── LoadFolders.xml
+├── Source/             # C# 原始碼（net472；同一支 DLL 支援 1.6／1.7）
+│   └── PersonalFoodPreferences.csproj
+├── 1.6/Assemblies/     # 1.6 產物
+├── 1.7/Assemblies/     # 1.7 產物（建置後由 SyncAssembliesTo17 同步）
+└── LoadFolders.xml     # v1.6／v1.7 皆列 Common＋對應版本目錄
 ```
 
-**規則**：XML Defs → `Common/Defs/` | DLL → 對應版本 `Assemblies/` | 禁止跨版本混用
+**規則**：XML Defs → `Common/Defs/` | 語言 → `Common/Languages/` | DLL → 對應版本 `Assemblies/` | `1.6/`、`1.7/` 只放產物，不放 XML
 
 ---
 
@@ -194,38 +197,30 @@ ModRoot/
 
 ## 10. 公共指南路由
 
-預設不預讀公共指南。只有任務明確涉及對應功能時才讀取。
+預設不預讀公共指南。只有任務明確涉及對應功能時才讀取；每次只選最相關的一份，禁止整類讀入。
 
-每次只選擇最相關的文件，禁止整個分類全部讀入。
+**公共指南與公共協議不列於本檔**：先 grep `G:\Rimworld\代碼指南\00_共通規範\公共指南索引.md` 取命中行，命中才讀對應指南；**索引無命中＝無指南，直接實作，不掃指南目錄**。原版機制事實一律先 grep `G:\Rimworld\代碼指南\00_共通規範\RimWorld原版事實索引.md`（只讀命中行，不整篇讀）。
 
-| 任務類型 | 指南位置 |
-|---|---|
-| **1.7 平台／Waylith／net10.0 編譯／UnityStubs 空殼／模組相容檢查** | `G:\Rimworld\代碼指南\00_共通規範\RimWorld1.7平台遷移與相容指南.md` |
-| **本模組 1.7 相容狀態（進度、待驗證、Phase23 入口）** | `Docs/1.7_COMPAT.md`（詳細實作與契約在 `Docs/Phases/Phase23/`） |
-| 翻譯提取或生成 | `G:\Rimworld\代碼指南\00_共通規範\翻譯提取與生成規範.md` |
-| 分類或子分類 | `G:\Rimworld\代碼指南\00_共通規範\分類子分類設計指南.md` |
-| 素材管理 | `G:\Rimworld\代碼指南\00_共通規範\ASSETS.md` |
-| **DSH 沙箱 ACL 殘留（拖動目錄跳權限提示、workspace 內 Access denied、`Low` 完整性標籤）** | `G:\Rimworld\代碼指南\00_共通規範\DSH沙箱ACL殘留清理指南.md`（照指南直接給清理指令，由使用者手動執行；不要重新調查、不要改 DSH 沙箱設定） |
-| UI 原型圖（HTML 描繪自訂 Window/Dialog 前） | `G:\Rimworld\代碼指南\00_共通規範\UI原型樣式\UI原型樣式規範.md`（引用同目錄 `rimworld-ui.css`，原型目錄保留同步副本） |
-| 圖形、遮罩、DrawPos、Z-Fighting | `G:\Rimworld\代碼指南\10_圖形與渲染\` 中對應文件 |
-| 植物、作物、樹木 | `G:\Rimworld\代碼指南\20_植物與作物功能機制\` 中對應文件 |
-| 食物、料理、熟成、釀造 | `G:\Rimworld\代碼指南\30_食物與釀造功能機制\` 中對應文件 |
-| 工作台、心情、任務、Drug | `G:\Rimworld\代碼指南\50_其他功能機制\` 中對應文件 |
-| Ideology 或 Royalty | `G:\Rimworld\代碼指南\60_DLC研究\` 中對應文件 |
-| 歷史介紹文案 | `G:\Rimworld\代碼指南\80_寫作提示詞\` 中對應文件 |
-| 草案 | 僅在使用者明確指定時讀取 `90_草案\` |
+兩項例外直達（不經索引）：
 
-涉及 Phase、TASKS、DEVLOG、Feature Index 或 Phase Roadmap 維護時，
-先讀取 `G:\Rimworld\PROMPT\AI_DOCUMENTATION_PROTOCOL.md`。
-
-只有使用者要求陷阱文件分析時，才讀取：
-`G:\Rimworld\PROMPT\TRAP_DOCUMENTATION_PROMPT.md`
+- **DSH 沙箱 ACL 殘留（拖動目錄跳權限提示、workspace 內 Access denied、`Low` 完整性標籤）** → `G:\Rimworld\代碼指南\00_共通規範\DSH沙箱ACL殘留清理指南.md`（照指南給清理指令，由使用者手動執行；不要重新調查、不要改沙箱設定）
+- **陷阱文件分析／陷阱文檔撰寫** → `G:\Rimworld\代碼指南\00_共通規範\TRAP_DOCUMENTATION_PROMPT.md`（僅使用者明確要求時讀取；陷阱文檔放公共指南的分類目錄，不進專案 `Docs/`）
 
 ---
 
 ## 11. 專案文檔路由
 
 禁止預讀完整歷史文檔。
+
+**本模組專屬入口**：
+
+- **狀態單一來源**（版本、進度、待驗證）→ `Docs/1.7_COMPAT.md`
+- **機制現況**（7 份）→ `Docs/Mechanisms/NN_*.md`；改核心流程或要回答「為什麼這樣做」時讀對應主題，不整類讀
+- **對外整合 API**（6 份）→ `Docs/Integration/NN_*.md`；改相容層或第三方要接入時讀對應主題
+- **模組作者指南** → `Docs/Help/ModAuthorGuide.md`（食物覆寫／分類／種族限制的對外介面總覽）
+- **原版機制補充** → `Docs/代碼指南/`（食物分類補全、HAR 種族相容性、source 檔清單）
+- **Phase／TASKS／DEVLOG／Feature Index 維護、Phase 收尾** → `G:\Rimworld\代碼指南\00_共通規範\AI_DOCUMENTATION_PROTOCOL.md`（六項門）
+- **收尾機械門** → `pwsh -File Tools/check-docs.ps1`（XML well-formed、DefName、三語 Keyed、DefInjected、文檔路徑；腳本尚未建立時照協議門 5 人工核對）
 
 遇到新 Phase、新功能、返工、架構判斷、跨模組影響、
 核心流程變更或不確定是否存在歷史決策時：
@@ -235,7 +230,7 @@ ModRoot/
 3. 只讀相關 `DEVLOG.md` 錨點。
 4. 只有錨點明確指向且確有需要時，才讀 `DEVLOG_ARCHIVE.md`。
 
-只有規劃或調整 Phase 範圍、本版依賴、擱置事項或後續機制時，才讀取／維護 `Docs/PHASE_ROADMAP.md`；這些分期資訊由 Roadmap 管理，`FEATURE_INDEX.md` 只保留導覽入口。實作狀態與驗證仍由各 Phase 的 TASKS／DEVLOG 管理。
+本模組目前沒有獨立 Roadmap：Phase 範圍與依賴由各 Phase 的 TASKS／DEVLOG 管理（目前僅 Phase01、Phase02）；需要跨 Phase 分期規劃時才建立 `Docs/PHASE_ROADMAP.md` 並在此路由。`FEATURE_INDEX.md` 只保留導覽入口，實作狀態與驗證仍在各 Phase 的 TASKS／DEVLOG。
 
 使用者已指定唯一檔案與修改點、純翻譯、純格式、
 純文案或單行 build error，可跳過 Feature Index。
@@ -247,10 +242,6 @@ ModRoot/
 - 與目前任務無關的歷史文檔。
 
 結構化 JSON／XML 優先於 Markdown。
-
-建立或維護 Phase、TASKS、DEVLOG、DEVLOG_ARCHIVE、
-Feature Index 或 Phase Roadmap 時，才讀取：
-`G:\Rimworld\PROMPT\AI_DOCUMENTATION_PROTOCOL.md`
 
 ---
 
